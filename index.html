@@ -1,1537 +1,1463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Josh Swift Dev — Independent apps for iPhone.">
-    <meta name="theme-color" content="#f5f5f7">
-
-    <title>Josh Swift Dev</title>
-
-    <style>
-        :root {
-            --background: #f5f5f7;
-            --card: rgba(255,255,255,0.88);
-            --card-solid: #ffffff;
-            --text: #1d1d1f;
-            --secondary: #6e6e73;
-            --tertiary: #86868b;
-            --border: rgba(0,0,0,0.08);
-            --blue: #0071e3;
-            --blue-hover: #0077ed;
-            --pill: #e8e8ed;
-            --shadow: 0 4px 18px rgba(0,0,0,0.045);
-            --shadow-hover: 0 10px 32px rgba(0,0,0,0.08);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background: var(--background);
-            color: var(--text);
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "SF Pro Display",
-                "SF Pro Text",
-                "Helvetica Neue",
-                Helvetica,
-                Arial,
-                sans-serif;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* --------------------------------
-           HEADER
-        -------------------------------- */
-
-        .topbar {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            background: rgba(245,245,247,0.82);
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-        }
-
-        .nav {
-            max-width: 1120px;
-            height: 58px;
-            margin: auto;
-            padding: 0 24px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .brand {
-            font-size: 18px;
-            font-weight: 650;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 26px;
-            font-size: 13px;
-            color: var(--secondary);
-        }
-
-        .nav-links a {
-            transition: color .2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        /* --------------------------------
-           PAGE
-        -------------------------------- */
-
-        main {
-            max-width: 1120px;
-            margin: auto;
-            padding: 68px 24px 90px;
-        }
-
-        /* --------------------------------
-           SMALL INTRO
-        -------------------------------- */
-
-        .intro {
-            margin-bottom: 48px;
-        }
-
-        .intro h1 {
-            margin: 0;
-            font-size: clamp(34px, 5vw, 52px);
-            line-height: 1.05;
-            letter-spacing: -0.045em;
-            font-weight: 700;
-        }
-
-        .intro p {
-            margin: 12px 0 0;
-            font-size: 19px;
-            line-height: 1.45;
-            color: var(--secondary);
-            letter-spacing: -0.01em;
-        }
-
-        /* --------------------------------
-           FEATURED
-        -------------------------------- */
-
-        .featured {
-            background: linear-gradient(
-                135deg,
-                rgba(255,255,255,0.96),
-                rgba(250,250,252,0.88)
-            );
-
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 28px 30px;
-            margin-bottom: 54px;
-            box-shadow: var(--shadow);
-
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .featured-icon {
-            width: 82px;
-            height: 82px;
-            min-width: 82px;
-            border-radius: 19px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 32px;
-            font-weight: 700;
-            color: white;
-
-            background:
-                radial-gradient(circle at 30% 20%, #ff8a6b, transparent 30%),
-                radial-gradient(circle at 70% 30%, #8e7dff, transparent 35%),
-                radial-gradient(circle at 40% 80%, #00c7be, transparent 40%),
-                #111;
-
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,.18),
-                0 6px 18px rgba(0,0,0,.12);
-        }
-
-        .featured-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-
-            margin-bottom: 5px;
-
-            color: #bf4800;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: .07em;
-        }
-
-        .featured h2 {
-            margin: 0;
-            font-size: 25px;
-            letter-spacing: -0.035em;
-        }
-
-        .featured p {
-            margin: 6px 0 0;
-            max-width: 610px;
-
-            color: var(--secondary);
-            font-size: 15px;
-            line-height: 1.45;
-        }
-
-        .featured-action {
-            margin-left: auto;
-        }
-
-        /* --------------------------------
-           BUTTONS
-        -------------------------------- */
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            min-height: 36px;
-            padding: 0 17px;
-
-            border-radius: 999px;
-            background: var(--blue);
-            color: white;
-
-            font-size: 13px;
-            font-weight: 600;
-
-            transition:
-                transform .18s ease,
-                background .18s ease;
-        }
-
-        .button:hover {
-            background: var(--blue-hover);
-            transform: scale(1.025);
-        }
-
-        .button.secondary {
-            background: var(--pill);
-            color: var(--text);
-        }
-
-        .button.secondary:hover {
-            background: #dedee3;
-        }
-
-        .button.disabled {
-            cursor: default;
-            background: var(--pill);
-            color: var(--tertiary);
-        }
-
-        .button.disabled:hover {
-            transform: none;
-        }
-
-        /* --------------------------------
-           APPS HEADER
-        -------------------------------- */
-
-        .apps-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 20px;
-            margin-bottom: 22px;
-        }
-
-        .apps-header h2 {
-            margin: 0;
-            font-size: 28px;
-            letter-spacing: -0.035em;
-        }
-
-        .app-count {
-            margin-top: 5px;
-            color: var(--secondary);
-            font-size: 13px;
-        }
-
-        /* --------------------------------
-           SEARCH
-        -------------------------------- */
-
-        .search {
-            width: 230px;
-            height: 38px;
-
-            border: 1px solid var(--border);
-            border-radius: 11px;
-
-            padding: 0 13px 0 36px;
-
-            background:
-                var(--card-solid)
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2386868b' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E")
-                no-repeat 12px center;
-
-            color: var(--text);
-            font: inherit;
-            font-size: 13px;
-            outline: none;
-
-            transition:
-                border .2s ease,
-                box-shadow .2s ease;
-        }
-
-        .search:focus {
-            border-color: rgba(0,113,227,.45);
-            box-shadow: 0 0 0 3px rgba(0,113,227,.10);
-        }
-
-        /* --------------------------------
-           FILTERS
-        -------------------------------- */
-
-        .filters {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            scrollbar-width: none;
-            margin-bottom: 26px;
-            padding-bottom: 2px;
-        }
-
-        .filters::-webkit-scrollbar {
-            display: none;
-        }
-
-        .filter {
-            border: 0;
-            white-space: nowrap;
-            cursor: pointer;
-
-            padding: 8px 14px;
-            border-radius: 999px;
-
-            background: var(--pill);
-            color: var(--secondary);
-
-            font-family: inherit;
-            font-size: 12px;
-            font-weight: 600;
-
-            transition:
-                background .2s ease,
-                color .2s ease;
-        }
-
-        .filter:hover {
-            color: var(--text);
-        }
-
-        .filter.active {
-            background: var(--text);
-            color: var(--card-solid);
-        }
-
-        /* --------------------------------
-           APP GRID
-        -------------------------------- */
-
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0,1fr));
-            gap: 14px;
-        }
-
-        .app-card {
-            min-height: 138px;
-
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-
-            padding: 20px;
-
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-
-            box-shadow: var(--shadow);
-
-            transition:
-                transform .22s ease,
-                box-shadow .22s ease,
-                border-color .22s ease;
-        }
-
-        .app-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(0,0,0,.11);
-        }
-
-        /* intentionally small icons */
-
-        .app-icon {
-            width: 64px;
-            height: 64px;
-            min-width: 64px;
-
-            border-radius: 14px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            overflow: hidden;
-
-            font-size: 23px;
-            font-weight: 700;
-            color: white;
-
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,.16),
-                0 3px 9px rgba(0,0,0,.10);
-        }
-
-        .app-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .app-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .app-name {
-            margin: 1px 0 2px;
-
-            font-size: 17px;
-            line-height: 1.2;
-            font-weight: 650;
-            letter-spacing: -0.025em;
-        }
-
-        .category {
-            margin-bottom: 7px;
-            color: var(--tertiary);
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .description {
-            margin: 0;
-
-            color: var(--secondary);
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        .card-footer {
-            margin-top: 11px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .store-link {
-            color: var(--blue);
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .store-link:hover {
-            text-decoration: underline;
-        }
-
-        .coming {
-            color: var(--tertiary);
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        /* --------------------------------
-           INDIVIDUAL ICON LOOKS
-           Temporary until actual icons are used
-        -------------------------------- */
-
-        .icon-filtrume {
-            background:
-                radial-gradient(circle at 20% 20%, #ff6b6b, transparent 32%),
-                radial-gradient(circle at 80% 20%, #7c5cff, transparent 35%),
-                radial-gradient(circle at 30% 80%, #00c7be, transparent 38%),
-                #171717;
-        }
-
-        .icon-sudoku {
-            background: linear-gradient(145deg,#334155,#111827);
-        }
-
-        .icon-ssh {
-            background: linear-gradient(145deg,#1c1c1e,#424245);
-        }
-
-        .icon-step {
-            background: linear-gradient(145deg,#00a86b,#30d158);
-        }
-
-        .icon-parking {
-            background: linear-gradient(145deg,#0066cc,#5ac8fa);
-        }
-
-        .icon-key {
-            background: linear-gradient(145deg,#151515,#48484a);
-        }
-
-        .icon-gallery {
-            background: linear-gradient(145deg,#af52de,#ff375f);
-        }
-
-        .icon-case {
-            background: linear-gradient(145deg,#8b5e3c,#d29b68);
-        }
-
-        .icon-promote {
-            background: linear-gradient(145deg,#5856d6,#bf5af2);
-        }
-
-        .icon-z {
-            background: linear-gradient(145deg,#b91c1c,#ef4444);
-        }
-
-        .icon-heic {
-            background: linear-gradient(145deg,#0a84ff,#64d2ff);
-        }
-
-        .icon-glow {
-            background: linear-gradient(145deg,#ff9f0a,#ffd60a);
-        }
-
-        .icon-biz {
-            background: linear-gradient(145deg,#0071e3,#5ac8fa);
-        }
-
-        .icon-shuffle {
-            background: linear-gradient(145deg,#ff375f,#ff9f0a);
-        }
-
-        /* --------------------------------
-           ABOUT
-        -------------------------------- */
-
-        .about {
-            margin-top: 76px;
-            padding-top: 50px;
-            border-top: 1px solid var(--border);
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .about h2 {
-            margin: 0 0 9px;
-            font-size: 27px;
-            letter-spacing: -0.035em;
-        }
-
-        .about p {
-            margin: 0;
-            max-width: 520px;
-
-            color: var(--secondary);
-            font-size: 15px;
-            line-height: 1.55;
-        }
-
-        .about-links {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .about-links a {
-            color: var(--blue);
-            font-size: 14px;
-        }
-
-        .about-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* --------------------------------
-           EMPTY SEARCH
-        -------------------------------- */
-
-        .empty {
-            display: none;
-            grid-column: 1 / -1;
-
-            text-align: center;
-            padding: 60px 20px;
-
-            color: var(--secondary);
-        }
-
-        /* --------------------------------
-           FOOTER
-        -------------------------------- */
-
-        footer {
-            max-width: 1120px;
-            margin: auto;
-            padding: 25px 24px 38px;
-
-            border-top: 1px solid var(--border);
-
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-
-            color: var(--tertiary);
-            font-size: 11px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 18px;
-        }
-
-        .footer-links a:hover {
-            color: var(--text);
-        }
-
-        /* --------------------------------
-           MOBILE
-        -------------------------------- */
-
-        @media (max-width: 760px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            main {
-                padding-top: 46px;
-            }
-
-            .intro {
-                margin-bottom: 35px;
-            }
-
-            .intro h1 {
-                font-size: 38px;
-            }
-
-            .intro p {
-                font-size: 17px;
-            }
-
-            .featured {
-                align-items: flex-start;
-                padding: 22px;
-                border-radius: 20px;
-            }
-
-            .featured-icon {
-                width: 68px;
-                height: 68px;
-                min-width: 68px;
-                border-radius: 15px;
-                font-size: 26px;
-            }
-
-            .featured-action {
-                display: none;
-            }
-
-            .featured h2 {
-                font-size: 21px;
-            }
-
-            .featured p {
-                font-size: 13px;
-            }
-
-            .apps-header {
-                display: block;
-            }
-
-            .search {
-                width: 100%;
-                margin-top: 17px;
-            }
-
-            .app-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .app-card {
-                min-height: 128px;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-                gap: 28px;
-                margin-top: 58px;
-            }
-
-            footer {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 440px) {
-
-            .featured {
-                gap: 15px;
-            }
-
-            .featured-icon {
-                width: 58px;
-                height: 58px;
-                min-width: 58px;
-                border-radius: 13px;
-                font-size: 22px;
-            }
-
-            .app-icon {
-                width: 58px;
-                height: 58px;
-                min-width: 58px;
-                border-radius: 13px;
-            }
-        }
-
-        /* --------------------------------
-           DARK MODE
-        -------------------------------- */
-
-        @media (prefers-color-scheme: dark) {
-
-            :root {
-                --background: #000000;
-                --card: rgba(28,28,30,.88);
-                --card-solid: #1c1c1e;
-                --text: #f5f5f7;
-                --secondary: #a1a1a6;
-                --tertiary: #86868b;
-                --border: rgba(255,255,255,.10);
-                --pill: #2c2c2e;
-                --shadow: 0 4px 18px rgba(0,0,0,.22);
-                --shadow-hover: 0 10px 32px rgba(0,0,0,.38);
-            }
-
-            .topbar {
-                background: rgba(0,0,0,.78);
-                border-color: rgba(255,255,255,.08);
-            }
-
-            .featured {
-                background:
-                    linear-gradient(
-                        135deg,
-                        rgba(28,28,30,.98),
-                        rgba(20,20,22,.96)
-                    );
-            }
-
-            .button.secondary:hover {
-                background: #3a3a3c;
-            }
-
-            .filter.active {
-                background: #f5f5f7;
-                color: #1d1d1f;
-            }
-
-            .app-card:hover {
-                border-color: rgba(255,255,255,.16);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Josh Swift Dev — Independent apps for iPhone.">
+<meta name="theme-color" content="#f5f5f7">
+
+<title>Josh Swift Dev</title>
+
+<style>
+:root {
+    --bg: #f5f5f7;
+    --surface: #ffffff;
+    --text: #1d1d1f;
+    --secondary: #6e6e73;
+    --tertiary: #86868b;
+    --line: rgba(0,0,0,.08);
+    --blue: #0071e3;
+    --blue-hover: #0077ed;
+    --pill: #e8e8ed;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Text",
+        "SF Pro Display",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245,245,247,.82);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+.nav {
+    max-width: 1100px;
+    height: 56px;
+    margin: auto;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 17px;
+    font-weight: 650;
+    letter-spacing: -.02em;
+}
+
+.navlinks {
+    display: flex;
+    gap: 25px;
+    font-size: 13px;
+    color: var(--secondary);
+}
+
+.navlinks a:hover {
+    color: var(--text);
+}
+
+/* MAIN */
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 58px 24px 90px;
+}
+
+/* INTRO */
+
+.intro {
+    margin-bottom: 45px;
+}
+
+.intro h1 {
+    margin: 0;
+    font-size: clamp(36px, 5vw, 50px);
+    line-height: 1.05;
+    letter-spacing: -.045em;
+}
+
+.intro p {
+    margin: 10px 0 0;
+    color: var(--secondary);
+    font-size: 18px;
+}
+
+/* FEATURED */
+
+.featured {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+
+    padding: 22px;
+    margin-bottom: 50px;
+
+    box-shadow: 0 3px 14px rgba(0,0,0,.035);
+}
+
+.featured-icon {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+
+    border-radius: 16px;
+    overflow: hidden;
+
+    background: linear-gradient(135deg,#ff375f,#5856d6);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.13);
+}
+
+.featured-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-copy {
+    flex: 1;
+}
+
+.badge {
+    color: #bf4800;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.featured h2 {
+    margin: 0;
+    font-size: 23px;
+    letter-spacing: -.03em;
+}
+
+.featured p {
+    max-width: 650px;
+    margin: 6px 0 0;
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.coming-button {
+    padding: 8px 15px;
+    border-radius: 100px;
+    background: var(--pill);
+    color: var(--secondary);
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* APPS TOP */
+
+.apps-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.apps-top h2 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: -.035em;
+}
+
+.count {
+    margin-top: 4px;
+    color: var(--secondary);
+    font-size: 12px;
+}
+
+/* SEARCH */
+
+.search {
+    width: 225px;
+    height: 38px;
+
+    border: 1px solid var(--line);
+    border-radius: 10px;
+
+    background: var(--surface);
+    color: var(--text);
+
+    padding: 0 13px;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+}
+
+.search:focus {
+    border-color: rgba(0,113,227,.45);
+    box-shadow: 0 0 0 3px rgba(0,113,227,.08);
+}
+
+/* FILTERS */
+
+.filters {
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    padding-bottom: 3px;
+    margin-bottom: 24px;
+
+    scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter {
+    border: 0;
+    cursor: pointer;
+
+    padding: 7px 13px;
+    border-radius: 100px;
+
+    background: var(--pill);
+    color: var(--secondary);
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.filter.active {
+    background: var(--text);
+    color: var(--surface);
+}
+
+/* GRID */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 13px;
+}
+
+/* APP CARD */
+
+.card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    min-height: 130px;
+
+    padding: 18px;
+
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 17px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0,0,0,.07);
+}
+
+/* SMALL ICONS */
+
+.app-icon {
+    width: 62px;
+    height: 62px;
+    min-width: 62px;
+
+    border-radius: 14px;
+    overflow: hidden;
+
+    background: #e8e8ed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #6e6e73;
+    font-size: 20px;
+    font-weight: 700;
+
+    box-shadow:
+        0 3px 9px rgba(0,0,0,.11),
+        inset 0 0 0 1px rgba(0,0,0,.03);
+}
+
+.app-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* CARD TEXT */
+
+.info {
+    flex: 1;
+    min-width: 0;
+}
+
+.name {
+    margin: 1px 0 2px;
+    font-size: 16px;
+    font-weight: 650;
+    letter-spacing: -.02em;
+}
+
+.category {
+    color: var(--tertiary);
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.description {
+    margin: 0;
+    color: var(--secondary);
+    font-size: 12.5px;
+    line-height: 1.4;
+}
+
+.actions {
+    margin-top: 9px;
+}
+
+.store {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.store:hover {
+    text-decoration: underline;
+}
+
+.status {
+    color: var(--tertiary);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* EMPTY */
+
+.empty {
+    display: none;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    color: var(--secondary);
+}
+
+/* ABOUT */
+
+.about {
+    margin-top: 70px;
+    padding-top: 45px;
+
+    border-top: 1px solid var(--line);
+
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    gap: 50px;
+}
+
+.about h2 {
+    margin: 0 0 8px;
+    font-size: 26px;
+    letter-spacing: -.03em;
+}
+
+.about p {
+    margin: 0;
+    max-width: 600px;
+    color: var(--secondary);
+    line-height: 1.55;
+    font-size: 14px;
+}
+
+.about-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about-links a {
+    color: var(--blue);
+    font-size: 13px;
+}
+
+.about-links a:hover {
+    text-decoration: underline;
+}
+
+/* FOOTER */
+
+footer {
+    max-width: 1100px;
+    margin: auto;
+
+    border-top: 1px solid var(--line);
+
+    padding: 24px 24px 36px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: var(--tertiary);
+    font-size: 11px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 17px;
+}
+
+/* MOBILE */
+
+@media(max-width:750px) {
+
+    .navlinks {
+        display: none;
+    }
+
+    main {
+        padding-top: 42px;
+    }
+
+    .intro {
+        margin-bottom: 32px;
+    }
+
+    .intro h1 {
+        font-size: 38px;
+    }
+
+    .featured {
+        align-items: flex-start;
+    }
+
+    .featured-icon {
+        width: 62px;
+        height: 62px;
+        min-width: 62px;
+        border-radius: 14px;
+    }
+
+    .coming-button {
+        display: none;
+    }
+
+    .apps-top {
+        display: block;
+    }
+
+    .search {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+@media(max-width:430px) {
+
+    .card {
+        padding: 16px;
+    }
+
+    .app-icon {
+        width: 57px;
+        height: 57px;
+        min-width: 57px;
+        border-radius: 13px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+}
+
+/* DARK MODE */
+
+@media(prefers-color-scheme:dark) {
+
+    :root {
+        --bg:#000;
+        --surface:#1c1c1e;
+        --text:#f5f5f7;
+        --secondary:#a1a1a6;
+        --tertiary:#86868b;
+        --line:rgba(255,255,255,.10);
+        --pill:#2c2c2e;
+    }
+
+    header {
+        background:rgba(0,0,0,.8);
+        border-color:rgba(255,255,255,.08);
+    }
+
+}
+</style>
 </head>
 
 <body>
 
-<header class="topbar">
-    <nav class="nav">
-        <a href="#" class="brand">Josh Swift Dev</a>
+<header>
+<div class="nav">
 
-        <div class="nav-links">
-            <a href="#apps">Apps</a>
-            <a href="#about">About</a>
-            <a href="mailto:josh.swift.dev@gmail.com">Contact</a>
-        </div>
-    </nav>
+    <a class="logo" href="#">Josh Swift Dev</a>
+
+    <div class="navlinks">
+        <a href="#apps">Apps</a>
+        <a href="#about">About</a>
+        <a href="mailto:josh.swift.dev@gmail.com">Contact</a>
+    </div>
+
+</div>
 </header>
 
 
 <main>
 
-    <!-- SMALL, SIMPLE INTRO -->
+<!-- INTRO -->
 
-    <section class="intro">
-        <h1>Josh Swift Dev</h1>
-        <p>Independent apps for iPhone.</p>
-    </section>
+<section class="intro">
+
+    <h1>Josh Swift Dev</h1>
+
+    <p>
+        Independent apps for iPhone.
+    </p>
+
+</section>
 
 
-    <!-- FEATURED — deliberately restrained -->
+<!-- FILTRUME FEATURE -->
 
-    <section class="featured">
+<section class="featured">
 
-        <div class="featured-icon icon-filtrume">
-            F
+    <div class="featured-icon">
+        <!--
+        Filtrume is not public yet, so replace this F
+        with your Filtrume icon later if desired.
+        -->
+        F
+    </div>
+
+    <div class="featured-copy">
+
+        <div class="badge">
+            Coming Soon
         </div>
 
-        <div class="featured-content">
-            <div class="eyebrow">New · Coming Soon</div>
+        <h2>Filtrume</h2>
 
-            <h2>Filtrume</h2>
+        <p>
+            A powerful photo editor with 200+ curated filters,
+            AI Studio effects, professional editing tools and
+            full-resolution export.
+        </p>
 
-            <p>
-                A powerful photo editor with 200+ curated filters,
-                intelligent editing tools, AI Studio effects and
-                full-resolution export.
-            </p>
+    </div>
+
+    <div class="coming-button">
+        Coming Soon
+    </div>
+
+</section>
+
+
+<!-- APPS -->
+
+<section id="apps">
+
+<div class="apps-top">
+
+    <div>
+        <h2>Apps</h2>
+        <div class="count" id="count"></div>
+    </div>
+
+    <input
+        id="search"
+        class="search"
+        type="search"
+        placeholder="Search apps"
+        aria-label="Search apps"
+    >
+
+</div>
+
+
+<!-- FILTERS -->
+
+<div class="filters">
+
+    <button class="filter active" data-filter="all">
+        All
+    </button>
+
+    <button class="filter" data-filter="photo">
+        Photo &amp; Video
+    </button>
+
+    <button class="filter" data-filter="business">
+        Business
+    </button>
+
+    <button class="filter" data-filter="productivity">
+        Productivity
+    </button>
+
+    <button class="filter" data-filter="utilities">
+        Utilities
+    </button>
+
+    <button class="filter" data-filter="health">
+        Health &amp; Fitness
+    </button>
+
+    <button class="filter" data-filter="games">
+        Games
+    </button>
+
+    <button class="filter" data-filter="reference">
+        Reference
+    </button>
+
+</div>
+
+
+<div class="grid" id="grid">
+
+
+<!-- BIZCARD -->
+
+<article
+    class="card"
+    data-category="business"
+    data-app-id="6813191216"
+>
+
+    <div class="app-icon">
+        B
+    </div>
+
+    <div class="info">
+
+        <h3 class="name">
+            BizCard Contacts
+        </h3>
+
+        <div class="category">
+            Business
         </div>
 
-        <div class="featured-action">
-            <span class="button disabled">Coming Soon</span>
-        </div>
-
-    </section>
-
-
-    <!-- APPS -->
-
-    <section id="apps">
-
-        <div class="apps-header">
-
-            <div>
-                <h2>Apps</h2>
-                <div class="app-count" id="appCount"></div>
-            </div>
-
-            <input
-                type="search"
-                class="search"
-                id="search"
-                placeholder="Search apps"
-                aria-label="Search apps"
-            >
-
-        </div>
-
-
-        <!-- FILTERS -->
-
-        <div class="filters">
-
-            <button class="filter active" data-filter="all">
-                All
-            </button>
-
-            <button class="filter" data-filter="photo">
-                Photo & Video
-            </button>
-
-            <button class="filter" data-filter="productivity">
-                Productivity
-            </button>
-
-            <button class="filter" data-filter="utilities">
-                Utilities
-            </button>
-
-            <button class="filter" data-filter="health">
-                Health & Fitness
-            </button>
-
-            <button class="filter" data-filter="games">
-                Games
-            </button>
-
-            <button class="filter" data-filter="reference">
-                Reference
-            </button>
-
-        </div>
-
-
-        <div class="app-grid" id="appGrid">
-
-
-            <!-- FILTRUME -->
-
-            <article class="app-card" data-category="photo">
-
-                <div class="app-icon icon-filtrume">
-                    F
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">Filtrume</h3>
-
-                    <div class="category">
-                        Photo &amp; Video
-                    </div>
-
-                    <p class="description">
-                        200+ filters, AI Studio effects and powerful
-                        photo editing in one elegant editor.
-                    </p>
-
-                    <div class="card-footer">
-                        <span class="coming">Coming Soon</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- BIZCARD -->
-
-            <article class="app-card" data-category="productivity">
-
-                <div class="app-icon icon-biz">
-                    B
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">BizCard Contacts</h3>
-
-                    <div class="category">
-                        Business
-                    </div>
-
-                    <p class="description">
-                        Scan business cards and turn them into an
-                        organized, searchable contact directory.
-                    </p>
-
-                    <div class="card-footer">
-
-                        <a
-                            class="store-link"
-                            href="https://apps.apple.com/us/app/bizcard-contacts/id6813191216"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            View on App Store ›
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- 370Z -->
-
-            <article class="app-card" data-category="reference">
-
-                <div class="app-icon icon-z">
-                    Z
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">370Z Companion</h3>
-
-                    <div class="category">
-                        Reference
-                    </div>
-
-                    <p class="description">
-                        A handy companion for Nissan 370Z owners.
-                    </p>
-
-                    <div class="card-footer">
-
-                        <a
-                            class="store-link"
-                            href="https://apps.apple.com/us/app/370z-companion/id6809966534"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            View on App Store ›
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- SHUFFLED MEMORIES -->
-
-            <article class="app-card" data-category="photo">
-
-                <div class="app-icon icon-shuffle">
-                    S
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">Shuffled Memories</h3>
-
-                    <div class="category">
-                        Photo &amp; Video
-                    </div>
-
-                    <p class="description">
-                        Rediscover forgotten photos from your library
-                        in a fun, simple way.
-                    </p>
-
-                    <div class="card-footer">
-                        <span class="coming">App Store</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- GALLERY SWEEP -->
-
-            <article class="app-card" data-category="photo">
-
-                <div class="app-icon icon-gallery">
-                    G
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">Gallery Sweep Pro</h3>
-
-                    <div class="category">
-                        Photo &amp; Video
-                    </div>
-
-                    <p class="description">
-                        Quickly work through your photo library and
-                        clean up pictures you no longer need.
-                    </p>
-
-                    <div class="card-footer">
-                        <span class="coming">App Store</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- HEIC -->
-
-            <article class="app-card" data-category="photo">
-
-                <div class="app-icon icon-heic">
-                    H
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">
-                        HEIC Photo Converter Pro
-                    </h3>
-
-                    <div class="category">
-                        Photo &amp; Video
-                    </div>
-
-                    <p class="description">
-                        Convert HEIC photos into convenient,
-                        widely compatible image formats.
-                    </p>
-
-                    <div class="card-footer">
-                        <span class="coming">App Store</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- DAILY GLOW -->
-
-            <article class="app-card" data-category="productivity">
-
-                <div class="app-icon icon-glow">
-                    D
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">
-                        Daily Glow Reminders
-                    </h3>
-
-                    <div class="category">
-                        Productivity
-                    </div>
-
-                    <p class="description">
-                        Simple reminders designed to keep the things
-                        that matter visible throughout your day.
-                    </p>
-
-                    <div class="card-footer">
-                        <span class="coming">App Store</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- CASEKEEPER -->
-
-            <article class="app-card" data-category="productivity">
-
-                <div class="app-icon icon-case">
-                    C
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">
-                        CaseKeeper Records
-                    </h3>
-
-                    <div class="category">
-                        Productivity
-                    </div>
-
-                    <p class="description">
-                        Keep important records organized and easy
-                        to reference from your iPhone.
-                    </p>
-
-                    <div class="card-footer">
-                        <span class="coming">App Store</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- FOREVER SUDOKU -->
-
-            <article class="app-card" data-category="games">
-
-                <div class="app-icon icon-sudoku">
-                    9
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">
-                        Forever Sudoku
-                    </h3>
-
-                    <div class="category">
-                        Games
-                    </div>
-
-                    <p class="description">
-                        Unlimited Sudoku boards, multiple difficulty
-                        levels and trophies to unlock.
-                    </p>
-
-                    <div class="card-footer">
-                        <span class="coming">App Store</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- SSH NOW -->
-
-            <article class="app-card" data-category="utilities">
-
-                <div class="app-icon icon-ssh">
-                    &gt;_
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">
-                        SSH Now
-                    </h3>
-
-                    <div class="category">
-                        Utilities
-                    </div>
-
-                    <p class="description">
-                        Connect to your servers with an interactive
-                        SSH terminal built for iPhone.
-                    </p>
-
-                    <div class="card-footer">
-                        <span class="coming">App Store</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- STEP VAULT -->
-
-            <article class="app-card" data-category="health">
-
-                <div class="app-icon icon-step">
-                    S
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">
-                        Step Vault
-                    </h3>
-
-                    <div class="category">
-                        Health &amp; Fitness
-                    </div>
-
-                    <p class="description">
-                        Explore your step history, goals, distance
-                        and achievements in one place.
-                    </p>
-
-                    <div class="card-footer">
-                        <span class="coming">App Store</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PARKING SPOT HERO -->
-
-            <article class="app-card" data-category="utilities">
-
-                <div class="app-icon icon-parking">
-                    P
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">
-                        Parking Spot Hero
-                    </h3>
-
-                    <div class="category">
-                        Utilities
-                    </div>
-
-                    <p class="description">
-                        Save where you parked, track parking time
-                        and find your way back to your car.
-                    </p>
-
-                    <div class="card-footer">
-                        <span class="coming">App Store</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- KEYLOCK -->
-
-            <article class="app-card" data-category="utilities">
-
-                <div class="app-icon icon-key">
-                    K
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">
-                        KeyLockPro2
-                    </h3>
-
-                    <div class="category">
-                        Utilities
-                    </div>
-
-                    <p class="description">
-                        Securely organize passwords and generate
-                        strong credentials from your iPhone.
-                    </p>
-
-                    <div class="card-footer">
-                        <span class="coming">App Store</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PROMOTE READY NOW -->
-
-            <article class="app-card" data-category="productivity">
-
-                <div class="app-icon icon-promote">
-                    P
-                </div>
-
-                <div class="app-info">
-
-                    <h3 class="app-name">
-                        Promote Ready Now
-                    </h3>
-
-                    <div class="category">
-                        Productivity
-                    </div>
-
-                    <p class="description">
-                        A focused tool designed to help organize
-                        promotion preparation and progress.
-                    </p>
-
-                    <div class="card-footer">
-                        <span class="coming">App Store</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <div class="empty" id="emptyState">
-                No apps found.
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="about" id="about">
-
-        <div>
-
-            <h2>Independent by design.</h2>
-
-            <p>
-                Josh Swift Dev creates focused iPhone apps designed
-                to be useful, approachable and easy to own.
-                No giant software company. Just thoughtfully built
-                apps for everyday problems.
-            </p>
-
-        </div>
-
-
-        <div class="about-links">
-
-            <a href="mailto:josh.swift.dev@gmail.com">
-                Contact Josh Swift Dev ›
-            </a>
+        <p class="description">
+            Scan business cards and build a clean,
+            searchable contact directory on your iPhone.
+        </p>
+
+        <div class="actions">
 
             <a
-                href="https://github.com/josh-swift-dev"
+                class="store"
+                href="https://apps.apple.com/us/app/bizcard-contacts/id6813191216"
                 target="_blank"
                 rel="noopener"
             >
-                GitHub ›
+                View on App Store ›
             </a>
 
         </div>
 
-    </section>
+    </div>
+
+</article>
+
+
+<!-- 370Z -->
+
+<article
+    class="card"
+    data-category="reference"
+    data-app-id="6809966534"
+>
+
+    <div class="app-icon">
+        Z
+    </div>
+
+    <div class="info">
+
+        <h3 class="name">
+            370Z Companion
+        </h3>
+
+        <div class="category">
+            Reference
+        </div>
+
+        <p class="description">
+            Track maintenance, save service records,
+            look up OBD codes and follow relearn timers.
+        </p>
+
+        <div class="actions">
+
+            <a
+                class="store"
+                href="https://apps.apple.com/us/app/370z-companion/id6809966534"
+                target="_blank"
+                rel="noopener"
+            >
+                View on App Store ›
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+<!-- SHUFFLED MEMORIES -->
+
+<article
+    class="card"
+    data-category="photo"
+    data-app-id="6813739466"
+>
+
+    <div class="app-icon">
+        S
+    </div>
+
+    <div class="info">
+
+        <h3 class="name">
+            Shuffled Memories
+        </h3>
+
+        <div class="category">
+            Photo &amp; Video
+        </div>
+
+        <p class="description">
+            Rediscover forgotten photos from your
+            library through beautiful random memories.
+        </p>
+
+        <div class="actions">
+
+            <a
+                class="store"
+                href="https://apps.apple.com/us/app/shuffled-memories/id6813739466"
+                target="_blank"
+                rel="noopener"
+            >
+                View on App Store ›
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+<!-- GALLERY SWEEP -->
+
+<article
+    class="card"
+    data-category="photo"
+    data-app-id="6813448638"
+>
+
+    <div class="app-icon">
+        G
+    </div>
+
+    <div class="info">
+
+        <h3 class="name">
+            Gallery Sweep Pro
+        </h3>
+
+        <div class="category">
+            Photo &amp; Video
+        </div>
+
+        <p class="description">
+            Find duplicates, similar shots, screenshots,
+            large media and possible blurry photos.
+        </p>
+
+        <div class="actions">
+
+            <a
+                class="store"
+                href="https://apps.apple.com/us/app/gallery-sweep-pro/id6813448638"
+                target="_blank"
+                rel="noopener"
+            >
+                View on App Store ›
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+<!-- HEIC -->
+
+<article
+    class="card"
+    data-category="photo"
+    data-app-id="6811242750"
+>
+
+    <div class="app-icon">
+        H
+    </div>
+
+    <div class="info">
+
+        <h3 class="name">
+            HEIC Photo Converter Pro
+        </h3>
+
+        <div class="category">
+            Photo &amp; Video
+        </div>
+
+        <p class="description">
+            Convert HEIC and HEIF photos to JPG or PNG
+            privately and directly on your iPhone.
+        </p>
+
+        <div class="actions">
+
+            <a
+                class="store"
+                href="https://apps.apple.com/us/app/heic-photo-converter-pro/id6811242750"
+                target="_blank"
+                rel="noopener"
+            >
+                View on App Store ›
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+<!-- DAILY GLOW -->
+
+<article
+    class="card"
+    data-category="productivity"
+    data-app-id="6812952885"
+>
+
+    <div class="app-icon">
+        D
+    </div>
+
+    <div class="info">
+
+        <h3 class="name">
+            Daily Glow Reminders
+        </h3>
+
+        <div class="category">
+            Productivity
+        </div>
+
+        <p class="description">
+            Simple daily reminders designed to keep
+            important things visible throughout your day.
+        </p>
+
+        <div class="actions">
+
+            <a
+                class="store"
+                href="https://apps.apple.com/us/app/daily-glow-reminders/id6812952885"
+                target="_blank"
+                rel="noopener"
+            >
+                View on App Store ›
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+<!-- FOREVER SUDOKU -->
+
+<article
+    class="card"
+    data-category="games"
+>
+
+    <div class="app-icon">
+        9
+    </div>
+
+    <div class="info">
+
+        <h3 class="name">
+            Forever Sudoku
+        </h3>
+
+        <div class="category">
+            Games
+        </div>
+
+        <p class="description">
+            Unlimited Sudoku boards, multiple difficulty
+            modes and trophies to unlock.
+        </p>
+
+        <div class="actions">
+            <span class="status">App Store listing pending</span>
+        </div>
+
+    </div>
+
+</article>
+
+
+<!-- SSH NOW -->
+
+<article
+    class="card"
+    data-category="utilities"
+>
+
+    <div class="app-icon">
+        &gt;_
+    </div>
+
+    <div class="info">
+
+        <h3 class="name">
+            SSH Now
+        </h3>
+
+        <div class="category">
+            Utilities
+        </div>
+
+        <p class="description">
+            Connect to servers from your iPhone with
+            a full interactive SSH terminal.
+        </p>
+
+        <div class="actions">
+            <span class="status">App Store listing pending</span>
+        </div>
+
+    </div>
+
+</article>
+
+
+<!-- STEP VAULT -->
+
+<article
+    class="card"
+    data-category="health"
+>
+
+    <div class="app-icon">
+        S
+    </div>
+
+    <div class="info">
+
+        <h3 class="name">
+            Step Vault
+        </h3>
+
+        <div class="category">
+            Health &amp; Fitness
+        </div>
+
+        <p class="description">
+            Explore steps, distance, goals, history
+            and achievements in one beautiful dashboard.
+        </p>
+
+        <div class="actions">
+            <span class="status">App Store listing pending</span>
+        </div>
+
+    </div>
+
+</article>
+
+
+<!-- PARKING -->
+
+<article
+    class="card"
+    data-category="utilities"
+>
+
+    <div class="app-icon">
+        P
+    </div>
+
+    <div class="info">
+
+        <h3 class="name">
+            Parking Spot Hero
+        </h3>
+
+        <div class="category">
+            Utilities
+        </div>
+
+        <p class="description">
+            Save where you parked, track parking time
+            and find your way back to your car.
+        </p>
+
+        <div class="actions">
+            <span class="status">App Store listing pending</span>
+        </div>
+
+    </div>
+
+</article>
+
+
+<!-- KEYLOCK -->
+
+<article
+    class="card"
+    data-category="utilities"
+>
+
+    <div class="app-icon">
+        K
+    </div>
+
+    <div class="info">
+
+        <h3 class="name">
+            KeyLockPro2
+        </h3>
+
+        <div class="category">
+            Utilities
+        </div>
+
+        <p class="description">
+            Securely organize passwords and generate
+            strong credentials from your iPhone.
+        </p>
+
+        <div class="actions">
+            <span class="status">App Store listing pending</span>
+        </div>
+
+    </div>
+
+</article>
+
+
+<!-- PROMOTE READY NOW -->
+
+<article
+    class="card"
+    data-category="productivity"
+>
+
+    <div class="app-icon">
+        P
+    </div>
+
+    <div class="info">
+
+        <h3 class="name">
+            Promote Ready Now
+        </h3>
+
+        <div class="category">
+            Productivity
+        </div>
+
+        <p class="description">
+            Keep promotion preparation, goals and
+            progress organized in one place.
+        </p>
+
+        <div class="actions">
+            <span class="status">App Store listing pending</span>
+        </div>
+
+    </div>
+
+</article>
+
+
+<div class="empty" id="empty">
+    No apps found.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div>
+
+    <h2>Built independently.</h2>
+
+    <p>
+        Josh Swift Dev creates focused iPhone apps
+        designed to solve everyday problems without
+        unnecessary complexity.
+    </p>
+
+</div>
+
+<div class="about-links">
+
+    <a href="mailto:josh.swift.dev@gmail.com">
+        Contact ›
+    </a>
+
+    <a
+        href="https://github.com/josh-swift-dev"
+        target="_blank"
+        rel="noopener"
+    >
+        GitHub ›
+    </a>
+
+</div>
+
+</section>
 
 </main>
 
 
 <footer>
 
-    <div>
-        © 2026 Josh Swift Dev
-    </div>
+<div>
+    © 2026 Josh Swift Dev
+</div>
 
-    <div class="footer-links">
+<div class="footer-links">
 
-        <a href="#apps">
-            Apps
-        </a>
+    <a href="#apps">
+        Apps
+    </a>
 
-        <a href="mailto:josh.swift.dev@gmail.com">
-            Support
-        </a>
+    <a href="mailto:josh.swift.dev@gmail.com">
+        Support
+    </a>
 
-    </div>
+</div>
 
 </footer>
 
 
 <script>
 
-    const cards = [
-        ...document.querySelectorAll(".app-card")
-    ];
+/* -------------------------------------------------
+   APPLE APP STORE ICON LOADER
 
-    const filters = [
-        ...document.querySelectorAll(".filter")
-    ];
+   Every card with data-app-id automatically pulls
+   its REAL icon from Apple's public lookup service.
+-------------------------------------------------- */
 
-    const search = document.getElementById("search");
-    const count = document.getElementById("appCount");
-    const empty = document.getElementById("emptyState");
+async function loadAppleIcons() {
 
-    let activeFilter = "all";
+    const cards =
+        [...document.querySelectorAll("[data-app-id]")];
 
+    const ids =
+        cards
+            .map(card => card.dataset.appId)
+            .filter(Boolean);
 
-    function updateApps() {
+    if (!ids.length) return;
 
-        const query =
-            search.value
-                .toLowerCase()
-                .trim();
+    try {
 
-        let visible = 0;
+        const response = await fetch(
+            "https://itunes.apple.com/lookup?id=" +
+            ids.join(",") +
+            "&country=us"
+        );
+
+        if (!response.ok) {
+            throw new Error("Apple lookup failed");
+        }
+
+        const data = await response.json();
+
+        const apps = {};
+
+        data.results.forEach(app => {
+            apps[String(app.trackId)] = app;
+        });
 
 
         cards.forEach(card => {
 
-            const category =
-                card.dataset.category;
+            const id = card.dataset.appId;
+            const app = apps[id];
 
-            const text =
-                card.innerText.toLowerCase();
+            if (!app) return;
 
-            const matchesCategory =
-                activeFilter === "all" ||
-                category === activeFilter;
+            const icon =
+                card.querySelector(".app-icon");
 
-            const matchesSearch =
-                !query ||
-                text.includes(query);
+            if (icon && app.artworkUrl512) {
 
-            const show =
-                matchesCategory &&
-                matchesSearch;
+                const image =
+                    document.createElement("img");
+
+                image.src =
+                    app.artworkUrl512;
+
+                image.alt =
+                    app.trackName + " app icon";
+
+                image.loading =
+                    "lazy";
+
+                icon.innerHTML = "";
+                icon.appendChild(image);
+            }
 
 
-            card.style.display =
-                show ? "flex" : "none";
+            /*
+             Keep the App Store URL automatically
+             synchronized with Apple's listing.
+            */
 
+            const storeLink =
+                card.querySelector(".store");
 
-            if (show) {
-                visible++;
+            if (storeLink && app.trackViewUrl) {
+                storeLink.href = app.trackViewUrl;
             }
 
         });
 
+    }
 
-        count.textContent =
-            visible === 1
-                ? "1 app"
-                : `${visible} apps`;
+    catch(error) {
 
+        /*
+         If Apple lookup ever fails, the page still
+         works and simply displays the letter fallback.
+        */
 
-        empty.style.display =
-            visible === 0
-                ? "block"
-                : "none";
+        console.log(
+            "App Store artwork unavailable:",
+            error
+        );
 
     }
 
+}
 
-    filters.forEach(button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+/* -------------------------------------------------
+   SEARCH + FILTERING
+-------------------------------------------------- */
 
-                filters.forEach(item =>
-                    item.classList.remove("active")
-                );
+const cards =
+    [...document.querySelectorAll(".card")];
 
-                button.classList.add("active");
+const filters =
+    [...document.querySelectorAll(".filter")];
 
-                activeFilter =
-                    button.dataset.filter;
+const search =
+    document.getElementById("search");
 
-                updateApps();
+const count =
+    document.getElementById("count");
 
-            }
-        );
+const empty =
+    document.getElementById("empty");
+
+let activeFilter = "all";
+
+
+function updateApps() {
+
+    const query =
+        search.value
+            .trim()
+            .toLowerCase();
+
+    let visible = 0;
+
+
+    cards.forEach(card => {
+
+        const category =
+            card.dataset.category;
+
+        const text =
+            card.innerText.toLowerCase();
+
+        const categoryMatch =
+            activeFilter === "all" ||
+            category === activeFilter;
+
+        const searchMatch =
+            !query ||
+            text.includes(query);
+
+        const show =
+            categoryMatch &&
+            searchMatch;
+
+
+        card.style.display =
+            show ? "flex" : "none";
+
+
+        if (show) {
+            visible++;
+        }
 
     });
 
 
-    search.addEventListener(
-        "input",
-        updateApps
+    count.textContent =
+        visible === 1
+            ? "1 app"
+            : visible + " apps";
+
+
+    empty.style.display =
+        visible === 0
+            ? "block"
+            : "none";
+
+}
+
+
+filters.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            filters.forEach(item =>
+                item.classList.remove("active")
+            );
+
+            button.classList.add("active");
+
+            activeFilter =
+                button.dataset.filter;
+
+            updateApps();
+
+        }
     );
 
+});
 
-    updateApps();
+
+search.addEventListener(
+    "input",
+    updateApps
+);
+
+
+/* START */
+
+updateApps();
+loadAppleIcons();
 
 </script>
 
