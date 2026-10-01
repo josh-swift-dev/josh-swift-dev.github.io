@@ -11,13 +11,11 @@
 
 :root {
     --bg: #f5f5f7;
-    --surface: rgba(255,255,255,.82);
     --text: #1d1d1f;
     --secondary: #6e6e73;
     --tertiary: #86868b;
-    --border: rgba(0,0,0,.065);
-    --border-hover: rgba(0,0,0,.12);
-    --blue: #0071e3;
+    --border: rgba(0,0,0,.07);
+    --blue: #0a84ff;
     --pill: rgba(0,0,0,.055);
 }
 
@@ -34,16 +32,11 @@ body {
 
     background:
         radial-gradient(
-            circle at 8% 0%,
+            circle at 10% 0%,
             rgba(0,122,255,.045),
-            transparent 26%
+            transparent 27%
         ),
-        radial-gradient(
-            circle at 94% 4%,
-            rgba(175,82,222,.03),
-            transparent 24%
-        ),
-        var(--bg);
+        #f5f5f7;
 
     color: var(--text);
 
@@ -75,7 +68,7 @@ header {
     z-index: 1000;
 
     background:
-        rgba(245,245,247,.76);
+        rgba(245,245,247,.78);
 
     backdrop-filter:
         blur(26px)
@@ -115,7 +108,8 @@ nav {
 }
 
 .nav-links a {
-    transition: color .2s ease;
+    transition:
+        color .2s ease;
 }
 
 .nav-links a:hover {
@@ -198,6 +192,7 @@ main {
     border-radius: 999px;
 
     background: var(--pill);
+
     color: var(--secondary);
 
     font-family: inherit;
@@ -221,8 +216,8 @@ main {
 }
 
 .filter.active {
-    background: var(--text);
-    color: white;
+    background: #1d1d1f;
+    color: #fff;
 }
 
 
@@ -253,7 +248,7 @@ main {
     border-radius: 12px;
 
     background:
-        rgba(255,255,255,.70);
+        rgba(255,255,255,.72);
 
     color: var(--text);
 
@@ -270,10 +265,10 @@ main {
 
 .search:focus {
     background:
-        rgba(255,255,255,.96);
+        rgba(255,255,255,.98);
 
     border-color:
-        rgba(0,113,227,.33);
+        rgba(0,113,227,.35);
 
     box-shadow:
         0 0 0 4px
@@ -298,7 +293,7 @@ main {
 
 
 /* =========================================================
-   GRID
+   APP GRID
 ========================================================= */
 
 .app-grid {
@@ -312,7 +307,7 @@ main {
 
 
 /* =========================================================
-   SQUARE APP CARDS
+   APP CARD
 ========================================================= */
 
 .app-card {
@@ -320,85 +315,186 @@ main {
 
     aspect-ratio: 1 / 1;
 
-    padding: 20px;
+    min-width: 0;
 
     overflow: hidden;
 
-    display: flex;
-    flex-direction: column;
+    border-radius: 24px;
 
-    background: var(--surface);
-
-    backdrop-filter:
-        blur(20px)
-        saturate(140%);
-
-    -webkit-backdrop-filter:
-        blur(20px)
-        saturate(140%);
+    background:
+        #181818;
 
     border:
         1px solid
-        var(--border);
-
-    border-radius: 24px;
+        rgba(255,255,255,.10);
 
     box-shadow:
-        0 4px 14px
-        rgba(0,0,0,.025);
+        0 6px 22px
+        rgba(0,0,0,.10);
+
+    isolation: isolate;
 
     transition:
-        transform .24s ease,
-        box-shadow .24s ease,
-        border-color .24s ease,
-        background .24s ease;
+        transform .25s ease,
+        box-shadow .25s ease;
 }
 
 .app-card:hover {
     transform:
-        translateY(-4px);
-
-    background:
-        rgba(255,255,255,.97);
-
-    border-color:
-        var(--border-hover);
+        translateY(-5px);
 
     box-shadow:
-        0 18px 38px
-        rgba(0,0,0,.075);
+        0 20px 42px
+        rgba(0,0,0,.18);
 }
 
 
-/* soft blue glow */
+/* =========================================================
+   APP-SPECIFIC BACKGROUND
 
-.app-card::before {
-    content: "";
+   This is a huge blurred copy of the app icon.
+   Therefore every app automatically receives
+   its own matching colors.
+========================================================= */
 
+.card-artwork {
     position: absolute;
 
-    width: 150px;
-    height: 150px;
+    inset: -32%;
 
-    top: -80px;
-    right: -80px;
+    z-index: -4;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    filter:
+        blur(42px)
+        saturate(1.45);
+
+    transform:
+        scale(1.12);
+
+    opacity: .82;
+
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+}
+
+.app-card:hover .card-artwork {
+    transform:
+        scale(1.20);
+
+    filter:
+        blur(38px)
+        saturate(1.60);
+}
+
+
+/* =========================================================
+   SECOND ARTWORK LAYER
+
+   Adds more recognizable color variation instead
+   of turning the whole square into one flat color.
+========================================================= */
+
+.card-artwork-secondary {
+    position: absolute;
+
+    width: 95%;
+    height: 95%;
+
+    right: -28%;
+    top: -25%;
+
+    z-index: -3;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    filter:
+        blur(52px)
+        saturate(1.6);
+
+    opacity: .42;
+
+    border-radius: 50%;
+
+    transform:
+        rotate(18deg);
+}
+
+
+/* =========================================================
+   DARK OVERLAY
+
+   Keeps white text readable regardless of icon color.
+========================================================= */
+
+.card-shade {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.13) 0%,
+            rgba(0,0,0,.28) 42%,
+            rgba(0,0,0,.76) 100%
+        );
+}
+
+
+/* =========================================================
+   SOFT LIGHT
+
+   Similar to Apple's atmospheric treatment.
+========================================================= */
+
+.card-light {
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    top: -70px;
+    right: -55px;
+
+    z-index: -1;
 
     border-radius: 50%;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(0,113,227,.08),
-            transparent 68%
-        );
+        rgba(255,255,255,.18);
 
-    opacity: 0;
+    filter:
+        blur(50px);
 
-    transition: opacity .25s ease;
+    opacity: .42;
 }
 
-.app-card:hover::before {
-    opacity: 1;
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.card-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 19px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -407,28 +503,29 @@ main {
 ========================================================= */
 
 .app-icon {
-    position: relative;
-
-    z-index: 2;
-
     width: 62px;
     height: 62px;
 
     min-width: 62px;
 
-    border-radius: 15px;
-
     overflow: hidden;
 
-    background: #e8e8ed;
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,.12);
 
     box-shadow:
-        0 6px 16px
-        rgba(0,0,0,.13);
+        0 8px 22px
+        rgba(0,0,0,.30);
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
 
     transition:
-        transform .24s ease,
-        box-shadow .24s ease;
+        transform .25s ease,
+        box-shadow .25s ease;
 }
 
 .app-card:hover .app-icon {
@@ -436,8 +533,8 @@ main {
         scale(1.045);
 
     box-shadow:
-        0 8px 20px
-        rgba(0,0,0,.16);
+        0 10px 28px
+        rgba(0,0,0,.36);
 }
 
 .app-icon img {
@@ -455,10 +552,6 @@ main {
 ========================================================= */
 
 .app-info {
-    position: relative;
-
-    z-index: 2;
-
     flex: 1;
 
     min-height: 0;
@@ -469,12 +562,14 @@ main {
 
 .app-name {
     margin:
-        16px
+        15px
         0
         2px;
 
+    color: #fff;
+
     font-size: 16px;
-    font-weight: 690;
+    font-weight: 700;
 
     letter-spacing:
         -.025em;
@@ -484,21 +579,31 @@ main {
     overflow: hidden;
 
     text-overflow: ellipsis;
+
+    text-shadow:
+        0 1px 8px
+        rgba(0,0,0,.22);
 }
 
 .category {
-    margin-bottom: 9px;
+    margin-bottom: 8px;
 
-    color: var(--tertiary);
+    color:
+        rgba(255,255,255,.68);
 
     font-size: 9.5px;
     font-weight: 600;
+
+    text-shadow:
+        0 1px 6px
+        rgba(0,0,0,.20);
 }
 
 .description {
     margin: 0;
 
-    color: var(--secondary);
+    color:
+        rgba(255,255,255,.82);
 
     font-size: 10.8px;
     line-height: 1.42;
@@ -509,12 +614,16 @@ main {
     -webkit-box-orient: vertical;
 
     overflow: hidden;
+
+    text-shadow:
+        0 1px 8px
+        rgba(0,0,0,.30);
 }
 
 .actions {
     margin-top: auto;
 
-    padding-top: 12px;
+    padding-top: 11px;
 }
 
 
@@ -533,21 +642,39 @@ main {
     border-radius: 999px;
 
     background:
-        rgba(0,113,227,.09);
+        rgba(255,255,255,.16);
 
-    color: var(--blue);
+    backdrop-filter:
+        blur(12px);
 
-    font-size: 10px;
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    color: #fff;
+
+    font-size: 9.8px;
     font-weight: 650;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0,0,0,.10);
 
     transition:
         background .2s ease,
-        transform .2s ease;
+        transform .2s ease,
+        border-color .2s ease;
 }
 
 .store-link:hover {
     background:
-        rgba(0,113,227,.15);
+        rgba(255,255,255,.25);
+
+    border-color:
+        rgba(255,255,255,.26);
 
     transform:
         translateY(-1px);
@@ -555,7 +682,7 @@ main {
 
 
 /* =========================================================
-   LOADING
+   LOADING CARDS
 ========================================================= */
 
 .loading-card {
@@ -566,9 +693,9 @@ main {
     background:
         linear-gradient(
             110deg,
-            rgba(255,255,255,.35) 8%,
-            rgba(255,255,255,.7) 18%,
-            rgba(255,255,255,.35) 33%
+            #e6e6e8 8%,
+            #f4f4f5 18%,
+            #e6e6e8 33%
         );
 
     background-size:
@@ -585,14 +712,15 @@ main {
 @keyframes shimmer {
 
     to {
-        background-position-x: -200%;
+        background-position-x:
+            -200%;
     }
 
 }
 
 
 /* =========================================================
-   STATUS / ERROR
+   STATUS
 ========================================================= */
 
 .status-message {
@@ -605,7 +733,8 @@ main {
 
     text-align: center;
 
-    color: var(--secondary);
+    color:
+        var(--secondary);
 
     font-size: 13px;
     line-height: 1.6;
@@ -616,7 +745,8 @@ main {
 
     margin-bottom: 5px;
 
-    color: var(--text);
+    color:
+        var(--text);
 
     font-size: 15px;
 }
@@ -646,9 +776,11 @@ footer {
 
     gap: 20px;
 
-    color: var(--tertiary);
+    color:
+        var(--tertiary);
 
-    font-size: 10.5px;
+    font-size:
+        10.5px;
 }
 
 .footer-links {
@@ -658,7 +790,8 @@ footer {
 }
 
 .footer-links a:hover {
-    color: var(--text);
+    color:
+        var(--text);
 }
 
 
@@ -674,6 +807,7 @@ footer {
     }
 
 }
+
 
 @media(max-width:760px) {
 
@@ -707,16 +841,18 @@ footer {
     }
 
     .app-card {
-        padding: 17px;
-
         border-radius: 21px;
     }
 
-    .app-icon {
-        width: 56px;
-        height: 56px;
+    .card-content {
+        padding: 16px;
+    }
 
-        min-width: 56px;
+    .app-icon {
+        width: 55px;
+        height: 55px;
+
+        min-width: 55px;
 
         border-radius: 14px;
     }
@@ -726,6 +862,7 @@ footer {
     }
 
 }
+
 
 @media(max-width:430px) {
 
@@ -739,42 +876,44 @@ footer {
     }
 
     .app-card {
-        padding: 14px;
-
         border-radius: 18px;
     }
 
-    .app-icon {
-        width: 49px;
-        height: 49px;
+    .card-content {
+        padding: 13px;
+    }
 
-        min-width: 49px;
+    .app-icon {
+        width: 48px;
+        height: 48px;
+
+        min-width: 48px;
 
         border-radius: 12px;
     }
 
     .app-name {
-        margin-top: 12px;
+        margin-top: 11px;
 
-        font-size: 13.5px;
+        font-size: 13px;
     }
 
     .category {
-        margin-bottom: 6px;
+        margin-bottom: 5px;
 
-        font-size: 8.5px;
+        font-size: 8px;
     }
 
     .description {
-        font-size: 9.3px;
+        font-size: 9px;
 
-        line-height: 1.35;
+        line-height: 1.32;
 
         -webkit-line-clamp: 2;
     }
 
     .actions {
-        padding-top: 7px;
+        padding-top: 6px;
     }
 
     .store-link {
@@ -782,7 +921,7 @@ footer {
             5px
             7px;
 
-        font-size: 8.5px;
+        font-size: 8px;
     }
 
 }
@@ -795,13 +934,11 @@ footer {
 @media(prefers-color-scheme:dark) {
 
     :root {
-        --bg: #000000;
-        --surface: rgba(28,28,30,.80);
+        --bg: #000;
         --text: #f5f5f7;
         --secondary: #a1a1a6;
         --tertiary: #86868b;
-        --border: rgba(255,255,255,.085);
-        --border-hover: rgba(255,255,255,.16);
+        --border: rgba(255,255,255,.09);
         --pill: rgba(255,255,255,.08);
     }
 
@@ -809,34 +946,31 @@ footer {
         background:
             radial-gradient(
                 circle at 8% 0%,
-                rgba(0,122,255,.10),
-                transparent 26%
-            ),
-            radial-gradient(
-                circle at 94% 4%,
-                rgba(175,82,222,.055),
-                transparent 22%
+                rgba(0,122,255,.09),
+                transparent 28%
             ),
             #000;
     }
 
     header {
         background:
-            rgba(0,0,0,.72);
+            rgba(0,0,0,.74);
 
         border-bottom-color:
             rgba(255,255,255,.07);
     }
 
     .filter.active {
-        background: #f5f5f7;
+        background:
+            #f5f5f7;
 
-        color: #111;
+        color:
+            #111;
     }
 
     .search {
         background:
-            rgba(28,28,30,.78);
+            rgba(28,28,30,.82);
     }
 
     .search:focus {
@@ -844,9 +978,17 @@ footer {
             rgba(35,35,37,.98);
     }
 
-    .app-card:hover {
+    .loading-card {
         background:
-            rgba(32,32,34,.97);
+            linear-gradient(
+                110deg,
+                #171719 8%,
+                #262628 18%,
+                #171719 33%
+            );
+
+        background-size:
+            200% 100%;
     }
 
 }
@@ -989,8 +1131,7 @@ Contact
 <script>
 
 /* =========================================================
-   JOSH SWIFT DEV
-   APPLE DEVELOPER ID
+   APPLE DEVELOPER
 ========================================================= */
 
 const DEVELOPER_ID =
@@ -1009,7 +1150,8 @@ const APPLE_LOOKUP =
 
 let apps = [];
 
-let activeFilter = "all";
+let activeFilter =
+    "all";
 
 
 /* =========================================================
@@ -1067,22 +1209,17 @@ async function loadApps() {
             await response.json();
 
 
-        /*
-           The developer lookup may include a developer
-           record along with software records.
-
-           We only keep actual software applications.
-        */
-
         apps =
             data.results
+
                 .filter(
                     item =>
                         item.wrapperType ===
                         "software"
                 )
+
                 .sort(
-                    (a, b) =>
+                    (a,b) =>
                         a.trackName.localeCompare(
                             b.trackName
                         )
@@ -1098,7 +1235,7 @@ async function loadApps() {
     catch(error) {
 
         console.error(
-            "Unable to load App Store apps:",
+            "Unable to load apps:",
             error
         );
 
@@ -1126,7 +1263,7 @@ async function loadApps() {
 
 
 /* =========================================================
-   CREATE CATEGORY FILTERS
+   FILTERS
 ========================================================= */
 
 function createFilters() {
@@ -1134,12 +1271,16 @@ function createFilters() {
     const genres =
         [
             ...new Set(
+
                 apps
+
                     .map(
                         app =>
                             app.primaryGenreName
                     )
+
                     .filter(Boolean)
+
             )
         ]
         .sort();
@@ -1229,12 +1370,78 @@ function createFilters() {
 
 
 /* =========================================================
+   DESCRIPTION CLEANUP
+========================================================= */
+
+function cleanDescription(
+    description
+) {
+
+    if (!description) {
+
+        return "Available on the App Store.";
+
+    }
+
+
+    return description
+
+        .replace(
+            /\s+/g,
+            " "
+        )
+
+        .trim();
+
+}
+
+
+/* =========================================================
+   HIGH RES ARTWORK
+========================================================= */
+
+function getArtwork(
+    app
+) {
+
+    let artwork =
+        app.artworkUrl512 ||
+        app.artworkUrl100 ||
+        app.artworkUrl60 ||
+        "";
+
+
+    /*
+       Apple sometimes returns a smaller artwork URL.
+       When possible, request a larger version for the
+       blurred card background.
+    */
+
+    artwork =
+        artwork.replace(
+            /[0-9]+x[0-9]+bb/,
+            "512x512bb"
+        );
+
+
+    return artwork;
+
+}
+
+
+/* =========================================================
    CREATE APP CARD
 ========================================================= */
 
 function createCard(
     app
 ) {
+
+    const artwork =
+        getArtwork(
+            app
+        );
+
 
     const card =
         document.createElement(
@@ -1246,7 +1453,87 @@ function createCard(
         "app-card";
 
 
-    /* ICON */
+    /*
+       BACKGROUND LAYER 1
+    */
+
+    const artworkBackground =
+        document.createElement(
+            "div"
+        );
+
+
+    artworkBackground.className =
+        "card-artwork";
+
+
+    artworkBackground.style.backgroundImage =
+        `url("${artwork}")`;
+
+
+    /*
+       BACKGROUND LAYER 2
+    */
+
+    const secondaryArtwork =
+        document.createElement(
+            "div"
+        );
+
+
+    secondaryArtwork.className =
+        "card-artwork-secondary";
+
+
+    secondaryArtwork.style.backgroundImage =
+        `url("${artwork}")`;
+
+
+    /*
+       SHADE
+    */
+
+    const shade =
+        document.createElement(
+            "div"
+        );
+
+
+    shade.className =
+        "card-shade";
+
+
+    /*
+       LIGHT
+    */
+
+    const light =
+        document.createElement(
+            "div"
+        );
+
+
+    light.className =
+        "card-light";
+
+
+    /*
+       CONTENT
+    */
+
+    const content =
+        document.createElement(
+            "div"
+        );
+
+
+    content.className =
+        "card-content";
+
+
+    /*
+       ICON
+    */
 
     const icon =
         document.createElement(
@@ -1264,16 +1551,8 @@ function createCard(
         );
 
 
-    /*
-       Apple normally supplies artworkUrl512,
-       artworkUrl100 and artworkUrl60.
-    */
-
     image.src =
-        app.artworkUrl512 ||
-        app.artworkUrl100 ||
-        app.artworkUrl60 ||
-        "";
+        artwork;
 
 
     image.alt =
@@ -1294,7 +1573,9 @@ function createCard(
     );
 
 
-    /* INFO */
+    /*
+       INFO
+    */
 
     const info =
         document.createElement(
@@ -1350,6 +1631,10 @@ function createCard(
             app.description
         );
 
+
+    /*
+       ACTION
+    */
 
     const actions =
         document.createElement(
@@ -1413,12 +1698,33 @@ function createCard(
     );
 
 
-    card.appendChild(
+    content.appendChild(
         icon
     );
 
-    card.appendChild(
+    content.appendChild(
         info
+    );
+
+
+    card.appendChild(
+        artworkBackground
+    );
+
+    card.appendChild(
+        secondaryArtwork
+    );
+
+    card.appendChild(
+        shade
+    );
+
+    card.appendChild(
+        light
+    );
+
+    card.appendChild(
+        content
     );
 
 
@@ -1428,37 +1734,7 @@ function createCard(
 
 
 /* =========================================================
-   CLEAN DESCRIPTION
-========================================================= */
-
-function cleanDescription(
-    description
-) {
-
-    if (!description) {
-
-        return "Available on the App Store.";
-
-    }
-
-
-    /*
-       Remove unnecessary whitespace so Apple's
-       description looks clean inside the card.
-    */
-
-    return description
-        .replace(
-            /\s+/g,
-            " "
-        )
-        .trim();
-
-}
-
-
-/* =========================================================
-   RENDER APPS
+   RENDER
 ========================================================= */
 
 function renderApps() {
@@ -1529,14 +1805,11 @@ function renderApps() {
     );
 
 
-    /*
-       Count always shows total public apps,
-       not only the filtered number.
-    */
-
     appCount.textContent =
         apps.length === 1
+
             ? "1 app available"
+
             : apps.length +
               " apps available";
 
