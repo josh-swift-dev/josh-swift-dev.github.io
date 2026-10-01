@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Josh Swift Dev | Apps for iPhone</title>
+
+<meta name="description"
+      content="Independent iPhone apps from Josh Swift Dev. Useful apps, simple pricing, and no unnecessary subscriptions.">
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    :root {
+        --bg: #07090d;
+        --panel: rgba(255,255,255,.055);
+        --panel-border: rgba(255,255,255,.10);
+        --text: #f7f8fb;
+        --muted: #9ea6b4;
+        --blue: #5aa7ff;
+        --purple: #9d72ff;
+        --green: #65d68b;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "SF Pro Display",
+            "SF Pro Text",
+            "Segoe UI",
+            sans-serif;
+
+        background:
+            radial-gradient(circle at 20% 0%,
+                rgba(74,120,255,.17),
+                transparent 32%),
+
+            radial-gradient(circle at 85% 15%,
+                rgba(164,86,255,.14),
+                transparent 30%),
+
+            #07090d;
+
+        color: var(--text);
+        min-height: 100vh;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+
+    /* NAV */
+
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+
+        background: rgba(7,9,13,.72);
+        border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .nav-inner {
+        width: min(1180px, calc(100% - 40px));
+        height: 70px;
+        margin: auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        font-size: 19px;
+        font-weight: 750;
+        letter-spacing: -.3px;
+    }
+
+    .brand-logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 11px;
+
+        display: grid;
+        place-items: center;
+
+        font-size: 17px;
+        font-weight: 800;
+
+        background:
+            linear-gradient(135deg, #4f9cff, #985cff);
+
+        box-shadow:
+            0 8px 30px rgba(90,110,255,.35);
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+
+        color: #b7bec9;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .nav-links a:hover {
+        color: white;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        width: min(1050px, calc(100% - 40px));
+        margin: auto;
+        padding: 120px 0 95px;
+        text-align: center;
+    }
+
+    .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        padding: 8px 14px;
+
+        border-radius: 100px;
+        border: 1px solid rgba(255,255,255,.11);
+
+        background: rgba(255,255,255,.055);
+
+        color: #c7ced8;
+        font-size: 13px;
+        font-weight: 650;
+
+        margin-bottom: 27px;
+    }
+
+    .eyebrow-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 13px var(--green);
+    }
+
+    h1 {
+        font-size: clamp(52px, 8vw, 92px);
+        line-height: .97;
+        letter-spacing: -5px;
+        font-weight: 820;
+        max-width: 950px;
+        margin: auto;
+    }
+
+    .gradient-text {
+        background:
+            linear-gradient(100deg,
+                #ffffff 5%,
+                #8bc4ff 45%,
+                #bb8cff 80%);
+
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .hero p {
+        max-width: 680px;
+        margin: 30px auto 0;
+
+        font-size: 20px;
+        line-height: 1.55;
+        color: var(--muted);
+    }
+
+    .hero-buttons {
+        margin-top: 38px;
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        padding: 14px 21px;
+        border-radius: 14px;
+
+        font-size: 15px;
+        font-weight: 700;
+
+        transition:
+            transform .2s ease,
+            background .2s ease,
+            border-color .2s ease;
+    }
+
+    .button:hover {
+        transform: translateY(-2px);
+    }
+
+    .button-primary {
+        background: white;
+        color: #080a0d;
+    }
+
+    .button-secondary {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.12);
+        color: white;
+    }
+
+
+    /* MAIN */
+
+    main {
+        width: min(1180px, calc(100% - 40px));
+        margin: auto;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+        font-size: 38px;
+        letter-spacing: -1.5px;
+        margin-bottom: 8px;
+    }
+
+    .section-heading p {
+        color: var(--muted);
+        font-size: 16px;
+    }
+
+
+    /* FEATURED */
+
+    .featured {
+        position: relative;
+        overflow: hidden;
+
+        min-height: 490px;
+        border-radius: 34px;
+        padding: 54px;
+
+        border: 1px solid rgba(255,255,255,.10);
+
+        background:
+            radial-gradient(circle at 90% 20%,
+                rgba(179,92,255,.28),
+                transparent 34%),
+
+            radial-gradient(circle at 70% 90%,
+                rgba(61,135,255,.23),
+                transparent 40%),
+
+            rgba(255,255,255,.045);
+
+        box-shadow:
+            0 30px 90px rgba(0,0,0,.32);
+    }
+
+    .featured-content {
+        max-width: 570px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .app-icon {
+        width: 92px;
+        height: 92px;
+        border-radius: 23px;
+
+        display: grid;
+        place-items: center;
+
+        font-size: 39px;
+
+        margin-bottom: 28px;
+
+        background:
+            linear-gradient(135deg,
+                #ff704d,
+                #9b5cff 52%,
+                #318aff);
+
+        box-shadow:
+            0 22px 55px rgba(91,89,255,.30);
+    }
+
+    .featured h3 {
+        font-size: 50px;
+        letter-spacing: -2px;
+        margin-bottom: 12px;
+    }
+
+    .tagline {
+        font-size: 21px;
+        color: #c4cad3;
+        line-height: 1.45;
+        margin-bottom: 22px;
+    }
+
+    .price-line {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-bottom: 30px;
+    }
+
+    .pill {
+        padding: 7px 11px;
+        border-radius: 100px;
+
+        background: rgba(255,255,255,.08);
+        border: 1px solid rgba(255,255,255,.09);
+
+        color: #d9dee5;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .pill-green {
+        color: #92e8ac;
+        background: rgba(72,200,112,.10);
+        border-color: rgba(94,218,132,.18);
+    }
+
+    .glow-orb {
+        position: absolute;
+        width: 420px;
+        height: 420px;
+        right: -100px;
+        top: 20px;
+
+        border-radius: 50%;
+
+        background:
+            linear-gradient(145deg,
+                #ff695f,
+                #b85aff 43%,
+                #428cff 78%);
+
+        filter: blur(2px);
+        opacity: .18;
+    }
+
+
+    /* APP GRID */
+
+    .apps-section {
+        padding: 100px 0 80px;
+    }
+
+    .app-grid {
+        display: grid;
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .card {
+        min-height: 360px;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 28px;
+        border-radius: 27px;
+
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+
+        transition:
+            transform .25s ease,
+            background .25s ease,
+            border-color .25s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        background: rgba(255,255,255,.075);
+        border-color: rgba(255,255,255,.17);
+    }
+
+    .small-icon {
+        width: 68px;
+        height: 68px;
+        border-radius: 18px;
+
+        display: grid;
+        place-items: center;
+
+        font-size: 29px;
+        margin-bottom: 24px;
+    }
+
+    .icon-sudoku {
+        background:
+            linear-gradient(135deg,
+                #496cff,
+                #854eff);
+    }
+
+    .icon-ssh {
+        background:
+            linear-gradient(135deg,
+                #252c38,
+                #0d1117);
+        border: 1px solid #3b4452;
+    }
+
+    .icon-steps {
+        background:
+            linear-gradient(135deg,
+                #00b986,
+                #2575ff);
+    }
+
+    .icon-parking {
+        background:
+            linear-gradient(135deg,
+                #21a3ff,
+                #2254ff);
+    }
+
+    .icon-keylock {
+        background:
+            linear-gradient(135deg,
+                #303746,
+                #8266ff);
+    }
+
+    .icon-gallery {
+        background:
+            linear-gradient(135deg,
+                #ff537e,
+                #ff944d);
+    }
+
+    .card h3 {
+        font-size: 24px;
+        letter-spacing: -.6px;
+        margin-bottom: 9px;
+    }
+
+    .card-description {
+        color: var(--muted);
+        line-height: 1.55;
+        font-size: 15px;
+        margin-bottom: 22px;
+    }
+
+    .card-footer {
+        margin-top: auto;
+    }
+
+    .card-links {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+
+        margin-top: 17px;
+
+        color: #80baff;
+        font-size: 13px;
+        font-weight: 650;
+    }
+
+    .card-links a:hover {
+        color: white;
+    }
+
+
+    /* PHILOSOPHY */
+
+    .philosophy {
+        margin: 25px 0 100px;
+        padding: 70px 40px;
+
+        text-align: center;
+
+        border-radius: 32px;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(70,120,255,.10),
+                rgba(164,87,255,.10)
+            );
+
+        border: 1px solid rgba(255,255,255,.09);
+    }
+
+    .philosophy h2 {
+        font-size: clamp(35px, 5vw, 55px);
+        letter-spacing: -2px;
+        margin-bottom: 20px;
+    }
+
+    .philosophy p {
+        color: var(--muted);
+        max-width: 720px;
+        margin: auto;
+
+        font-size: 18px;
+        line-height: 1.65;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        border-top: 1px solid rgba(255,255,255,.08);
+        padding: 42px 20px 55px;
+    }
+
+    .footer-inner {
+        width: min(1180px, 100%);
+        margin: auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+
+        color: #777f8b;
+        font-size: 13px;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .footer-links a:hover {
+        color: white;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+        .app-grid {
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+        }
+
+        .featured {
+            padding: 42px;
+        }
+    }
+
+    @media (max-width: 650px) {
+
+        .nav-links {
+            display: none;
+        }
+
+        .hero {
+            padding: 85px 0 70px;
+        }
+
+        h1 {
+            letter-spacing: -3px;
+        }
+
+        .hero p {
+            font-size: 17px;
+        }
+
+        .featured {
+            padding: 30px;
+            border-radius: 27px;
+        }
+
+        .featured h3 {
+            font-size: 39px;
+        }
+
+        .app-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .card {
+            min-height: 320px;
+        }
+
+        .footer-inner {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>
+</head>
+
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="nav-inner">
+
+        <a href="#" class="brand">
+            <div class="brand-logo">JS</div>
+            Josh Swift Dev
+        </a>
+
+        <div class="nav-links">
+            <a href="#apps">Apps</a>
+            <a href="#about">About</a>
+            <a href="mailto:josh.swift.dev@gmail.com">
+                Contact
+            </a>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Independent iOS Developer
+    </div>
+
+    <h1>
+        Apps that are
+        <span class="gradient-text">
+            actually useful.
+        </span>
+    </h1>
+
+    <p>
+        Thoughtfully designed iPhone apps built around
+        simplicity, privacy, and useful features without
+        unnecessary complexity.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#apps"
+           class="button button-primary">
+            Explore the Apps ↓
+        </a>
+
+        <a href="mailto:josh.swift.dev@gmail.com"
+           class="button button-secondary">
+            Contact Developer
+        </a>
+
+    </div>
+
+</section>
+
+
+<main>
+
+
+<!-- FEATURED APP -->
+
+<section>
+
+    <div class="section-heading">
+        <h2>Featured App</h2>
+        <p>The latest from Josh Swift Dev.</p>
+    </div>
+
+    <div class="featured">
+
+        <div class="glow-orb"></div>
+
+        <div class="featured-content">
+
+            <div class="app-icon">✨</div>
+
+            <h3>Filtrume</h3>
+
+            <p class="tagline">
+                Turn everyday photos into something worth
+                sharing with 200+ stunning filters, creative
+                effects, powerful tuning tools, and AI-powered
+                editing.
+            </p>
+
+            <div class="price-line">
+
+                <span class="pill">
+                    Photo & Video
+                </span>
+
+                <span class="pill">
+                    200+ Filters
+                </span>
+
+                <span class="pill pill-green">
+                    $3.99 Lifetime Pro
+                </span>
+
+            </div>
+
+            <!--
+              Replace # with Filtrume's real App Store URL
+              once the app is live.
+            -->
+
+            <a href="#"
+               class="button button-primary">
+                View on the App Store →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ALL APPS -->
+
+<section class="apps-section" id="apps">
+
+    <div class="section-heading">
+        <h2>Apps</h2>
+        <p>
+            Small apps built to do their job well.
+        </p>
+    </div>
+
+
+    <div class="app-grid">
+
+
+        <!-- FOREVER SUDOKU -->
+
+        <article class="card">
+
+            <div class="small-icon icon-sudoku">
+                9
+            </div>
+
+            <h3>Forever Sudoku</h3>
+
+            <p class="card-description">
+                Unlimited Sudoku boards with multiple
+                difficulty levels, achievements, stats,
+                and a polished distraction-free experience.
+            </p>
+
+            <div class="card-footer">
+
+                <span class="pill pill-green">
+                    Buy once. Play forever.
+                </span>
+
+                <div class="card-links">
+                    <a href="#">App Store</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Support</a>
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- SSH NOW -->
+
+        <article class="card">
+
+            <div class="small-icon icon-ssh">
+                &gt;_
+            </div>
+
+            <h3>SSH Now</h3>
+
+            <p class="card-description">
+                Connect to your servers from anywhere with
+                a full interactive SSH terminal, saved
+                connections, private keys, host verification,
+                and powerful terminal tools.
+            </p>
+
+            <div class="card-footer">
+
+                <span class="pill">
+                    Developer Tools
+                </span>
+
+                <div class="card-links">
+                    <a href="#">App Store</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Support</a>
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- STEP VAULT -->
+
+        <article class="card">
+
+            <div class="small-icon icon-steps">
+                👟
+            </div>
+
+            <h3>Step Vault</h3>
+
+            <p class="card-description">
+                Explore your step history with daily,
+                weekly, monthly, and yearly insights,
+                goals, distance tracking, and achievements.
+            </p>
+
+            <div class="card-footer">
+
+                <span class="pill">
+                    Health & Fitness
+                </span>
+
+                <div class="card-links">
+                    <a href="#">App Store</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Support</a>
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PARKING SPOT HERO -->
+
+        <article class="card">
+
+            <div class="small-icon icon-parking">
+                P
+            </div>
+
+            <h3>Parking Spot Hero</h3>
+
+            <p class="card-description">
+                Save where you parked, track parking time,
+                navigate back to your car, save a parking
+                photo, and never wander around looking for
+                your vehicle again.
+            </p>
+
+            <div class="card-footer">
+
+                <span class="pill">
+                    Navigation
+                </span>
+
+                <div class="card-links">
+                    <a href="#">App Store</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Support</a>
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- KEYLOCK PRO 2 -->
+
+        <article class="card">
+
+            <div class="small-icon icon-keylock">
+                🔐
+            </div>
+
+            <h3>KeyLockPro2</h3>
+
+            <p class="card-description">
+                A straightforward password vault with
+                secure local storage, password generation,
+                and a simple interface built around privacy.
+            </p>
+
+            <div class="card-footer">
+
+                <span class="pill">
+                    Utilities
+                </span>
+
+                <div class="card-links">
+                    <a href="#">App Store</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Support</a>
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- GALLERY SWEEP PRO -->
+
+        <article class="card">
+
+            <div class="small-icon icon-gallery">
+                🖼
+            </div>
+
+            <h3>Gallery Sweep Pro</h3>
+
+            <p class="card-description">
+                Work through your photo library quickly,
+                decide what stays, clear out what doesn't,
+                and reclaim space without tedious scrolling.
+            </p>
+
+            <div class="card-footer">
+
+                <span class="pill">
+                    Photo & Video
+                </span>
+
+                <div class="card-links">
+                    <a href="#">App Store</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Support</a>
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="philosophy" id="about">
+
+    <h2>
+        Simple apps.
+        <span class="gradient-text">
+            Fair pricing.
+        </span>
+    </h2>
+
+    <p>
+        Josh Swift Dev is an independent app studio focused
+        on building useful iPhone apps with clean interfaces
+        and straightforward pricing. When an app can be sold
+        once instead of turning into another monthly bill,
+        that's the goal.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div>
+            © 2026 Josh Swift Dev.
+            All rights reserved.
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#apps">
+                Apps
+            </a>
+
+            <a href="mailto:josh.swift.dev@gmail.com">
+                Support
+            </a>
+
+            <a href="mailto:josh.swift.dev@gmail.com">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
