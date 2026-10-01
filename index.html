@@ -11,8 +11,7 @@
 
 :root {
     --bg: #f5f5f7;
-    --surface: rgba(255,255,255,.80);
-    --surface-solid: #ffffff;
+    --surface: rgba(255,255,255,.82);
     --text: #1d1d1f;
     --secondary: #6e6e73;
     --tertiary: #86868b;
@@ -58,7 +57,6 @@ body {
         sans-serif;
 
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
 }
 
 a {
@@ -76,7 +74,8 @@ header {
     top: 0;
     z-index: 1000;
 
-    background: rgba(245,245,247,.76);
+    background:
+        rgba(245,245,247,.76);
 
     backdrop-filter:
         blur(26px)
@@ -87,7 +86,8 @@ header {
         saturate(180%);
 
     border-bottom:
-        1px solid rgba(0,0,0,.05);
+        1px solid
+        rgba(0,0,0,.05);
 }
 
 nav {
@@ -108,10 +108,10 @@ nav {
 
     gap: 28px;
 
+    color: var(--secondary);
+
     font-size: 12.5px;
     font-weight: 500;
-
-    color: var(--secondary);
 }
 
 .nav-links a {
@@ -133,21 +133,17 @@ main {
     margin: auto;
 
     padding:
-        44px
+        40px
         30px
-        80px;
+        78px;
 }
 
 
 /* =========================================================
-   TOP
+   APP COUNT
 ========================================================= */
 
 .top-area {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
     margin-bottom: 17px;
 }
 
@@ -170,7 +166,7 @@ main {
 
     gap: 18px;
 
-    margin-bottom: 23px;
+    margin-bottom: 24px;
 }
 
 .filters {
@@ -219,12 +215,14 @@ main {
 
 .filter:hover {
     color: var(--text);
-    transform: translateY(-1px);
+
+    transform:
+        translateY(-1px);
 }
 
 .filter.active {
     background: var(--text);
-    color: var(--surface-solid);
+    color: white;
 }
 
 
@@ -234,6 +232,7 @@ main {
 
 .search-wrap {
     position: relative;
+
     min-width: 220px;
 }
 
@@ -255,9 +254,6 @@ main {
 
     background:
         rgba(255,255,255,.70);
-
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
 
     color: var(--text);
 
@@ -293,76 +289,74 @@ main {
     transform:
         translateY(-50%);
 
-    pointer-events: none;
-
     color: var(--tertiary);
+
+    pointer-events: none;
 
     font-size: 13px;
 }
 
 
 /* =========================================================
-   APP GRID
+   GRID
 ========================================================= */
 
 .app-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(0,1fr));
+        repeat(4, minmax(0,1fr));
 
-    gap: 12px;
+    gap: 14px;
 }
 
 
 /* =========================================================
-   COMPACT APP CARD
+   SQUARE APP CARDS
 ========================================================= */
 
 .app-card {
     position: relative;
 
-    min-height: 118px;
+    aspect-ratio: 1 / 1;
 
-    padding: 15px;
+    padding: 20px;
 
     overflow: hidden;
 
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-
-    gap: 13px;
+    flex-direction: column;
 
     background: var(--surface);
 
     backdrop-filter:
-        blur(18px)
-        saturate(135%);
+        blur(20px)
+        saturate(140%);
 
     -webkit-backdrop-filter:
-        blur(18px)
-        saturate(135%);
+        blur(20px)
+        saturate(140%);
 
     border:
         1px solid
         var(--border);
 
-    border-radius: 19px;
+    border-radius: 24px;
 
     box-shadow:
-        0 3px 12px
+        0 4px 14px
         rgba(0,0,0,.025);
 
     transition:
-        transform .22s ease,
-        box-shadow .22s ease,
-        border-color .22s ease,
-        background .22s ease;
+        transform .24s ease,
+        box-shadow .24s ease,
+        border-color .24s ease,
+        background .24s ease;
 }
 
 .app-card:hover {
-    transform: translateY(-3px);
+    transform:
+        translateY(-4px);
 
     background:
         rgba(255,255,255,.97);
@@ -371,35 +365,39 @@ main {
         var(--border-hover);
 
     box-shadow:
-        0 12px 28px
-        rgba(0,0,0,.065);
+        0 18px 38px
+        rgba(0,0,0,.075);
 }
 
-.app-card::after {
+
+/* soft blue glow */
+
+.app-card::before {
     content: "";
 
     position: absolute;
 
-    left: 18px;
-    right: 18px;
-    bottom: 0;
+    width: 150px;
+    height: 150px;
 
-    height: 1px;
+    top: -80px;
+    right: -80px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,113,227,.08),
+            transparent 68%
+        );
 
     opacity: 0;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(0,113,227,.3),
-            transparent
-        );
-
-    transition: opacity .22s ease;
+    transition: opacity .25s ease;
 }
 
-.app-card:hover::after {
+.app-card:hover::before {
     opacity: 1;
 }
 
@@ -409,35 +407,37 @@ main {
 ========================================================= */
 
 .app-icon {
-    width: 55px;
-    height: 55px;
+    position: relative;
 
-    min-width: 55px;
+    z-index: 2;
 
-    border-radius: 13px;
+    width: 62px;
+    height: 62px;
+
+    min-width: 62px;
+
+    border-radius: 15px;
 
     overflow: hidden;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     background: #e8e8ed;
 
-    color: #6e6e73;
-
-    font-size: 17px;
-    font-weight: 700;
-
     box-shadow:
-        0 4px 11px
-        rgba(0,0,0,.12);
+        0 6px 16px
+        rgba(0,0,0,.13);
 
-    transition: transform .22s ease;
+    transition:
+        transform .24s ease,
+        box-shadow .24s ease;
 }
 
 .app-card:hover .app-icon {
-    transform: scale(1.035);
+    transform:
+        scale(1.045);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.16);
 }
 
 .app-icon img {
@@ -455,8 +455,13 @@ main {
 ========================================================= */
 
 .app-info {
+    position: relative;
+
+    z-index: 2;
+
     flex: 1;
-    min-width: 0;
+
+    min-height: 0;
 
     display: flex;
     flex-direction: column;
@@ -464,22 +469,25 @@ main {
 
 .app-name {
     margin:
-        0
+        16px
         0
         2px;
 
-    font-size: 15px;
-    font-weight: 680;
+    font-size: 16px;
+    font-weight: 690;
 
-    letter-spacing: -.02em;
+    letter-spacing:
+        -.025em;
 
     white-space: nowrap;
+
     overflow: hidden;
+
     text-overflow: ellipsis;
 }
 
 .category {
-    margin-bottom: 5px;
+    margin-bottom: 9px;
 
     color: var(--tertiary);
 
@@ -492,12 +500,12 @@ main {
 
     color: var(--secondary);
 
-    font-size: 10.7px;
-    line-height: 1.38;
+    font-size: 10.8px;
+    line-height: 1.42;
 
     display: -webkit-box;
 
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 
     overflow: hidden;
@@ -506,181 +514,111 @@ main {
 .actions {
     margin-top: auto;
 
-    padding-top: 7px;
+    padding-top: 12px;
 }
 
 
 /* =========================================================
-   APP STORE LINK
+   APP STORE BUTTON
 ========================================================= */
 
 .store-link {
     display: inline-flex;
     align-items: center;
 
+    padding:
+        7px
+        11px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(0,113,227,.09);
+
     color: var(--blue);
 
-    font-size: 10.5px;
-    font-weight: 620;
+    font-size: 10px;
+    font-weight: 650;
 
-    transition: opacity .2s ease;
+    transition:
+        background .2s ease,
+        transform .2s ease;
 }
 
 .store-link:hover {
-    opacity: .68;
+    background:
+        rgba(0,113,227,.15);
+
+    transform:
+        translateY(-1px);
 }
 
 
 /* =========================================================
-   COMING SOON
+   LOADING
 ========================================================= */
 
-.coming-soon {
-    margin-top: 62px;
+.loading-card {
+    aspect-ratio: 1 / 1;
 
-    padding-top: 38px;
+    border-radius: 24px;
 
-    border-top:
+    background:
+        linear-gradient(
+            110deg,
+            rgba(255,255,255,.35) 8%,
+            rgba(255,255,255,.7) 18%,
+            rgba(255,255,255,.35) 33%
+        );
+
+    background-size:
+        200% 100%;
+
+    animation:
+        shimmer 1.4s linear infinite;
+
+    border:
         1px solid
         var(--border);
 }
 
-.coming-header {
-    margin-bottom: 20px;
-}
+@keyframes shimmer {
 
-.coming-header h2 {
-    margin: 0;
+    to {
+        background-position-x: -200%;
+    }
 
-    font-size: 24px;
-    font-weight: 700;
-
-    letter-spacing: -.035em;
-}
-
-.coming-copy {
-    margin-top: 5px;
-
-    color: var(--secondary);
-
-    font-size: 11px;
-}
-
-.coming-grid .app-card {
-    min-height: 118px;
-
-    opacity: .9;
-}
-
-.coming-grid .app-card:hover {
-    opacity: 1;
 }
 
 
 /* =========================================================
-   WAITING BADGE
+   STATUS / ERROR
 ========================================================= */
 
-.review-status {
-    display: inline-flex;
-    align-items: center;
-
-    padding:
-        4px
-        8px;
-
-    background:
-        rgba(0,0,0,.055);
-
-    border-radius: 999px;
-
-    color: var(--secondary);
-
-    font-size: 9px;
-    font-weight: 650;
-}
-
-
-/* =========================================================
-   PLACEHOLDER ICONS
-========================================================= */
-
-.icon-filtrume {
-    background:
-        linear-gradient(
-            145deg,
-            #ff7a00,
-            #7c3aed 55%,
-            #007aff
-        );
-
-    color: white;
-}
-
-.icon-sudoku {
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #e5e5ea
-        );
-
-    color: #0071e3;
-}
-
-.icon-keylock {
-    background:
-        linear-gradient(
-            145deg,
-            #003b7a,
-            #007aff
-        );
-
-    color: white;
-}
-
-.icon-parking {
-    background:
-        linear-gradient(
-            145deg,
-            #004a9f,
-            #007aff
-        );
-
-    color: white;
-}
-
-.icon-step {
-    background:
-        linear-gradient(
-            145deg,
-            #111827,
-            #007aff
-        );
-
-    color: white;
-}
-
-
-/* =========================================================
-   EMPTY
-========================================================= */
-
-.empty {
-    display: none;
-
+.status-message {
     grid-column:
         1 / -1;
 
     padding:
-        60px
+        70px
         20px;
 
     text-align: center;
 
     color: var(--secondary);
 
-    font-size: 12px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.status-message strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--text);
+
+    font-size: 15px;
 }
 
 
@@ -719,34 +657,25 @@ footer {
     gap: 20px;
 }
 
-.footer-links a {
-    transition: color .2s ease;
-}
-
 .footer-links a:hover {
     color: var(--text);
 }
 
 
 /* =========================================================
-   TABLET
+   RESPONSIVE
 ========================================================= */
 
-@media(max-width:960px) {
+@media(max-width:1050px) {
 
     .app-grid {
         grid-template-columns:
-            repeat(2, minmax(0,1fr));
+            repeat(3, minmax(0,1fr));
     }
 
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:650px) {
+@media(max-width:760px) {
 
     nav {
         justify-content: center;
@@ -755,16 +684,12 @@ footer {
     main {
         padding:
             32px
-            18px
+            20px
             65px;
     }
 
     .toolbar {
         display: block;
-    }
-
-    .filters {
-        padding-bottom: 3px;
     }
 
     .search-wrap {
@@ -775,37 +700,89 @@ footer {
     }
 
     .app-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
 
-        gap: 10px;
+        gap: 12px;
     }
 
     .app-card {
-        min-height: 108px;
+        padding: 17px;
 
+        border-radius: 21px;
+    }
+
+    .app-icon {
+        width: 56px;
+        height: 56px;
+
+        min-width: 56px;
+
+        border-radius: 14px;
+    }
+
+    .description {
+        -webkit-line-clamp: 2;
+    }
+
+}
+
+@media(max-width:430px) {
+
+    main {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .app-grid {
+        gap: 9px;
+    }
+
+    .app-card {
         padding: 14px;
 
         border-radius: 18px;
     }
 
     .app-icon {
-        width: 52px;
-        height: 52px;
+        width: 49px;
+        height: 49px;
 
-        min-width: 52px;
+        min-width: 49px;
 
         border-radius: 12px;
     }
 
-    .coming-soon {
-        margin-top: 55px;
+    .app-name {
+        margin-top: 12px;
 
-        padding-top: 35px;
+        font-size: 13.5px;
     }
 
-    footer {
-        padding-left: 18px;
-        padding-right: 18px;
+    .category {
+        margin-bottom: 6px;
+
+        font-size: 8.5px;
+    }
+
+    .description {
+        font-size: 9.3px;
+
+        line-height: 1.35;
+
+        -webkit-line-clamp: 2;
+    }
+
+    .actions {
+        padding-top: 7px;
+    }
+
+    .store-link {
+        padding:
+            5px
+            7px;
+
+        font-size: 8.5px;
     }
 
 }
@@ -820,7 +797,6 @@ footer {
     :root {
         --bg: #000000;
         --surface: rgba(28,28,30,.80);
-        --surface-solid: #f5f5f7;
         --text: #f5f5f7;
         --secondary: #a1a1a6;
         --tertiary: #86868b;
@@ -854,6 +830,7 @@ footer {
 
     .filter.active {
         background: #f5f5f7;
+
         color: #111;
     }
 
@@ -872,11 +849,6 @@ footer {
             rgba(32,32,34,.97);
     }
 
-    .review-status {
-        background:
-            rgba(255,255,255,.08);
-    }
-
 }
 
 </style>
@@ -885,10 +857,6 @@ footer {
 
 <body>
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 
 <header>
 
@@ -912,23 +880,17 @@ Contact
 
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <main>
 
 
 <section id="apps">
 
 
-<!-- APP COUNT -->
-
 <div class="top-area">
 
 <div
     class="app-count"
-    id="availableCount"
+    id="appCount"
 >
 Loading apps…
 </div>
@@ -937,76 +899,19 @@ Loading apps…
 
 
 
-<!-- =====================================================
-     TOOLBAR
-===================================================== -->
-
 <div class="toolbar">
 
 
-<div class="filters">
+<div
+    class="filters"
+    id="filters"
+>
 
 <button
     class="filter active"
     data-filter="all"
 >
 All
-</button>
-
-<button
-    class="filter"
-    data-filter="photo"
->
-Photo &amp; Video
-</button>
-
-<button
-    class="filter"
-    data-filter="business"
->
-Business
-</button>
-
-<button
-    class="filter"
-    data-filter="productivity"
->
-Productivity
-</button>
-
-<button
-    class="filter"
-    data-filter="utilities"
->
-Utilities
-</button>
-
-<button
-    class="filter"
-    data-filter="health"
->
-Health &amp; Fitness
-</button>
-
-<button
-    class="filter"
-    data-filter="games"
->
-Games
-</button>
-
-<button
-    class="filter"
-    data-filter="reference"
->
-Reference
-</button>
-
-<button
-    class="filter"
-    data-filter="developer"
->
-Developer Tools
 </button>
 
 </div>
@@ -1033,59 +938,21 @@ Developer Tools
 
 
 
-<!-- =====================================================
-     AVAILABLE APPS
-===================================================== -->
-
 <div
     class="app-grid"
-    id="availableGrid"
->
-</div>
-
-
-<div
-    class="empty"
-    id="empty"
->
-No apps found.
-</div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     COMING SOON
-===================================================== -->
-
-<section
-    class="coming-soon"
-    id="comingSoonSection"
+    id="appGrid"
 >
 
+<div class="loading-card"></div>
+<div class="loading-card"></div>
+<div class="loading-card"></div>
+<div class="loading-card"></div>
 
-<div class="coming-header">
+<div class="loading-card"></div>
+<div class="loading-card"></div>
+<div class="loading-card"></div>
+<div class="loading-card"></div>
 
-<h2>
-Coming Soon
-</h2>
-
-<div
-    class="coming-copy"
-    id="comingCount"
->
-Checking App Store…
-</div>
-
-</div>
-
-
-<div
-    class="app-grid coming-grid"
-    id="comingGrid"
->
 </div>
 
 
@@ -1095,10 +962,6 @@ Checking App Store…
 </main>
 
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
 <footer>
 
@@ -1126,436 +989,65 @@ Contact
 <script>
 
 /* =========================================================
-   MASTER APP DATABASE
+   JOSH SWIFT DEV
+   APPLE DEVELOPER ID
 ========================================================= */
 
-const apps = [
+const DEVELOPER_ID =
+    "6809669072";
 
-    {
-        id: "6815771062",
-        name: "SSH Now",
-        category: "developer",
-        categoryName: "Developer Tools",
-        description:
-            "Secure SSH terminal with saved servers, private keys, host verification and terminal tools.",
-        fallback: ">_",
-        knownLive: true
-    },
 
-    {
-        id: "6813191216",
-        name: "BizCard Contacts",
-        category: "business",
-        categoryName: "Business",
-        description:
-            "Scan business cards and build a clean, searchable contact directory on your iPhone.",
-        fallback: "B",
-        knownLive: true
-    },
+const APPLE_LOOKUP =
+    "https://itunes.apple.com/lookup?id=" +
+    DEVELOPER_ID +
+    "&entity=software&country=us&limit=200";
 
-    {
-        id: "6814234024",
-        name: "CleanPhotoFlick",
-        category: "photo",
-        categoryName: "Photo & Video",
-        description:
-            "Swipe through your photo library to keep what matters and quickly clean out the rest.",
-        fallback: "C",
-        knownLive: true
-    },
 
-    {
-        id: "6813739466",
-        name: "Shuffled Memories",
-        category: "photo",
-        categoryName: "Photo & Video",
-        description:
-            "Rediscover forgotten photos from your library through a spontaneous trip through your memories.",
-        fallback: "S",
-        knownLive: true
-    },
+/* =========================================================
+   STATE
+========================================================= */
 
-    {
-        id: "6812952885",
-        name: "Daily Glow Reminders",
-        category: "productivity",
-        categoryName: "Productivity",
-        description:
-            "Flexible daily reminders and repeating routines designed to add structure to your day.",
-        fallback: "D",
-        knownLive: true
-    },
+let apps = [];
 
-    {
-        id: "6809966534",
-        name: "370Z Companion",
-        category: "reference",
-        categoryName: "Reference",
-        description:
-            "Track maintenance, save service records, look up OBD codes and follow relearn timers.",
-        fallback: "Z",
-        knownLive: true
-    },
-
-    {
-        id: "6811242750",
-        name: "HEIC Photo Converter Pro",
-        category: "photo",
-        categoryName: "Photo & Video",
-        description:
-            "Convert HEIC and HEIF photos to JPG or PNG privately and directly on your iPhone.",
-        fallback: "H",
-        knownLive: true
-    },
-
-    {
-        id: "6813448638",
-        name: "Gallery Sweep Pro",
-        category: "photo",
-        categoryName: "Photo & Video",
-        description:
-            "Find duplicate and similar photos, screenshots, large media and possible blurry photos.",
-        fallback: "G",
-        knownLive: true
-    },
-
-    {
-        id: "6809669070",
-        name: "CaseKeeper Records",
-        category: "productivity",
-        categoryName: "Productivity",
-        description:
-            "Track customer-service issues, follow-ups, reminders, contacts, documents and important records.",
-        fallback: "C",
-        knownLive: true
-    },
-
-    {
-        id: "6817830878",
-        name: "Filtrume",
-        category: "photo",
-        categoryName: "Photo & Video",
-        description:
-            "A powerful photo editor with 200+ curated filters, AI Studio effects, professional editing tools and full-resolution export.",
-        fallback: "F",
-        placeholderClass: "icon-filtrume",
-        knownLive: false
-    },
-
-    {
-        id: "6817367810",
-        name: "Forever Sudoku",
-        category: "games",
-        categoryName: "Games",
-        description:
-            "Unlimited Sudoku boards with multiple difficulty levels, progression and trophies to unlock.",
-        fallback: "9",
-        placeholderClass: "icon-sudoku",
-        knownLive: false
-    },
-
-    {
-        id: "6816921886",
-        name: "KeyLockPro2",
-        category: "utilities",
-        categoryName: "Utilities",
-        description:
-            "Securely organize passwords and generate strong credentials directly on your iPhone.",
-        fallback: "K",
-        placeholderClass: "icon-keylock",
-        knownLive: false
-    },
-
-    {
-        id: "6815499806",
-        name: "Parking Spot Hero",
-        category: "utilities",
-        categoryName: "Utilities",
-        description:
-            "Save where you parked, track parking time and quickly find your way back to your car.",
-        fallback: "P",
-        placeholderClass: "icon-parking",
-        knownLive: false
-    },
-
-    {
-        id: "6816172118",
-        name: "StepVault",
-        category: "health",
-        categoryName: "Health & Fitness",
-        description:
-            "Explore your step history, distance, goals and achievements in one beautiful dashboard.",
-        fallback: "S",
-        placeholderClass: "icon-step",
-        knownLive: false
-    }
-
-];
-
+let activeFilter = "all";
 
 
 /* =========================================================
    ELEMENTS
 ========================================================= */
 
-const availableGrid =
-    document.getElementById("availableGrid");
+const appGrid =
+    document.getElementById(
+        "appGrid"
+    );
 
-const comingGrid =
-    document.getElementById("comingGrid");
-
-const availableCount =
-    document.getElementById("availableCount");
-
-const comingCount =
-    document.getElementById("comingCount");
-
-const comingSoonSection =
-    document.getElementById("comingSoonSection");
+const appCount =
+    document.getElementById(
+        "appCount"
+    );
 
 const search =
-    document.getElementById("search");
-
-const empty =
-    document.getElementById("empty");
+    document.getElementById(
+        "search"
+    );
 
 const filters =
-    [...document.querySelectorAll(".filter")];
-
-let activeFilter =
-    "all";
-
-let publicApps =
-    new Map();
-
+    document.getElementById(
+        "filters"
+    );
 
 
 /* =========================================================
-   CREATE APP CARD
+   LOAD APPS FROM APPLE
 ========================================================= */
 
-function createCard(
-    app,
-    live,
-    appleData = null
-) {
-
-    const card =
-        document.createElement("article");
-
-    card.className =
-        "app-card";
-
-    card.dataset.category =
-        app.category;
-
-
-    /* ICON */
-
-    const icon =
-        document.createElement("div");
-
-    icon.className =
-        "app-icon" +
-        (
-            !live &&
-            app.placeholderClass
-                ? " " + app.placeholderClass
-                : ""
-        );
-
-
-    if (
-        live &&
-        appleData &&
-        (
-            appleData.artworkUrl512 ||
-            appleData.artworkUrl100 ||
-            appleData.artworkUrl60
-        )
-    ) {
-
-        const image =
-            document.createElement("img");
-
-
-        image.src =
-            appleData.artworkUrl512 ||
-            appleData.artworkUrl100 ||
-            appleData.artworkUrl60;
-
-
-        image.alt =
-            app.name + " app icon";
-
-
-        image.loading =
-            "lazy";
-
-
-        image.referrerPolicy =
-            "no-referrer";
-
-
-        icon.appendChild(image);
-
-    }
-
-    else {
-
-        icon.textContent =
-            app.fallback;
-
-    }
-
-
-    /* INFO */
-
-    const info =
-        document.createElement("div");
-
-    info.className =
-        "app-info";
-
-
-    const name =
-        document.createElement("h3");
-
-    name.className =
-        "app-name";
-
-    name.textContent =
-        app.name;
-
-
-    const category =
-        document.createElement("div");
-
-    category.className =
-        "category";
-
-    category.textContent =
-        app.categoryName;
-
-
-    const description =
-        document.createElement("p");
-
-    description.className =
-        "description";
-
-    description.textContent =
-        app.description;
-
-
-    const actions =
-        document.createElement("div");
-
-    actions.className =
-        "actions";
-
-
-    /* LIVE APP */
-
-    if (live) {
-
-        const link =
-            document.createElement("a");
-
-        link.className =
-            "store-link";
-
-        link.target =
-            "_blank";
-
-        link.rel =
-            "noopener";
-
-        link.textContent =
-            "View on App Store ›";
-
-
-        if (
-            appleData &&
-            appleData.trackViewUrl
-        ) {
-
-            link.href =
-                appleData.trackViewUrl;
-
-        }
-
-        else {
-
-            link.href =
-                "https://apps.apple.com/us/app/id" +
-                app.id;
-
-        }
-
-
-        actions.appendChild(link);
-
-    }
-
-
-    /* WAITING APP */
-
-    else {
-
-        const status =
-            document.createElement("span");
-
-        status.className =
-            "review-status";
-
-        status.textContent =
-            "Waiting for Review";
-
-
-        actions.appendChild(status);
-
-    }
-
-
-    info.appendChild(name);
-    info.appendChild(category);
-    info.appendChild(description);
-    info.appendChild(actions);
-
-    card.appendChild(icon);
-    card.appendChild(info);
-
-
-    return card;
-
-}
-
-
-
-/* =========================================================
-   APPLE LOOKUP
-========================================================= */
-
-async function getAppleData() {
-
-    const ids =
-        apps.map(
-            app => app.id
-        );
-
-
-    const lookupURL =
-        "https://itunes.apple.com/lookup?id=" +
-        ids.join(",") +
-        "&country=us";
-
+async function loadApps() {
 
     try {
 
         const response =
             await fetch(
-                lookupURL,
+                APPLE_LOOKUP,
                 {
                     cache: "no-store"
                 }
@@ -1575,222 +1067,401 @@ async function getAppleData() {
             await response.json();
 
 
-        data.results.forEach(
-            result => {
+        /*
+           The developer lookup may include a developer
+           record along with software records.
 
-                publicApps.set(
-                    String(result.trackId),
-                    result
+           We only keep actual software applications.
+        */
+
+        apps =
+            data.results
+                .filter(
+                    item =>
+                        item.wrapperType ===
+                        "software"
+                )
+                .sort(
+                    (a, b) =>
+                        a.trackName.localeCompare(
+                            b.trackName
+                        )
                 );
 
-            }
-        );
 
+        createFilters();
 
-        return true;
+        renderApps();
 
     }
 
     catch(error) {
 
-        console.log(
-            "Apple App Store lookup unavailable:",
+        console.error(
+            "Unable to load App Store apps:",
             error
         );
 
 
-        return false;
+        appCount.textContent =
+            "Apps";
+
+
+        appGrid.innerHTML =
+            `
+            <div class="status-message">
+
+                <strong>
+                    Unable to load apps right now.
+                </strong>
+
+                Please try again in a moment.
+
+            </div>
+            `;
 
     }
 
 }
 
 
-
 /* =========================================================
-   LIVE STATUS
+   CREATE CATEGORY FILTERS
 ========================================================= */
 
-function isAppLive(
-    app,
-    lookupWorked
-) {
+function createFilters() {
 
-    /*
-       Apps already known to be live always stay
-       in the Available section.
-
-       Apps waiting for review automatically move
-       to Available as soon as Apple's public API
-       begins returning them.
-    */
-
-    if (app.knownLive) {
-        return true;
-    }
-
-    if (lookupWorked) {
-
-        return publicApps.has(
-            app.id
-        );
-
-    }
-
-    return false;
-
-}
+    const genres =
+        [
+            ...new Set(
+                apps
+                    .map(
+                        app =>
+                            app.primaryGenreName
+                    )
+                    .filter(Boolean)
+            )
+        ]
+        .sort();
 
 
-
-/* =========================================================
-   RENDER
-========================================================= */
-
-async function renderApps() {
-
-    /*
-       Render the known state immediately.
-       This prevents the page from appearing empty
-       while Apple's API is loading.
-    */
-
-    renderCurrentState(false);
+    filters.innerHTML =
+        `
+        <button
+            class="filter active"
+            data-filter="all"
+        >
+            All
+        </button>
+        `;
 
 
-    publicApps.clear();
+    genres.forEach(
+        genre => {
 
-
-    const lookupWorked =
-        await getAppleData();
-
-
-    renderCurrentState(
-        lookupWorked
-    );
-
-}
-
-
-
-/* =========================================================
-   RENDER CURRENT STATE
-========================================================= */
-
-function renderCurrentState(
-    lookupWorked
-) {
-
-    availableGrid.innerHTML =
-        "";
-
-    comingGrid.innerHTML =
-        "";
-
-
-    let availableTotal =
-        0;
-
-    let comingTotal =
-        0;
-
-
-    apps.forEach(
-        app => {
-
-            const live =
-                isAppLive(
-                    app,
-                    lookupWorked
+            const button =
+                document.createElement(
+                    "button"
                 );
 
 
-            const appleData =
-                publicApps.get(
-                    app.id
-                ) || null;
+            button.className =
+                "filter";
 
 
-            const card =
-                createCard(
-                    app,
-                    live,
-                    appleData
-                );
+            button.dataset.filter =
+                genre;
 
 
-            if (live) {
+            button.textContent =
+                genre;
 
-                availableGrid.appendChild(
-                    card
-                );
 
-                availableTotal++;
-
-            }
-
-            else {
-
-                comingGrid.appendChild(
-                    card
-                );
-
-                comingTotal++;
-
-            }
+            filters.appendChild(
+                button
+            );
 
         }
     );
 
 
-    availableCount.textContent =
-        availableTotal === 1
-            ? "1 app available"
-            : availableTotal +
-              " apps available";
+    filters
+        .querySelectorAll(
+            ".filter"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        filters
+                            .querySelectorAll(
+                                ".filter"
+                            )
+                            .forEach(
+                                item =>
+                                    item.classList.remove(
+                                        "active"
+                                    )
+                            );
 
 
-    if (comingTotal === 0) {
-
-        comingSoonSection.style.display =
-            "none";
-
-    }
-
-    else {
-
-        comingSoonSection.style.display =
-            "block";
+                        button.classList.add(
+                            "active"
+                        );
 
 
-        comingCount.textContent =
-            comingTotal === 1
-                ? "1 app currently making its way to the App Store."
-                : comingTotal +
-                  " apps currently making their way to the App Store.";
-
-    }
+                        activeFilter =
+                            button.dataset.filter;
 
 
-    updateFilters();
+                        renderApps();
+
+                    }
+                );
+
+            }
+        );
 
 }
 
 
-
 /* =========================================================
-   SEARCH + FILTERS
+   CREATE APP CARD
 ========================================================= */
 
-function updateFilters() {
+function createCard(
+    app
+) {
 
-    const cards =
-        [
-            ...availableGrid.querySelectorAll(
-                ".app-card"
-            )
-        ];
+    const card =
+        document.createElement(
+            "article"
+        );
 
+
+    card.className =
+        "app-card";
+
+
+    /* ICON */
+
+    const icon =
+        document.createElement(
+            "div"
+        );
+
+
+    icon.className =
+        "app-icon";
+
+
+    const image =
+        document.createElement(
+            "img"
+        );
+
+
+    /*
+       Apple normally supplies artworkUrl512,
+       artworkUrl100 and artworkUrl60.
+    */
+
+    image.src =
+        app.artworkUrl512 ||
+        app.artworkUrl100 ||
+        app.artworkUrl60 ||
+        "";
+
+
+    image.alt =
+        app.trackName +
+        " app icon";
+
+
+    image.loading =
+        "lazy";
+
+
+    image.referrerPolicy =
+        "no-referrer";
+
+
+    icon.appendChild(
+        image
+    );
+
+
+    /* INFO */
+
+    const info =
+        document.createElement(
+            "div"
+        );
+
+
+    info.className =
+        "app-info";
+
+
+    const name =
+        document.createElement(
+            "h3"
+        );
+
+
+    name.className =
+        "app-name";
+
+
+    name.textContent =
+        app.trackName;
+
+
+    const category =
+        document.createElement(
+            "div"
+        );
+
+
+    category.className =
+        "category";
+
+
+    category.textContent =
+        app.primaryGenreName ||
+        "iPhone App";
+
+
+    const description =
+        document.createElement(
+            "p"
+        );
+
+
+    description.className =
+        "description";
+
+
+    description.textContent =
+        cleanDescription(
+            app.description
+        );
+
+
+    const actions =
+        document.createElement(
+            "div"
+        );
+
+
+    actions.className =
+        "actions";
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.className =
+        "store-link";
+
+
+    link.href =
+        app.trackViewUrl ||
+        (
+            "https://apps.apple.com/us/app/id" +
+            app.trackId
+        );
+
+
+    link.target =
+        "_blank";
+
+
+    link.rel =
+        "noopener";
+
+
+    link.textContent =
+        "View on App Store ›";
+
+
+    actions.appendChild(
+        link
+    );
+
+
+    info.appendChild(
+        name
+    );
+
+    info.appendChild(
+        category
+    );
+
+    info.appendChild(
+        description
+    );
+
+    info.appendChild(
+        actions
+    );
+
+
+    card.appendChild(
+        icon
+    );
+
+    card.appendChild(
+        info
+    );
+
+
+    return card;
+
+}
+
+
+/* =========================================================
+   CLEAN DESCRIPTION
+========================================================= */
+
+function cleanDescription(
+    description
+) {
+
+    if (!description) {
+
+        return "Available on the App Store.";
+
+    }
+
+
+    /*
+       Remove unnecessary whitespace so Apple's
+       description looks clean inside the card.
+    */
+
+    return description
+        .replace(
+            /\s+/g,
+            " "
+        )
+        .trim();
+
+}
+
+
+/* =========================================================
+   RENDER APPS
+========================================================= */
+
+function renderApps() {
 
     const query =
         search.value
@@ -1798,101 +1469,98 @@ function updateFilters() {
             .toLowerCase();
 
 
-    let visible =
-        0;
+    const visibleApps =
+        apps.filter(
+            app => {
+
+                const categoryMatch =
+                    activeFilter === "all" ||
+                    app.primaryGenreName ===
+                    activeFilter;
 
 
-    cards.forEach(
-        card => {
-
-            const category =
-                card.dataset.category;
-
-
-            const text =
-                card.innerText
+                const searchableText =
+                    (
+                        app.trackName +
+                        " " +
+                        (
+                            app.primaryGenreName ||
+                            ""
+                        ) +
+                        " " +
+                        (
+                            app.description ||
+                            ""
+                        )
+                    )
                     .toLowerCase();
 
 
-            const categoryMatch =
-                activeFilter === "all" ||
-                category === activeFilter;
+                const searchMatch =
+                    !query ||
+                    searchableText.includes(
+                        query
+                    );
 
 
-            const searchMatch =
-                !query ||
-                text.includes(query);
-
-
-            const shouldShow =
-                categoryMatch &&
-                searchMatch;
-
-
-            card.style.display =
-                shouldShow
-                    ? "flex"
-                    : "none";
-
-
-            if (shouldShow) {
-
-                visible++;
+                return (
+                    categoryMatch &&
+                    searchMatch
+                );
 
             }
+        );
+
+
+    appGrid.innerHTML =
+        "";
+
+
+    visibleApps.forEach(
+        app => {
+
+            appGrid.appendChild(
+                createCard(
+                    app
+                )
+            );
 
         }
     );
 
 
-    empty.style.display =
-        visible === 0
-            ? "block"
-            : "none";
+    /*
+       Count always shows total public apps,
+       not only the filtered number.
+    */
 
-}
-
-
-
-/* =========================================================
-   FILTER BUTTONS
-========================================================= */
-
-filters.forEach(
-    button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                filters.forEach(
-                    item => {
-
-                        item.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
+    appCount.textContent =
+        apps.length === 1
+            ? "1 app available"
+            : apps.length +
+              " apps available";
 
 
-                button.classList.add(
-                    "active"
-                );
+    if (
+        visibleApps.length === 0
+    ) {
 
+        appGrid.innerHTML =
+            `
+            <div class="status-message">
 
-                activeFilter =
-                    button.dataset.filter;
+                <strong>
+                    No apps found.
+                </strong>
 
+                Try another search or category.
 
-                updateFilters();
-
-            }
-        );
+            </div>
+            `;
 
     }
-);
 
+}
 
 
 /* =========================================================
@@ -1901,16 +1569,15 @@ filters.forEach(
 
 search.addEventListener(
     "input",
-    updateFilters
+    renderApps
 );
-
 
 
 /* =========================================================
    START
 ========================================================= */
 
-renderApps();
+loadApps();
 
 </script>
 
