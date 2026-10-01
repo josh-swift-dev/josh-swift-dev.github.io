@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Josh Swift Dev</title>
-
 <meta name="description" content="Independent iPhone apps by Josh Swift Dev.">
 
 <style>
@@ -105,7 +104,6 @@ nav {
 
 main {
     max-width: 1120px;
-
     margin: auto;
 
     padding:
@@ -116,12 +114,12 @@ main {
 
 
 /* =========================================================
-   SIMPLE INTRO
+   INTRO
 ========================================================= */
 
 .intro {
     text-align: center;
-    margin-bottom: 42px;
+    margin-bottom: 52px;
 }
 
 .intro p {
@@ -137,140 +135,12 @@ main {
 
 
 /* =========================================================
-   FEATURED FILTRUME
+   SECTION HEADERS
 ========================================================= */
 
-.featured {
+.section-header {
     display: flex;
-    align-items: center;
-    gap: 20px;
-
-    padding: 22px;
-
-    margin-bottom: 48px;
-
-    background: var(--surface);
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 4px 18px
-        rgba(0,0,0,.035);
-}
-
-.featured-icon {
-    width: 70px;
-    height: 70px;
-
-    min-width: 70px;
-
-    border-radius: 16px;
-
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-
-    font-size: 27px;
-    font-weight: 700;
-
-    background:
-        radial-gradient(
-            circle at 25% 25%,
-            #ff7a00,
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 75% 25%,
-            #af52de,
-            transparent 38%
-        ),
-        radial-gradient(
-            circle at 40% 80%,
-            #007aff,
-            transparent 42%
-        ),
-        #111;
-
-    box-shadow:
-        0 4px 12px
-        rgba(0,0,0,.14);
-}
-
-.featured-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.featured-info {
-    flex: 1;
-}
-
-.new-label {
-    margin-bottom: 4px;
-
-    color: #bf4800;
-
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: .07em;
-
-    text-transform: uppercase;
-}
-
-.featured h2 {
-    margin: 0;
-
-    font-size: 22px;
-
-    letter-spacing: -.03em;
-}
-
-.featured p {
-    max-width: 650px;
-
-    margin: 5px 0 0;
-
-    color: var(--secondary);
-
-    font-size: 13.5px;
-    line-height: 1.45;
-}
-
-.waiting {
-    padding: 8px 14px;
-
-    border-radius: 100px;
-
-    background: var(--pill);
-
-    color: var(--secondary);
-
-    font-size: 11px;
-    font-weight: 600;
-
-    white-space: nowrap;
-}
-
-
-/* =========================================================
-   APP HEADER
-========================================================= */
-
-.apps-header {
-    display: flex;
-
     align-items: flex-end;
-
     justify-content: space-between;
 
     gap: 20px;
@@ -278,12 +148,20 @@ main {
     margin-bottom: 20px;
 }
 
-.apps-header h2 {
+.section-header h2 {
     margin: 0;
 
     font-size: 28px;
-
     letter-spacing: -.035em;
+}
+
+.section-subtitle {
+    margin-top: 5px;
+
+    color: var(--secondary);
+
+    font-size: 12px;
+    line-height: 1.4;
 }
 
 .count {
@@ -303,35 +181,22 @@ main {
     width: 225px;
     height: 38px;
 
-    padding:
-        0
-        13px;
+    padding: 0 13px;
 
-    border:
-        1px solid
-        var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 10px;
 
-    background:
-        var(--surface);
+    background: var(--surface);
+    color: var(--text);
 
-    color:
-        var(--text);
+    font-family: inherit;
+    font-size: 13px;
 
-    font-family:
-        inherit;
-
-    font-size:
-        13px;
-
-    outline:
-        none;
+    outline: none;
 }
 
 .search:focus {
-    border-color:
-        rgba(0,113,227,.45);
+    border-color: rgba(0,113,227,.45);
 
     box-shadow:
         0 0 0 3px
@@ -351,7 +216,6 @@ main {
     overflow-x: auto;
 
     margin-bottom: 24px;
-
     padding-bottom: 3px;
 
     scrollbar-width: none;
@@ -363,41 +227,33 @@ main {
 
 .filter {
     border: 0;
-
     cursor: pointer;
 
-    padding:
-        7px
-        13px;
+    padding: 7px 13px;
 
-    border-radius:
-        100px;
+    border-radius: 100px;
 
-    background:
-        var(--pill);
+    background: var(--pill);
+    color: var(--secondary);
 
-    color:
-        var(--secondary);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
 
-    font-family:
-        inherit;
+    white-space: nowrap;
 
-    font-size:
-        12px;
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
 
-    font-weight:
-        600;
-
-    white-space:
-        nowrap;
+.filter:hover {
+    color: var(--text);
 }
 
 .filter.active {
-    background:
-        var(--text);
-
-    color:
-        var(--surface);
+    background: var(--text);
+    color: var(--surface);
 }
 
 
@@ -416,12 +272,11 @@ main {
 
 
 /* =========================================================
-   APP CARD
+   APP CARDS
 ========================================================= */
 
 .app-card {
     display: flex;
-
     align-items: flex-start;
 
     gap: 15px;
@@ -430,15 +285,10 @@ main {
 
     padding: 18px;
 
-    background:
-        var(--surface);
+    background: var(--surface);
 
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        17px;
+    border: 1px solid var(--border);
+    border-radius: 17px;
 
     transition:
         transform .2s ease,
@@ -447,11 +297,9 @@ main {
 }
 
 .app-card:hover {
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
-    border-color:
-        rgba(0,0,0,.12);
+    border-color: rgba(0,0,0,.12);
 
     box-shadow:
         0 10px 28px
@@ -474,22 +322,14 @@ main {
     overflow: hidden;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    background:
-        #e8e8ed;
+    background: #e8e8ed;
+    color: #6e6e73;
 
-    color:
-        #6e6e73;
-
-    font-size:
-        20px;
-
-    font-weight:
-        700;
+    font-size: 20px;
+    font-weight: 700;
 
     box-shadow:
         0 3px 9px
@@ -501,12 +341,13 @@ main {
     height: 100%;
 
     display: block;
-
     object-fit: cover;
 }
 
 
-/* Waiting-for-review placeholder icons */
+/* =========================================================
+   COMING SOON ICONS
+========================================================= */
 
 .icon-filtrume {
     background:
@@ -575,83 +416,63 @@ main {
 
 .app-info {
     flex: 1;
-
     min-width: 0;
 }
 
 .app-name {
-    margin:
-        1px
-        0
-        2px;
+    margin: 1px 0 2px;
 
-    font-size:
-        16px;
+    font-size: 16px;
+    font-weight: 650;
 
-    font-weight:
-        650;
-
-    letter-spacing:
-        -.02em;
+    letter-spacing: -.02em;
 }
 
 .category {
-    margin-bottom:
-        6px;
+    margin-bottom: 6px;
 
-    color:
-        var(--tertiary);
+    color: var(--tertiary);
 
-    font-size:
-        11px;
-
-    font-weight:
-        600;
+    font-size: 11px;
+    font-weight: 600;
 }
 
 .description {
     margin: 0;
 
-    color:
-        var(--secondary);
+    color: var(--secondary);
 
-    font-size:
-        12.5px;
-
-    line-height:
-        1.4;
+    font-size: 12.5px;
+    line-height: 1.4;
 }
 
 .actions {
-    margin-top:
-        9px;
+    margin-top: 9px;
 }
 
 .store-link {
-    color:
-        var(--blue);
+    color: var(--blue);
 
-    font-size:
-        12px;
-
-    font-weight:
-        600;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 .store-link:hover {
-    text-decoration:
-        underline;
+    text-decoration: underline;
 }
 
 .review-status {
-    color:
-        var(--tertiary);
+    display: inline-block;
 
-    font-size:
-        11px;
+    padding: 5px 9px;
 
-    font-weight:
-        600;
+    border-radius: 100px;
+
+    background: var(--pill);
+    color: var(--tertiary);
+
+    font-size: 10.5px;
+    font-weight: 600;
 }
 
 
@@ -662,18 +483,32 @@ main {
 .empty {
     display: none;
 
-    grid-column:
-        1 / -1;
+    grid-column: 1 / -1;
 
-    padding:
-        60px
-        20px;
+    padding: 60px 20px;
 
-    text-align:
-        center;
+    text-align: center;
 
-    color:
-        var(--secondary);
+    color: var(--secondary);
+}
+
+
+/* =========================================================
+   COMING SOON SECTION
+========================================================= */
+
+.coming-soon {
+    margin-top: 78px;
+
+    padding-top: 45px;
+
+    border-top:
+        1px solid
+        var(--border);
+}
+
+.coming-grid .app-card {
+    opacity: .92;
 }
 
 
@@ -687,14 +522,11 @@ main {
     grid-template-columns:
         1.3fr .7fr;
 
-    gap:
-        50px;
+    gap: 50px;
 
-    margin-top:
-        70px;
+    margin-top: 78px;
 
-    padding-top:
-        45px;
+    padding-top: 45px;
 
     border-top:
         1px solid
@@ -702,57 +534,39 @@ main {
 }
 
 .about h2 {
-    margin:
-        0
-        0
-        8px;
+    margin: 0 0 8px;
 
-    font-size:
-        26px;
+    font-size: 26px;
 
-    letter-spacing:
-        -.03em;
+    letter-spacing: -.03em;
 }
 
 .about p {
-    max-width:
-        600px;
+    max-width: 600px;
 
-    margin:
-        0;
+    margin: 0;
 
-    color:
-        var(--secondary);
+    color: var(--secondary);
 
-    font-size:
-        14px;
-
-    line-height:
-        1.55;
+    font-size: 14px;
+    line-height: 1.55;
 }
 
 .about-links {
-    display:
-        flex;
+    display: flex;
+    flex-direction: column;
 
-    flex-direction:
-        column;
-
-    gap:
-        10px;
+    gap: 10px;
 }
 
 .about-links a {
-    color:
-        var(--blue);
+    color: var(--blue);
 
-    font-size:
-        13px;
+    font-size: 13px;
 }
 
 .about-links a:hover {
-    text-decoration:
-        underline;
+    text-decoration: underline;
 }
 
 
@@ -761,11 +575,9 @@ main {
 ========================================================= */
 
 footer {
-    max-width:
-        1120px;
+    max-width: 1120px;
 
-    margin:
-        auto;
+    margin: auto;
 
     padding:
         24px
@@ -776,28 +588,21 @@ footer {
         1px solid
         var(--border);
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    gap:
-        20px;
+    gap: 20px;
 
-    color:
-        var(--tertiary);
+    color: var(--tertiary);
 
-    font-size:
-        11px;
+    font-size: 11px;
 }
 
 .footer-links {
-    display:
-        flex;
+    display: flex;
 
-    gap:
-        17px;
+    gap: 17px;
 }
 
 
@@ -820,31 +625,14 @@ footer {
     }
 
     .intro {
-        margin-bottom: 32px;
+        margin-bottom: 42px;
     }
 
     .intro p {
         font-size: 19px;
     }
 
-    .featured {
-        align-items: flex-start;
-    }
-
-    .featured-icon {
-        width: 62px;
-        height: 62px;
-
-        min-width: 62px;
-
-        border-radius: 14px;
-    }
-
-    .waiting {
-        display: none;
-    }
-
-    .apps-header {
+    .section-header {
         display: block;
     }
 
@@ -858,10 +646,16 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .coming-soon {
+        margin-top: 60px;
+    }
+
     .about {
         grid-template-columns: 1fr;
 
         gap: 25px;
+
+        margin-top: 60px;
     }
 
 }
@@ -923,6 +717,10 @@ footer {
 <body>
 
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
 
 <nav>
@@ -953,7 +751,7 @@ Contact
 
 
 <!-- =====================================================
-     SIMPLE INTRO
+     INTRO
 ===================================================== -->
 
 <section class="intro">
@@ -967,62 +765,26 @@ Independent apps for the iPhone.
 
 
 <!-- =====================================================
-     FEATURED — FILTRUME
-===================================================== -->
-
-<section class="featured">
-
-<div class="featured-icon icon-filtrume">
-F
-</div>
-
-
-<div class="featured-info">
-
-<div class="new-label">
-Coming Soon
-</div>
-
-<h2>
-Filtrume
-</h2>
-
-<p>
-A powerful photo editor with 200+ curated filters,
-AI Studio effects, professional editing tools and
-full-resolution export.
-</p>
-
-</div>
-
-
-<div class="waiting">
-Waiting for Review
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     APPS
+     AVAILABLE NOW
 ===================================================== -->
 
 <section id="apps">
 
 
-<div class="apps-header">
+<div class="section-header">
 
 <div>
 
 <h2>
-Apps
+Available Now
 </h2>
 
 <div
     class="count"
     id="count"
-></div>
+>
+9 apps
+</div>
 
 </div>
 
@@ -1073,27 +835,6 @@ Productivity
 
 <button
     class="filter"
-    data-filter="utilities"
->
-Utilities
-</button>
-
-<button
-    class="filter"
-    data-filter="health"
->
-Health &amp; Fitness
-</button>
-
-<button
-    class="filter"
-    data-filter="games"
->
-Games
-</button>
-
-<button
-    class="filter"
     data-filter="reference"
 >
 Reference
@@ -1116,45 +857,9 @@ Developer Tools
 >
 
 
-<!-- FOREVER SUDOKU -->
-
-<article
-    class="app-card"
-    data-category="games"
->
-
-<div class="app-icon icon-sudoku">
-9
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-Forever Sudoku
-</h3>
-
-<div class="category">
-Games
-</div>
-
-<p class="description">
-Unlimited Sudoku boards with multiple difficulty
-levels, progression and trophies to unlock.
-</p>
-
-<div class="actions">
-<span class="review-status">
-Waiting for Review
-</span>
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- SSH NOW -->
+<!-- =====================================================
+     SSH NOW
+===================================================== -->
 
 <article
     class="app-card"
@@ -1200,45 +905,9 @@ View on App Store ›
 
 
 
-<!-- KEYLOCKPRO2 -->
-
-<article
-    class="app-card"
-    data-category="utilities"
->
-
-<div class="app-icon icon-keylock">
-K
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-KeyLockPro2
-</h3>
-
-<div class="category">
-Utilities
-</div>
-
-<p class="description">
-Securely organize passwords and generate
-strong credentials directly on your iPhone.
-</p>
-
-<div class="actions">
-<span class="review-status">
-Waiting for Review
-</span>
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- BIZCARD CONTACTS -->
+<!-- =====================================================
+     BIZCARD CONTACTS
+===================================================== -->
 
 <article
     class="app-card"
@@ -1284,45 +953,9 @@ View on App Store ›
 
 
 
-<!-- PARKING SPOT HERO -->
-
-<article
-    class="app-card"
-    data-category="utilities"
->
-
-<div class="app-icon icon-parking">
-P
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-Parking Spot Hero
-</h3>
-
-<div class="category">
-Utilities
-</div>
-
-<p class="description">
-Save where you parked, track parking time
-and quickly find your way back to your car.
-</p>
-
-<div class="actions">
-<span class="review-status">
-Waiting for Review
-</span>
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- CLEAN PHOTO FLICK -->
+<!-- =====================================================
+     CLEAN PHOTO FLICK
+===================================================== -->
 
 <article
     class="app-card"
@@ -1368,7 +1001,9 @@ View on App Store ›
 
 
 
-<!-- SHUFFLED MEMORIES -->
+<!-- =====================================================
+     SHUFFLED MEMORIES
+===================================================== -->
 
 <article
     class="app-card"
@@ -1414,7 +1049,9 @@ View on App Store ›
 
 
 
-<!-- DAILY GLOW -->
+<!-- =====================================================
+     DAILY GLOW
+===================================================== -->
 
 <article
     class="app-card"
@@ -1460,7 +1097,9 @@ View on App Store ›
 
 
 
-<!-- 370Z COMPANION -->
+<!-- =====================================================
+     370Z COMPANION
+===================================================== -->
 
 <article
     class="app-card"
@@ -1506,7 +1145,9 @@ View on App Store ›
 
 
 
-<!-- HEIC CONVERTER -->
+<!-- =====================================================
+     HEIC PHOTO CONVERTER PRO
+===================================================== -->
 
 <article
     class="app-card"
@@ -1552,45 +1193,9 @@ View on App Store ›
 
 
 
-<!-- STEPVAULT -->
-
-<article
-    class="app-card"
-    data-category="health"
->
-
-<div class="app-icon icon-step">
-S
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-StepVault
-</h3>
-
-<div class="category">
-Health &amp; Fitness
-</div>
-
-<p class="description">
-Explore your step history, distance, goals
-and achievements in one beautiful dashboard.
-</p>
-
-<div class="actions">
-<span class="review-status">
-Waiting for Review
-</span>
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- GALLERY SWEEP PRO -->
+<!-- =====================================================
+     GALLERY SWEEP PRO
+===================================================== -->
 
 <article
     class="app-card"
@@ -1636,7 +1241,9 @@ View on App Store ›
 
 
 
-<!-- CASEKEEPER -->
+<!-- =====================================================
+     CASEKEEPER RECORDS
+===================================================== -->
 
 <article
     class="app-card"
@@ -1697,6 +1304,238 @@ No apps found.
 
 
 <!-- =====================================================
+     COMING SOON
+===================================================== -->
+
+<section
+    class="coming-soon"
+    id="coming-soon"
+>
+
+
+<div class="section-header">
+
+<div>
+
+<h2>
+Coming Soon
+</h2>
+
+<div class="section-subtitle">
+Apps currently making their way to the App Store.
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="app-grid coming-grid">
+
+
+<!-- =====================================================
+     FILTRUME
+===================================================== -->
+
+<article class="app-card">
+
+<div class="app-icon icon-filtrume">
+F
+</div>
+
+<div class="app-info">
+
+<h3 class="app-name">
+Filtrume
+</h3>
+
+<div class="category">
+Photo &amp; Video
+</div>
+
+<p class="description">
+A powerful photo editor with 200+ curated filters,
+AI Studio effects, professional editing tools and
+full-resolution export.
+</p>
+
+<div class="actions">
+
+<span class="review-status">
+Waiting for Review
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- =====================================================
+     FOREVER SUDOKU
+===================================================== -->
+
+<article class="app-card">
+
+<div class="app-icon icon-sudoku">
+9
+</div>
+
+<div class="app-info">
+
+<h3 class="app-name">
+Forever Sudoku
+</h3>
+
+<div class="category">
+Games
+</div>
+
+<p class="description">
+Unlimited Sudoku boards with multiple difficulty
+levels, progression and trophies to unlock.
+</p>
+
+<div class="actions">
+
+<span class="review-status">
+Waiting for Review
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- =====================================================
+     KEYLOCKPRO2
+===================================================== -->
+
+<article class="app-card">
+
+<div class="app-icon icon-keylock">
+K
+</div>
+
+<div class="app-info">
+
+<h3 class="app-name">
+KeyLockPro2
+</h3>
+
+<div class="category">
+Utilities
+</div>
+
+<p class="description">
+Securely organize passwords and generate
+strong credentials directly on your iPhone.
+</p>
+
+<div class="actions">
+
+<span class="review-status">
+Waiting for Review
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- =====================================================
+     PARKING SPOT HERO
+===================================================== -->
+
+<article class="app-card">
+
+<div class="app-icon icon-parking">
+P
+</div>
+
+<div class="app-info">
+
+<h3 class="app-name">
+Parking Spot Hero
+</h3>
+
+<div class="category">
+Utilities
+</div>
+
+<p class="description">
+Save where you parked, track parking time
+and quickly find your way back to your car.
+</p>
+
+<div class="actions">
+
+<span class="review-status">
+Waiting for Review
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- =====================================================
+     STEPVAULT
+===================================================== -->
+
+<article class="app-card">
+
+<div class="app-icon icon-step">
+S
+</div>
+
+<div class="app-info">
+
+<h3 class="app-name">
+StepVault
+</h3>
+
+<div class="category">
+Health &amp; Fitness
+</div>
+
+<p class="description">
+Explore your step history, distance, goals
+and achievements in one beautiful dashboard.
+</p>
+
+<div class="actions">
+
+<span class="review-status">
+Waiting for Review
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
      ABOUT
 ===================================================== -->
 
@@ -1723,9 +1562,7 @@ straightforward pricing.
 
 <div class="about-links">
 
-<a
-    href="mailto:josh.swift.dev@gmail.com"
->
+<a href="mailto:josh.swift.dev@gmail.com">
 Contact ›
 </a>
 
@@ -1745,6 +1582,10 @@ GitHub ›
 </main>
 
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -1771,7 +1612,7 @@ Support
 <script>
 
 /* =========================================================
-   REAL APP STORE ICONS
+   LOAD REAL APP STORE ICONS
 ========================================================= */
 
 async function loadAppleApps() {
@@ -1783,7 +1624,6 @@ async function loadAppleApps() {
         cards
             .map(card => card.dataset.appId)
             .filter(Boolean);
-
 
     if (!ids.length) {
         return;
@@ -1830,6 +1670,7 @@ async function loadAppleApps() {
             const id =
                 card.dataset.appId;
 
+
             const app =
                 results[id];
 
@@ -1839,7 +1680,7 @@ async function loadAppleApps() {
             }
 
 
-            /* REAL APP ICON */
+            /* REAL ICON */
 
             const icon =
                 card.querySelector(
@@ -1925,27 +1766,37 @@ async function loadAppleApps() {
 
 
 /* =========================================================
-   SEARCH + CATEGORY FILTERING
+   SEARCH + FILTERING
 ========================================================= */
 
 const cards =
-    [...document.querySelectorAll(".app-card")];
+    [...document.querySelectorAll(
+        "#appGrid .app-card"
+    )];
 
 
 const filters =
-    [...document.querySelectorAll(".filter")];
+    [...document.querySelectorAll(
+        ".filter"
+    )];
 
 
 const search =
-    document.getElementById("search");
+    document.getElementById(
+        "search"
+    );
 
 
 const count =
-    document.getElementById("count");
+    document.getElementById(
+        "count"
+    );
 
 
 const empty =
-    document.getElementById("empty");
+    document.getElementById(
+        "empty"
+    );
 
 
 let activeFilter =
