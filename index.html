@@ -67,20 +67,12 @@ header {
     top: 0;
     z-index: 1000;
 
-    background:
-        rgba(245,245,247,.78);
+    background: rgba(245,245,247,.78);
 
-    backdrop-filter:
-        blur(26px)
-        saturate(180%);
+    backdrop-filter: blur(26px) saturate(180%);
+    -webkit-backdrop-filter: blur(26px) saturate(180%);
 
-    -webkit-backdrop-filter:
-        blur(26px)
-        saturate(180%);
-
-    border-bottom:
-        1px solid
-        rgba(0,0,0,.05);
+    border-bottom: 1px solid rgba(0,0,0,.05);
 }
 
 nav {
@@ -98,7 +90,6 @@ nav {
 .nav-links {
     display: flex;
     align-items: center;
-
     gap: 28px;
 
     color: var(--secondary);
@@ -108,8 +99,7 @@ nav {
 }
 
 .nav-links a {
-    transition:
-        color .2s ease;
+    transition: color .2s ease;
 }
 
 .nav-links a:hover {
@@ -126,10 +116,7 @@ main {
 
     margin: auto;
 
-    padding:
-        40px
-        30px
-        78px;
+    padding: 40px 30px 78px;
 }
 
 
@@ -185,9 +172,7 @@ main {
 
     cursor: pointer;
 
-    padding:
-        7px
-        12px;
+    padding: 7px 12px;
 
     border-radius: 999px;
 
@@ -210,9 +195,7 @@ main {
 
 .filter:hover {
     color: var(--text);
-
-    transform:
-        translateY(-1px);
+    transform: translateY(-1px);
 }
 
 .filter.active {
@@ -235,20 +218,13 @@ main {
     width: 100%;
     height: 36px;
 
-    padding:
-        0
-        14px
-        0
-        36px;
+    padding: 0 14px 0 36px;
 
-    border:
-        1px solid
-        var(--border);
+    border: 1px solid var(--border);
 
     border-radius: 12px;
 
-    background:
-        rgba(255,255,255,.72);
+    background: rgba(255,255,255,.72);
 
     color: var(--text);
 
@@ -264,11 +240,9 @@ main {
 }
 
 .search:focus {
-    background:
-        rgba(255,255,255,.98);
+    background: rgba(255,255,255,.98);
 
-    border-color:
-        rgba(0,113,227,.35);
+    border-color: rgba(0,113,227,.35);
 
     box-shadow:
         0 0 0 4px
@@ -281,8 +255,7 @@ main {
     top: 50%;
     left: 13px;
 
-    transform:
-        translateY(-50%);
+    transform: translateY(-50%);
 
     color: var(--tertiary);
 
@@ -293,7 +266,7 @@ main {
 
 
 /* =========================================================
-   APP GRID
+   GRID
 ========================================================= */
 
 .app-grid {
@@ -321,12 +294,9 @@ main {
 
     border-radius: 24px;
 
-    background:
-        #181818;
+    background: #181818;
 
-    border:
-        1px solid
-        rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.10);
 
     box-shadow:
         0 6px 22px
@@ -340,8 +310,7 @@ main {
 }
 
 .app-card:hover {
-    transform:
-        translateY(-5px);
+    transform: translateY(-5px);
 
     box-shadow:
         0 20px 42px
@@ -350,11 +319,7 @@ main {
 
 
 /* =========================================================
-   APP-SPECIFIC BACKGROUND
-
-   This is a huge blurred copy of the app icon.
-   Therefore every app automatically receives
-   its own matching colors.
+   AUTOMATIC ICON BACKGROUND
 ========================================================= */
 
 .card-artwork {
@@ -372,8 +337,7 @@ main {
         blur(42px)
         saturate(1.45);
 
-    transform:
-        scale(1.12);
+    transform: scale(1.12);
 
     opacity: .82;
 
@@ -383,21 +347,12 @@ main {
 }
 
 .app-card:hover .card-artwork {
-    transform:
-        scale(1.20);
+    transform: scale(1.20);
 
     filter:
         blur(38px)
         saturate(1.60);
 }
-
-
-/* =========================================================
-   SECOND ARTWORK LAYER
-
-   Adds more recognizable color variation instead
-   of turning the whole square into one flat color.
-========================================================= */
 
 .card-artwork-secondary {
     position: absolute;
@@ -422,15 +377,12 @@ main {
 
     border-radius: 50%;
 
-    transform:
-        rotate(18deg);
+    transform: rotate(18deg);
 }
 
 
 /* =========================================================
-   DARK OVERLAY
-
-   Keeps white text readable regardless of icon color.
+   CARD OVERLAYS
 ========================================================= */
 
 .card-shade {
@@ -449,13 +401,6 @@ main {
         );
 }
 
-
-/* =========================================================
-   SOFT LIGHT
-
-   Similar to Apple's atmospheric treatment.
-========================================================= */
-
 .card-light {
     position: absolute;
 
@@ -469,18 +414,16 @@ main {
 
     border-radius: 50%;
 
-    background:
-        rgba(255,255,255,.18);
+    background: rgba(255,255,255,.18);
 
-    filter:
-        blur(50px);
+    filter: blur(50px);
 
     opacity: .42;
 }
 
 
 /* =========================================================
-   CARD CONTENT
+   CONTENT
 ========================================================= */
 
 .card-content {
@@ -499,7 +442,7 @@ main {
 
 
 /* =========================================================
-   APP ICON
+   ICON
 ========================================================= */
 
 .app-icon {
@@ -512,8 +455,7 @@ main {
 
     border-radius: 15px;
 
-    background:
-        rgba(255,255,255,.12);
+    background: rgba(255,255,255,.12);
 
     box-shadow:
         0 8px 22px
@@ -529,8 +471,7 @@ main {
 }
 
 .app-card:hover .app-icon {
-    transform:
-        scale(1.045);
+    transform: scale(1.045);
 
     box-shadow:
         0 10px 28px
@@ -561,18 +502,14 @@ main {
 }
 
 .app-name {
-    margin:
-        15px
-        0
-        2px;
+    margin: 15px 0 2px;
 
     color: #fff;
 
     font-size: 16px;
     font-weight: 700;
 
-    letter-spacing:
-        -.025em;
+    letter-spacing: -.025em;
 
     white-space: nowrap;
 
@@ -620,10 +557,21 @@ main {
         rgba(0,0,0,.30);
 }
 
+
+/* =========================================================
+   BOTTOM ACTION ROW
+========================================================= */
+
 .actions {
     margin-top: auto;
 
     padding-top: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
 }
 
 
@@ -635,20 +583,17 @@ main {
     display: inline-flex;
     align-items: center;
 
-    padding:
-        7px
-        11px;
+    flex-shrink: 0;
+
+    padding: 7px 11px;
 
     border-radius: 999px;
 
     background:
         rgba(255,255,255,.16);
 
-    backdrop-filter:
-        blur(12px);
-
-    -webkit-backdrop-filter:
-        blur(12px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
     border:
         1px solid
@@ -682,7 +627,43 @@ main {
 
 
 /* =========================================================
-   LOADING CARDS
+   PRICE
+========================================================= */
+
+.price {
+    min-width: 0;
+
+    color: #fff;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-align: right;
+
+    line-height: 1.15;
+
+    text-shadow:
+        0 1px 7px
+        rgba(0,0,0,.35);
+}
+
+.price-iap {
+    display: block;
+
+    margin-top: 2px;
+
+    color:
+        rgba(255,255,255,.66);
+
+    font-size: 7.8px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   LOADING
 ========================================================= */
 
 .loading-card {
@@ -712,8 +693,7 @@ main {
 @keyframes shimmer {
 
     to {
-        background-position-x:
-            -200%;
+        background-position-x: -200%;
     }
 
 }
@@ -724,17 +704,13 @@ main {
 ========================================================= */
 
 .status-message {
-    grid-column:
-        1 / -1;
+    grid-column: 1 / -1;
 
-    padding:
-        70px
-        20px;
+    padding: 70px 20px;
 
     text-align: center;
 
-    color:
-        var(--secondary);
+    color: var(--secondary);
 
     font-size: 13px;
     line-height: 1.6;
@@ -745,8 +721,7 @@ main {
 
     margin-bottom: 5px;
 
-    color:
-        var(--text);
+    color: var(--text);
 
     font-size: 15px;
 }
@@ -776,11 +751,9 @@ footer {
 
     gap: 20px;
 
-    color:
-        var(--tertiary);
+    color: var(--tertiary);
 
-    font-size:
-        10.5px;
+    font-size: 10.5px;
 }
 
 .footer-links {
@@ -790,8 +763,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color:
-        var(--text);
+    color: var(--text);
 }
 
 
@@ -914,14 +886,22 @@ footer {
 
     .actions {
         padding-top: 6px;
+
+        gap: 5px;
     }
 
     .store-link {
-        padding:
-            5px
-            7px;
+        padding: 5px 7px;
 
         font-size: 8px;
+    }
+
+    .price {
+        font-size: 8.5px;
+    }
+
+    .price-iap {
+        font-size: 6.7px;
     }
 
 }
@@ -961,11 +941,8 @@ footer {
     }
 
     .filter.active {
-        background:
-            #f5f5f7;
-
-        color:
-            #111;
+        background: #f5f5f7;
+        color: #111;
     }
 
     .search {
@@ -1150,8 +1127,7 @@ const APPLE_LOOKUP =
 
 let apps = [];
 
-let activeFilter =
-    "all";
+let activeFilter = "all";
 
 
 /* =========================================================
@@ -1159,28 +1135,20 @@ let activeFilter =
 ========================================================= */
 
 const appGrid =
-    document.getElementById(
-        "appGrid"
-    );
+    document.getElementById("appGrid");
 
 const appCount =
-    document.getElementById(
-        "appCount"
-    );
+    document.getElementById("appCount");
 
 const search =
-    document.getElementById(
-        "search"
-    );
+    document.getElementById("search");
 
 const filters =
-    document.getElementById(
-        "filters"
-    );
+    document.getElementById("filters");
 
 
 /* =========================================================
-   LOAD APPS FROM APPLE
+   LOAD APPS
 ========================================================= */
 
 async function loadApps() {
@@ -1273,12 +1241,10 @@ function createFilters() {
             ...new Set(
 
                 apps
-
                     .map(
                         app =>
                             app.primaryGenreName
                     )
-
                     .filter(Boolean)
 
             )
@@ -1327,9 +1293,7 @@ function createFilters() {
 
 
     filters
-        .querySelectorAll(
-            ".filter"
-        )
+        .querySelectorAll(".filter")
         .forEach(
             button => {
 
@@ -1370,7 +1334,7 @@ function createFilters() {
 
 
 /* =========================================================
-   DESCRIPTION CLEANUP
+   DESCRIPTION
 ========================================================= */
 
 function cleanDescription(
@@ -1385,19 +1349,14 @@ function cleanDescription(
 
 
     return description
-
-        .replace(
-            /\s+/g,
-            " "
-        )
-
+        .replace(/\s+/g, " ")
         .trim();
 
 }
 
 
 /* =========================================================
-   HIGH RES ARTWORK
+   ARTWORK
 ========================================================= */
 
 function getArtwork(
@@ -1410,12 +1369,6 @@ function getArtwork(
         app.artworkUrl60 ||
         "";
 
-
-    /*
-       Apple sometimes returns a smaller artwork URL.
-       When possible, request a larger version for the
-       blurred card background.
-    */
 
     artwork =
         artwork.replace(
@@ -1430,7 +1383,124 @@ function getArtwork(
 
 
 /* =========================================================
-   CREATE APP CARD
+   PRICE
+========================================================= */
+
+function getPriceInfo(
+    app
+) {
+
+    /*
+       Apple's public catalog normally gives us
+       formattedPrice.
+
+       Examples:
+       "$0.99"
+       "$2.99"
+       "Free"
+    */
+
+    let mainPrice =
+        app.formattedPrice;
+
+
+    if (!mainPrice) {
+
+        if (
+            typeof app.price === "number"
+        ) {
+
+            if (app.price === 0) {
+
+                mainPrice = "Free";
+
+            }
+
+            else {
+
+                try {
+
+                    mainPrice =
+                        new Intl.NumberFormat(
+                            "en-US",
+                            {
+                                style: "currency",
+                                currency:
+                                    app.currency ||
+                                    "USD"
+                            }
+                        )
+                        .format(
+                            app.price
+                        );
+
+                }
+
+                catch(error) {
+
+                    mainPrice =
+                        "$" +
+                        app.price.toFixed(2);
+
+                }
+
+            }
+
+        }
+
+        else {
+
+            mainPrice =
+                "";
+
+        }
+
+    }
+
+
+    /*
+       Apple's public catalog may identify
+       In-App Purchases in the features array.
+    */
+
+    const features =
+        Array.isArray(app.features)
+            ? app.features
+            : [];
+
+
+    const hasIAP =
+        features.some(
+            feature => {
+
+                const value =
+                    String(feature)
+                        .toLowerCase();
+
+
+                return (
+                    value.includes(
+                        "in-app purchase"
+                    ) ||
+                    value.includes(
+                        "in app purchase"
+                    )
+                );
+
+            }
+        );
+
+
+    return {
+        mainPrice,
+        hasIAP
+    };
+
+}
+
+
+/* =========================================================
+   CREATE CARD
 ========================================================= */
 
 function createCard(
@@ -1438,9 +1508,11 @@ function createCard(
 ) {
 
     const artwork =
-        getArtwork(
-            app
-        );
+        getArtwork(app);
+
+
+    const priceInfo =
+        getPriceInfo(app);
 
 
     const card =
@@ -1453,9 +1525,7 @@ function createCard(
         "app-card";
 
 
-    /*
-       BACKGROUND LAYER 1
-    */
+    /* BACKGROUND */
 
     const artworkBackground =
         document.createElement(
@@ -1471,9 +1541,7 @@ function createCard(
         `url("${artwork}")`;
 
 
-    /*
-       BACKGROUND LAYER 2
-    */
+    /* SECOND BACKGROUND */
 
     const secondaryArtwork =
         document.createElement(
@@ -1489,9 +1557,7 @@ function createCard(
         `url("${artwork}")`;
 
 
-    /*
-       SHADE
-    */
+    /* SHADE */
 
     const shade =
         document.createElement(
@@ -1503,9 +1569,7 @@ function createCard(
         "card-shade";
 
 
-    /*
-       LIGHT
-    */
+    /* LIGHT */
 
     const light =
         document.createElement(
@@ -1517,9 +1581,7 @@ function createCard(
         "card-light";
 
 
-    /*
-       CONTENT
-    */
+    /* CONTENT */
 
     const content =
         document.createElement(
@@ -1531,9 +1593,7 @@ function createCard(
         "card-content";
 
 
-    /*
-       ICON
-    */
+    /* ICON */
 
     const icon =
         document.createElement(
@@ -1573,9 +1633,7 @@ function createCard(
     );
 
 
-    /*
-       INFO
-    */
+    /* INFO */
 
     const info =
         document.createElement(
@@ -1632,9 +1690,7 @@ function createCard(
         );
 
 
-    /*
-       ACTION
-    */
+    /* ACTION ROW */
 
     const actions =
         document.createElement(
@@ -1645,6 +1701,8 @@ function createCard(
     actions.className =
         "actions";
 
+
+    /* APP STORE LINK */
 
     const link =
         document.createElement(
@@ -1676,8 +1734,64 @@ function createCard(
         "View on App Store ›";
 
 
+    /* PRICE */
+
+    const price =
+        document.createElement(
+            "div"
+        );
+
+
+    price.className =
+        "price";
+
+
+    if (priceInfo.mainPrice) {
+
+        price.appendChild(
+            document.createTextNode(
+                priceInfo.mainPrice
+            )
+        );
+
+    }
+
+
+    /*
+       If Apple identifies the app as supporting
+       In-App Purchases, show that underneath.
+    */
+
+    if (priceInfo.hasIAP) {
+
+        const iap =
+            document.createElement(
+                "span"
+            );
+
+
+        iap.className =
+            "price-iap";
+
+
+        iap.textContent =
+            "In-App Purchases";
+
+
+        price.appendChild(
+            iap
+        );
+
+    }
+
+
     actions.appendChild(
         link
+    );
+
+
+    actions.appendChild(
+        price
     );
 
 
@@ -1685,13 +1799,16 @@ function createCard(
         name
     );
 
+
     info.appendChild(
         category
     );
 
+
     info.appendChild(
         description
     );
+
 
     info.appendChild(
         actions
@@ -1702,6 +1819,7 @@ function createCard(
         icon
     );
 
+
     content.appendChild(
         info
     );
@@ -1711,17 +1829,21 @@ function createCard(
         artworkBackground
     );
 
+
     card.appendChild(
         secondaryArtwork
     );
+
 
     card.appendChild(
         shade
     );
 
+
     card.appendChild(
         light
     );
+
 
     card.appendChild(
         content
@@ -1796,9 +1918,7 @@ function renderApps() {
         app => {
 
             appGrid.appendChild(
-                createCard(
-                    app
-                )
+                createCard(app)
             );
 
         }
