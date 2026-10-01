@@ -1,9 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Josh Swift Dev</title>
+<meta name="description" content="iPhone apps by Josh Swift Dev.">
+
+<style>
+
+:root {
+    --bg: #f5f5f7;
+    --text: #1d1d1f;
+    --secondary: #6e6e73;
+    --tertiary: #86868b;
+    --border: rgba(0,0,0,.07);
+    --blue: #0a84ff;
+    --pill: rgba(0,0,0,.055);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(0,122,255,.045),
+            transparent 27%
+        ),
+        #f5f5f7;
+
+    color: var(--text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(245,245,247,.78);
+
+    backdrop-filter: blur(26px) saturate(180%);
+    -webkit-backdrop-filter: blur(26px) saturate(180%);
+
+    border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+nav {
+    max-width: 1180px;
+    height: 56px;
+
+    margin: auto;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    color: var(--secondary);
+
+    font-size: 12.5px;
+    font-weight: 500;
+}
+
+.nav-links a {
+    transition: color .2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+    max-width: 1180px;
+    margin: auto;
+    padding: 40px 30px 78px;
+}
+
+
+/* =========================================================
+   APP COUNT
+========================================================= */
+
+.top-area {
+    margin-bottom: 17px;
+}
+
+.app-count {
+    color: var(--secondary);
+
+    font-size: 11.5px;
+    font-weight: 550;
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 18px;
+
+    margin-bottom: 24px;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    overflow-x: auto;
+
+    padding: 2px 0;
+
+    scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter {
+    border: none;
+    cursor: pointer;
+
+    padding: 7px 12px;
+
+    border-radius: 999px;
+
+    background: var(--pill);
+
+    color: var(--secondary);
+
+    font-family: inherit;
+    font-size: 10.5px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.filter:hover {
+    color: var(--text);
+    transform: translateY(-1px);
+}
+
+.filter.active {
+    background: #1d1d1f;
+    color: #fff;
+}
+
+
+/* =========================================================
+   TOOLBAR RIGHT
+========================================================= */
+
+.toolbar-right {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+.sort-wrap {
+    position: relative;
+
+    min-width: 180px;
+}
+
+.sort-select {
+    width: 100%;
+    height: 36px;
+
+    padding: 0 34px 0 13px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.72);
+
+    color: var(--secondary);
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 550;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.sort-select:hover {
+    background: rgba(255,255,255,.94);
+}
+
+.sort-select:focus {
+    background: rgba(255,255,255,.98);
+
+    border-color: rgba(0,113,227,.35);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(0,113,227,.07);
+}
+
+.sort-arrow {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    pointer-events: none;
+
+    color: var(--tertiary);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-wrap {
+    position: relative;
+
+    min-width: 220px;
+}
+
+.search {
+    width: 100%;
+    height: 36px;
+
+    padding: 0 14px 0 36px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.72);
+
+    color: var(--text);
+
+    font-family: inherit;
+    font-size: 11.5px;
+
+    outline: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.search:focus {
+    background: rgba(255,255,255,.98);
+
+    border-color: rgba(0,113,227,.35);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(0,113,227,.07);
+}
+
+.search-icon {
+    position: absolute;
+
+    top: 50%;
+    left: 13px;
+
+    transform: translateY(-50%);
+
+    color: var(--tertiary);
+
+    pointer-events: none;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.app-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0,1fr));
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   APP CARD
+========================================================= */
+
+.app-card {
+    position: relative;
+
+    aspect-ratio: 1 / 1;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    background: #181818;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+        0 6px 22px
+        rgba(0,0,0,.10);
+
+    isolation: isolate;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 42px
+        rgba(0,0,0,.18);
+}
+
+
+/* =========================================================
+   AUTOMATIC ICON BACKGROUND
+========================================================= */
+
+.card-artwork {
+    position: absolute;
+
+    inset: -32%;
+
+    z-index: -4;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    filter:
+        blur(42px)
+        saturate(1.45);
+
+    transform: scale(1.12);
+
+    opacity: .82;
+
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+}
+
+.app-card:hover .card-artwork {
+    transform: scale(1.20);
+
+    filter:
+        blur(38px)
+        saturate(1.60);
+}
+
+.card-artwork-secondary {
+    position: absolute;
+
+    width: 95%;
+    height: 95%;
+
+    right: -28%;
+    top: -25%;
+
+    z-index: -3;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    filter:
+        blur(52px)
+        saturate(1.6);
+
+    opacity: .42;
+
+    border-radius: 50%;
+
+    transform: rotate(18deg);
+}
+
+
+/* =========================================================
+   CARD OVERLAYS
+========================================================= */
+
+.card-shade {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.13) 0%,
+            rgba(0,0,0,.28) 42%,
+            rgba(0,0,0,.76) 100%
+        );
+}
+
+.card-light {
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    top: -70px;
+    right: -55px;
+
+    z-index: -1;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.18);
+
+    filter: blur(50px);
+
+    opacity: .42;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.card-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 19px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.app-icon {
+    width: 62px;
+    height: 62px;
+
+    min-width: 62px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.12);
+
+    box-shadow:
+        0 8px 22px
+        rgba(0,0,0,.30);
+
+    border: 1px solid rgba(255,255,255,.14);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.app-card:hover .app-icon {
+    transform: scale(1.045);
+
+    box-shadow:
+        0 10px 28px
+        rgba(0,0,0,.36);
+}
+
+.app-icon img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   APP INFO
+========================================================= */
+
+.app-info {
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.app-name {
+    margin: 15px 0 2px;
+
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: -.025em;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    text-shadow:
+        0 1px 8px
+        rgba(0,0,0,.22);
+}
+
+.category {
+    margin-bottom: 8px;
+
+    color: rgba(255,255,255,.68);
+
+    font-size: 9.5px;
+    font-weight: 600;
+
+    text-shadow:
+        0 1px 6px
+        rgba(0,0,0,.20);
+}
+
+.description {
+    margin: 0;
+
+    color: rgba(255,255,255,.82);
+
+    font-size: 10.8px;
+    line-height: 1.42;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+
+    text-shadow:
+        0 1px 8px
+        rgba(0,0,0,.30);
+}
+
+
+/* =========================================================
+   BOTTOM ACTION ROW
+========================================================= */
+
+.actions {
+    margin-top: auto;
+
+    padding-top: 11px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 8px;
+}
+
+
+/* =========================================================
+   APP STORE BUTTON
+========================================================= */
+
+.store-link {
+    display: inline-flex;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    padding: 7px 11px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.16);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,.14);
+
+    color: #fff;
+
+    font-size: 9.8px;
+    font-weight: 650;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0,0,0,.10);
+
+    transition:
+        background .2s ease,
+        transform .2s ease,
+        border-color .2s ease;
+}
+
+.store-link:hover {
+    background: rgba(255,255,255,.25);
+
+    border-color: rgba(255,255,255,.26);
+
+    transform: translateY(-1px);
+}
+
+
 /* =========================================================
    PRICE / RELEASE
 ========================================================= */
 
 .price-block {
     min-width: 0;
+
     text-align: right;
 }
 
@@ -31,6 +731,10 @@
     font-weight: 600;
 
     white-space: nowrap;
+
+    text-shadow:
+        0 1px 7px
+        rgba(0,0,0,.35);
 }
 
 .release-date {
@@ -49,3 +753,1727 @@
         0 1px 7px
         rgba(0,0,0,.35);
 }
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading-card {
+    aspect-ratio: 1 / 1;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            110deg,
+            #e6e6e8 8%,
+            #f4f4f5 18%,
+            #e6e6e8 33%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        shimmer 1.4s linear infinite;
+
+    border: 1px solid var(--border);
+}
+
+@keyframes shimmer {
+    to {
+        background-position-x: -200%;
+    }
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status-message {
+    grid-column: 1 / -1;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    color: var(--secondary);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.status-message strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--text);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    max-width: 1180px;
+
+    margin: auto;
+
+    padding: 25px 30px 35px;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: var(--tertiary);
+
+    font-size: 10.5px;
+}
+
+.footer-links {
+    display: flex;
+
+    gap: 20px;
+}
+
+.footer-links a:hover {
+    color: var(--text);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px) {
+
+    .app-grid {
+        grid-template-columns:
+            repeat(3, minmax(0,1fr));
+    }
+
+}
+
+
+@media(max-width:850px) {
+
+    .toolbar {
+        align-items: flex-start;
+    }
+
+    .toolbar-right {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        min-width: 220px;
+    }
+
+    .sort-wrap,
+    .search-wrap {
+        width: 100%;
+    }
+
+}
+
+
+@media(max-width:760px) {
+
+    nav {
+        justify-content: center;
+    }
+
+    main {
+        padding: 32px 20px 65px;
+    }
+
+    .toolbar {
+        display: block;
+    }
+
+    .toolbar-right {
+        width: 100%;
+
+        margin-top: 12px;
+
+        display: flex;
+
+        flex-direction: row;
+
+        gap: 8px;
+    }
+
+    .sort-wrap {
+        min-width: 0;
+
+        flex: 1;
+    }
+
+    .search-wrap {
+        min-width: 0;
+
+        flex: 1;
+    }
+
+    .app-grid {
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+
+        gap: 12px;
+    }
+
+    .app-card {
+        border-radius: 21px;
+    }
+
+    .card-content {
+        padding: 16px;
+    }
+
+    .app-icon {
+        width: 55px;
+        height: 55px;
+
+        min-width: 55px;
+
+        border-radius: 14px;
+    }
+
+    .description {
+        -webkit-line-clamp: 2;
+    }
+
+}
+
+
+@media(max-width:520px) {
+
+    .toolbar-right {
+        flex-direction: column;
+    }
+
+    .sort-wrap,
+    .search-wrap {
+        width: 100%;
+    }
+
+}
+
+
+@media(max-width:430px) {
+
+    main {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .app-grid {
+        gap: 9px;
+    }
+
+    .app-card {
+        border-radius: 18px;
+    }
+
+    .card-content {
+        padding: 13px;
+    }
+
+    .app-icon {
+        width: 48px;
+        height: 48px;
+
+        min-width: 48px;
+
+        border-radius: 12px;
+    }
+
+    .app-name {
+        margin-top: 11px;
+
+        font-size: 13px;
+    }
+
+    .category {
+        margin-bottom: 5px;
+
+        font-size: 8px;
+    }
+
+    .description {
+        font-size: 9px;
+
+        line-height: 1.32;
+
+        -webkit-line-clamp: 2;
+    }
+
+    .actions {
+        padding-top: 6px;
+
+        gap: 4px;
+    }
+
+    .store-link {
+        padding: 5px 7px;
+
+        font-size: 7.8px;
+    }
+
+    .price {
+        font-size: 10px;
+    }
+
+    .price-iap {
+        font-size: 7.5px;
+    }
+
+    .release-date {
+        margin-top: 4px;
+
+        color: #fff;
+
+        font-size: 8px;
+    }
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+@media(prefers-color-scheme:dark) {
+
+    :root {
+        --bg: #000;
+        --text: #f5f5f7;
+        --secondary: #a1a1a6;
+        --tertiary: #86868b;
+        --border: rgba(255,255,255,.09);
+        --pill: rgba(255,255,255,.08);
+    }
+
+    body {
+        background:
+            radial-gradient(
+                circle at 8% 0%,
+                rgba(0,122,255,.09),
+                transparent 28%
+            ),
+            #000;
+    }
+
+    header {
+        background: rgba(0,0,0,.74);
+
+        border-bottom-color:
+            rgba(255,255,255,.07);
+    }
+
+    .filter.active {
+        background: #f5f5f7;
+        color: #111;
+    }
+
+    .search,
+    .sort-select {
+        background: rgba(28,28,30,.82);
+
+        color: #f5f5f7;
+    }
+
+    .search:focus,
+    .sort-select:focus {
+        background: rgba(35,35,37,.98);
+    }
+
+    .loading-card {
+        background:
+            linear-gradient(
+                110deg,
+                #171719 8%,
+                #262628 18%,
+                #171719 33%
+            );
+
+        background-size: 200% 100%;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+<nav>
+
+<div class="nav-links">
+
+<a href="#apps">
+Apps
+</a>
+
+<a href="mailto:josh.swift.dev@gmail.com">
+Contact
+</a>
+
+</div>
+
+</nav>
+
+</header>
+
+
+
+<main>
+
+
+<section id="apps">
+
+
+<div class="top-area">
+
+<div
+    class="app-count"
+    id="appCount"
+>
+Loading apps…
+</div>
+
+</div>
+
+
+
+<div class="toolbar">
+
+
+<div
+    class="filters"
+    id="filters"
+>
+
+<button
+    class="filter active"
+    data-filter="all"
+>
+All
+</button>
+
+</div>
+
+
+
+<div class="toolbar-right">
+
+
+<div class="sort-wrap">
+
+<select
+    id="sortSelect"
+    class="sort-select"
+    aria-label="Sort apps"
+>
+
+<option value="alphabetical">
+Alphabetical
+</option>
+
+<option value="release-newest">
+Release Date — Newest
+</option>
+
+<option value="release-oldest">
+Release Date — Oldest
+</option>
+
+<option value="price-low">
+Price — Low to High
+</option>
+
+<option value="price-high">
+Price — High to Low
+</option>
+
+</select>
+
+<span class="sort-arrow">
+▼
+</span>
+
+</div>
+
+
+
+<div class="search-wrap">
+
+<span class="search-icon">
+⌕
+</span>
+
+<input
+    id="search"
+    class="search"
+    type="search"
+    placeholder="Search apps"
+    aria-label="Search apps"
+>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div
+    class="app-grid"
+    id="appGrid"
+>
+
+<div class="loading-card"></div>
+<div class="loading-card"></div>
+<div class="loading-card"></div>
+<div class="loading-card"></div>
+
+<div class="loading-card"></div>
+<div class="loading-card"></div>
+<div class="loading-card"></div>
+<div class="loading-card"></div>
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+<div>
+© 2026 Josh Swift Dev
+</div>
+
+
+<div class="footer-links">
+
+<a href="#apps">
+Apps
+</a>
+
+<a href="mailto:josh.swift.dev@gmail.com">
+Contact
+</a>
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   APPLE DEVELOPER
+========================================================= */
+
+const DEVELOPER_ID =
+    "6809669072";
+
+
+const APPLE_LOOKUP =
+    "https://itunes.apple.com/lookup?id=" +
+    DEVELOPER_ID +
+    "&entity=software&country=us&limit=200";
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let apps = [];
+
+let activeFilter =
+    "all";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const appGrid =
+    document.getElementById(
+        "appGrid"
+    );
+
+const appCount =
+    document.getElementById(
+        "appCount"
+    );
+
+const search =
+    document.getElementById(
+        "search"
+    );
+
+const filters =
+    document.getElementById(
+        "filters"
+    );
+
+const sortSelect =
+    document.getElementById(
+        "sortSelect"
+    );
+
+
+/* =========================================================
+   LOAD APPS
+========================================================= */
+
+async function loadApps() {
+
+    try {
+
+        const response =
+            await fetch(
+                APPLE_LOOKUP,
+                {
+                    cache: "no-store"
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Apple lookup failed"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        apps =
+            data.results.filter(
+                item =>
+                    item.wrapperType ===
+                    "software"
+            );
+
+
+        createFilters();
+
+        renderApps();
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Unable to load apps:",
+            error
+        );
+
+
+        appCount.textContent =
+            "Apps";
+
+
+        appGrid.innerHTML =
+            `
+            <div class="status-message">
+
+                <strong>
+                    Unable to load apps right now.
+                </strong>
+
+                Please try again in a moment.
+
+            </div>
+            `;
+
+    }
+
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+function createFilters() {
+
+    const genres =
+        [
+            ...new Set(
+
+                apps
+
+                    .map(
+                        app =>
+                            app.primaryGenreName
+                    )
+
+                    .filter(
+                        Boolean
+                    )
+
+            )
+        ]
+        .sort();
+
+
+    filters.innerHTML =
+        `
+        <button
+            class="filter active"
+            data-filter="all"
+        >
+            All
+        </button>
+        `;
+
+
+    genres.forEach(
+        genre => {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.className =
+                "filter";
+
+
+            button.dataset.filter =
+                genre;
+
+
+            button.textContent =
+                genre;
+
+
+            filters.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    filters
+        .querySelectorAll(
+            ".filter"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        filters
+                            .querySelectorAll(
+                                ".filter"
+                            )
+                            .forEach(
+                                item =>
+                                    item.classList.remove(
+                                        "active"
+                                    )
+                            );
+
+
+                        button.classList.add(
+                            "active"
+                        );
+
+
+                        activeFilter =
+                            button.dataset.filter;
+
+
+                        renderApps();
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+function cleanDescription(
+    description
+) {
+
+    if (!description) {
+
+        return "Available on the App Store.";
+
+    }
+
+
+    return description
+        .replace(/\s+/g, " ")
+        .trim();
+
+}
+
+
+/* =========================================================
+   ARTWORK
+========================================================= */
+
+function getArtwork(
+    app
+) {
+
+    let artwork =
+        app.artworkUrl512 ||
+        app.artworkUrl100 ||
+        app.artworkUrl60 ||
+        "";
+
+
+    artwork =
+        artwork.replace(
+            /[0-9]+x[0-9]+bb/,
+            "512x512bb"
+        );
+
+
+    return artwork;
+
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+function getNumericPrice(
+    app
+) {
+
+    const value =
+        Number(
+            app.price
+        );
+
+
+    if (
+        Number.isFinite(
+            value
+        )
+    ) {
+
+        return value;
+
+    }
+
+
+    return 0;
+
+}
+
+
+function getPriceInfo(
+    app
+) {
+
+    let mainPrice =
+        app.formattedPrice;
+
+
+    if (!mainPrice) {
+
+        const numericPrice =
+            getNumericPrice(
+                app
+            );
+
+
+        if (
+            numericPrice === 0
+        ) {
+
+            mainPrice =
+                "Free";
+
+        }
+
+        else {
+
+            try {
+
+                mainPrice =
+                    new Intl.NumberFormat(
+                        "en-US",
+                        {
+                            style: "currency",
+
+                            currency:
+                                app.currency ||
+                                "USD"
+                        }
+                    )
+                    .format(
+                        numericPrice
+                    );
+
+            }
+
+            catch(error) {
+
+                mainPrice =
+                    "$" +
+                    numericPrice.toFixed(
+                        2
+                    );
+
+            }
+
+        }
+
+    }
+
+
+    const features =
+        Array.isArray(
+            app.features
+        )
+            ? app.features
+            : [];
+
+
+    const hasIAP =
+        features.some(
+            feature => {
+
+                const value =
+                    String(
+                        feature
+                    )
+                    .toLowerCase();
+
+
+                return (
+                    value.includes(
+                        "in-app purchase"
+                    ) ||
+                    value.includes(
+                        "in app purchase"
+                    )
+                );
+
+            }
+        );
+
+
+    return {
+        mainPrice,
+        hasIAP
+    };
+
+}
+
+
+/* =========================================================
+   RELEASE DATE
+========================================================= */
+
+function getReleaseTimestamp(
+    app
+) {
+
+    if (!app.releaseDate) {
+
+        return 0;
+
+    }
+
+
+    const timestamp =
+        new Date(
+            app.releaseDate
+        )
+        .getTime();
+
+
+    return Number.isFinite(
+        timestamp
+    )
+        ? timestamp
+        : 0;
+
+}
+
+
+function formatReleaseDate(
+    app
+) {
+
+    if (!app.releaseDate) {
+
+        return "";
+
+    }
+
+
+    const date =
+        new Date(
+            app.releaseDate
+        );
+
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+
+        return "";
+
+    }
+
+
+    return date.toLocaleDateString(
+        "en-US",
+        {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+function sortApps(
+    appList
+) {
+
+    const sorted =
+        [...appList];
+
+
+    const mode =
+        sortSelect.value;
+
+
+    switch(mode) {
+
+
+        case "release-newest":
+
+            sorted.sort(
+                (a,b) => {
+
+                    const dateDifference =
+                        getReleaseTimestamp(b) -
+                        getReleaseTimestamp(a);
+
+
+                    if (
+                        dateDifference !== 0
+                    ) {
+
+                        return dateDifference;
+
+                    }
+
+
+                    return a.trackName.localeCompare(
+                        b.trackName
+                    );
+
+                }
+            );
+
+            break;
+
+
+        case "release-oldest":
+
+            sorted.sort(
+                (a,b) => {
+
+                    const dateDifference =
+                        getReleaseTimestamp(a) -
+                        getReleaseTimestamp(b);
+
+
+                    if (
+                        dateDifference !== 0
+                    ) {
+
+                        return dateDifference;
+
+                    }
+
+
+                    return a.trackName.localeCompare(
+                        b.trackName
+                    );
+
+                }
+            );
+
+            break;
+
+
+        case "price-low":
+
+            sorted.sort(
+                (a,b) => {
+
+                    const priceDifference =
+                        getNumericPrice(a) -
+                        getNumericPrice(b);
+
+
+                    if (
+                        priceDifference !== 0
+                    ) {
+
+                        return priceDifference;
+
+                    }
+
+
+                    return a.trackName.localeCompare(
+                        b.trackName
+                    );
+
+                }
+            );
+
+            break;
+
+
+        case "price-high":
+
+            sorted.sort(
+                (a,b) => {
+
+                    const priceDifference =
+                        getNumericPrice(b) -
+                        getNumericPrice(a);
+
+
+                    if (
+                        priceDifference !== 0
+                    ) {
+
+                        return priceDifference;
+
+                    }
+
+
+                    return a.trackName.localeCompare(
+                        b.trackName
+                    );
+
+                }
+            );
+
+            break;
+
+
+        case "alphabetical":
+
+        default:
+
+            sorted.sort(
+                (a,b) =>
+                    a.trackName.localeCompare(
+                        b.trackName
+                    )
+            );
+
+            break;
+
+    }
+
+
+    return sorted;
+
+}
+
+
+/* =========================================================
+   CREATE CARD
+========================================================= */
+
+function createCard(
+    app
+) {
+
+    const artwork =
+        getArtwork(
+            app
+        );
+
+
+    const priceInfo =
+        getPriceInfo(
+            app
+        );
+
+
+    const released =
+        formatReleaseDate(
+            app
+        );
+
+
+    const card =
+        document.createElement(
+            "article"
+        );
+
+
+    card.className =
+        "app-card";
+
+
+    /* BACKGROUND */
+
+    const artworkBackground =
+        document.createElement(
+            "div"
+        );
+
+
+    artworkBackground.className =
+        "card-artwork";
+
+
+    artworkBackground.style.backgroundImage =
+        `url("${artwork}")`;
+
+
+    /* SECOND BACKGROUND */
+
+    const secondaryArtwork =
+        document.createElement(
+            "div"
+        );
+
+
+    secondaryArtwork.className =
+        "card-artwork-secondary";
+
+
+    secondaryArtwork.style.backgroundImage =
+        `url("${artwork}")`;
+
+
+    /* SHADE */
+
+    const shade =
+        document.createElement(
+            "div"
+        );
+
+
+    shade.className =
+        "card-shade";
+
+
+    /* LIGHT */
+
+    const light =
+        document.createElement(
+            "div"
+        );
+
+
+    light.className =
+        "card-light";
+
+
+    /* CONTENT */
+
+    const content =
+        document.createElement(
+            "div"
+        );
+
+
+    content.className =
+        "card-content";
+
+
+    /* ICON */
+
+    const icon =
+        document.createElement(
+            "div"
+        );
+
+
+    icon.className =
+        "app-icon";
+
+
+    const image =
+        document.createElement(
+            "img"
+        );
+
+
+    image.src =
+        artwork;
+
+
+    image.alt =
+        app.trackName +
+        " app icon";
+
+
+    image.loading =
+        "lazy";
+
+
+    image.referrerPolicy =
+        "no-referrer";
+
+
+    icon.appendChild(
+        image
+    );
+
+
+    /* INFO */
+
+    const info =
+        document.createElement(
+            "div"
+        );
+
+
+    info.className =
+        "app-info";
+
+
+    const name =
+        document.createElement(
+            "h3"
+        );
+
+
+    name.className =
+        "app-name";
+
+
+    name.textContent =
+        app.trackName;
+
+
+    const category =
+        document.createElement(
+            "div"
+        );
+
+
+    category.className =
+        "category";
+
+
+    category.textContent =
+        app.primaryGenreName ||
+        "iPhone App";
+
+
+    const description =
+        document.createElement(
+            "p"
+        );
+
+
+    description.className =
+        "description";
+
+
+    description.textContent =
+        cleanDescription(
+            app.description
+        );
+
+
+    /* ACTION ROW */
+
+    const actions =
+        document.createElement(
+            "div"
+        );
+
+
+    actions.className =
+        "actions";
+
+
+    /* APP STORE BUTTON */
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.className =
+        "store-link";
+
+
+    link.href =
+        app.trackViewUrl ||
+        (
+            "https://apps.apple.com/us/app/id" +
+            app.trackId
+        );
+
+
+    link.target =
+        "_blank";
+
+
+    link.rel =
+        "noopener";
+
+
+    link.textContent =
+        "View on App Store ›";
+
+
+    /* PRICE / RELEASE BLOCK */
+
+    const priceBlock =
+        document.createElement(
+            "div"
+        );
+
+
+    priceBlock.className =
+        "price-block";
+
+
+    const price =
+        document.createElement(
+            "div"
+        );
+
+
+    price.className =
+        "price";
+
+
+    price.textContent =
+        priceInfo.mainPrice ||
+        "";
+
+
+    priceBlock.appendChild(
+        price
+    );
+
+
+    /* IAP */
+
+    if (
+        priceInfo.hasIAP
+    ) {
+
+        const iap =
+            document.createElement(
+                "span"
+            );
+
+
+        iap.className =
+            "price-iap";
+
+
+        iap.textContent =
+            "In-App Purchases";
+
+
+        priceBlock.appendChild(
+            iap
+        );
+
+    }
+
+
+    /* RELEASE DATE */
+
+    if (released) {
+
+        const releaseDate =
+            document.createElement(
+                "div"
+            );
+
+
+        releaseDate.className =
+            "release-date";
+
+
+        releaseDate.textContent =
+            "Released: " +
+            released;
+
+
+        priceBlock.appendChild(
+            releaseDate
+        );
+
+    }
+
+
+    actions.appendChild(
+        link
+    );
+
+
+    actions.appendChild(
+        priceBlock
+    );
+
+
+    info.appendChild(
+        name
+    );
+
+
+    info.appendChild(
+        category
+    );
+
+
+    info.appendChild(
+        description
+    );
+
+
+    info.appendChild(
+        actions
+    );
+
+
+    content.appendChild(
+        icon
+    );
+
+
+    content.appendChild(
+        info
+    );
+
+
+    card.appendChild(
+        artworkBackground
+    );
+
+
+    card.appendChild(
+        secondaryArtwork
+    );
+
+
+    card.appendChild(
+        shade
+    );
+
+
+    card.appendChild(
+        light
+    );
+
+
+    card.appendChild(
+        content
+    );
+
+
+    return card;
+
+}
+
+
+/* =========================================================
+   RENDER
+========================================================= */
+
+function renderApps() {
+
+    const query =
+        search.value
+            .trim()
+            .toLowerCase();
+
+
+    let visibleApps =
+        apps.filter(
+            app => {
+
+                const categoryMatch =
+                    activeFilter === "all" ||
+                    app.primaryGenreName ===
+                    activeFilter;
+
+
+                const searchableText =
+                    (
+                        app.trackName +
+                        " " +
+                        (
+                            app.primaryGenreName ||
+                            ""
+                        ) +
+                        " " +
+                        (
+                            app.description ||
+                            ""
+                        )
+                    )
+                    .toLowerCase();
+
+
+                const searchMatch =
+                    !query ||
+                    searchableText.includes(
+                        query
+                    );
+
+
+                return (
+                    categoryMatch &&
+                    searchMatch
+                );
+
+            }
+        );
+
+
+    visibleApps =
+        sortApps(
+            visibleApps
+        );
+
+
+    appGrid.innerHTML =
+        "";
+
+
+    visibleApps.forEach(
+        app => {
+
+            appGrid.appendChild(
+                createCard(
+                    app
+                )
+            );
+
+        }
+    );
+
+
+    appCount.textContent =
+        apps.length === 1
+
+            ? "1 app available"
+
+            : apps.length +
+              " apps available";
+
+
+    if (
+        visibleApps.length === 0
+    ) {
+
+        appGrid.innerHTML =
+            `
+            <div class="status-message">
+
+                <strong>
+                    No apps found.
+                </strong>
+
+                Try another search or category.
+
+            </div>
+            `;
+
+    }
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+search.addEventListener(
+    "input",
+    renderApps
+);
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+sortSelect.addEventListener(
+    "change",
+    renderApps
+);
+
+
+/* =========================================================
+   START
+========================================================= */
+
+loadApps();
+
+</script>
+
+
+</body>
+</html>
