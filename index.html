@@ -9,17 +9,21 @@
 
 <style>
 
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 :root {
     --bg: #f5f5f7;
-    --surface: rgba(255,255,255,.86);
+    --surface: rgba(255,255,255,.78);
     --surface-solid: #ffffff;
     --text: #1d1d1f;
     --secondary: #6e6e73;
     --tertiary: #86868b;
-    --border: rgba(0,0,0,.075);
+    --border: rgba(0,0,0,.065);
+    --border-hover: rgba(0,0,0,.12);
     --blue: #0071e3;
-    --pill: #e8e8ed;
-    --shadow: 0 12px 35px rgba(0,0,0,.06);
+    --pill: rgba(0,0,0,.055);
 }
 
 * {
@@ -32,11 +36,17 @@ html {
 
 body {
     margin: 0;
+
     background:
         radial-gradient(
-            circle at top left,
-            rgba(0,113,227,.05),
-            transparent 28%
+            circle at 8% 0%,
+            rgba(0,122,255,.045),
+            transparent 26%
+        ),
+        radial-gradient(
+            circle at 94% 4%,
+            rgba(175,82,222,.03),
+            transparent 24%
         ),
         var(--bg);
 
@@ -52,6 +62,7 @@ body {
         sans-serif;
 
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 a {
@@ -67,14 +78,23 @@ a {
 header {
     position: sticky;
     top: 0;
-    z-index: 100;
 
-    background: rgba(245,245,247,.78);
+    z-index: 1000;
 
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    background:
+        rgba(245,245,247,.76);
 
-    border-bottom: 1px solid rgba(0,0,0,.055);
+    backdrop-filter:
+        blur(26px)
+        saturate(180%);
+
+    -webkit-backdrop-filter:
+        blur(26px)
+        saturate(180%);
+
+    border-bottom:
+        1px solid
+        rgba(0,0,0,.05);
 }
 
 nav {
@@ -82,7 +102,7 @@ nav {
     height: 58px;
 
     margin: auto;
-    padding: 0 28px;
+    padding: 0 30px;
 
     display: flex;
     align-items: center;
@@ -92,12 +112,13 @@ nav {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 28px;
+
+    gap: 30px;
+
+    font-size: 12.5px;
+    font-weight: 500;
 
     color: var(--secondary);
-
-    font-size: 13px;
-    font-weight: 500;
 }
 
 .nav-links a {
@@ -117,70 +138,36 @@ nav {
 
 main {
     max-width: 1180px;
+
     margin: auto;
 
     padding:
-        74px
-        28px
-        100px;
+        62px
+        30px
+        110px;
 }
 
 
 /* =========================================================
-   HERO / AVAILABLE NOW
+   TOP AREA
 ========================================================= */
 
-.hero {
-    margin-bottom: 44px;
-}
-
-.eyebrow {
-    margin-bottom: 7px;
-
-    color: var(--blue);
-
-    font-size: 13px;
-    font-weight: 650;
-
-    letter-spacing: -.01em;
-}
-
-.hero-row {
+.top-area {
     display: flex;
-    align-items: flex-end;
+
+    align-items: center;
     justify-content: space-between;
 
     gap: 24px;
+
+    margin-bottom: 22px;
 }
 
-.hero h1 {
-    margin: 0;
-
-    font-size: clamp(42px, 6vw, 66px);
-    line-height: .98;
-
-    font-weight: 700;
-    letter-spacing: -.055em;
-}
-
-.hero-copy {
-    max-width: 450px;
-
-    margin: 15px 0 0;
+.app-count {
+    font-size: 12px;
+    font-weight: 550;
 
     color: var(--secondary);
-
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-.available-total {
-    color: var(--secondary);
-
-    font-size: 13px;
-    font-weight: 500;
-
-    white-space: nowrap;
 }
 
 
@@ -190,22 +177,26 @@ main {
 
 .toolbar {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
-    gap: 16px;
+    gap: 20px;
 
-    margin: 38px 0 22px;
+    margin-bottom: 30px;
 }
 
 .filters {
     display: flex;
+    align-items: center;
 
     gap: 8px;
 
     overflow-x: auto;
 
-    padding-bottom: 2px;
+    padding:
+        2px
+        0;
 
     scrollbar-width: none;
 }
@@ -215,20 +206,21 @@ main {
 }
 
 .filter {
-    border: 0;
+    border: none;
 
     cursor: pointer;
 
-    padding: 8px 14px;
+    padding:
+        8px
+        14px;
 
     border-radius: 999px;
 
-    background: rgba(0,0,0,.055);
-
+    background: var(--pill);
     color: var(--secondary);
 
     font-family: inherit;
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 600;
 
     white-space: nowrap;
@@ -240,47 +232,91 @@ main {
 }
 
 .filter:hover {
-    transform: translateY(-1px);
     color: var(--text);
+
+    transform:
+        translateY(-1px);
 }
 
 .filter.active {
     background: var(--text);
-    color: white;
+
+    color:
+        var(--surface-solid);
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-wrap {
+    position: relative;
+
+    min-width: 230px;
 }
 
 .search {
-    width: 230px;
+    width: 100%;
     height: 40px;
 
-    padding: 0 14px;
+    padding:
+        0
+        15px
+        0
+        37px;
 
-    border: 1px solid var(--border);
-    border-radius: 12px;
+    border:
+        1px solid
+        var(--border);
 
-    background: rgba(255,255,255,.72);
+    border-radius: 13px;
+
+    background:
+        rgba(255,255,255,.68);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 
     color: var(--text);
 
     font-family: inherit;
-    font-size: 13px;
+    font-size: 12.5px;
 
     outline: none;
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
     transition:
         border-color .2s ease,
-        box-shadow .2s ease;
+        box-shadow .2s ease,
+        background .2s ease;
 }
 
 .search:focus {
-    border-color: rgba(0,113,227,.35);
+    background:
+        rgba(255,255,255,.94);
+
+    border-color:
+        rgba(0,113,227,.33);
 
     box-shadow:
         0 0 0 4px
         rgba(0,113,227,.07);
+}
+
+.search-icon {
+    position: absolute;
+
+    top: 50%;
+    left: 14px;
+
+    transform:
+        translateY(-50%);
+
+    pointer-events: none;
+
+    color: var(--tertiary);
+
+    font-size: 14px;
 }
 
 
@@ -292,9 +328,9 @@ main {
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(3, minmax(0,1fr));
 
-    gap: 18px;
+    gap: 17px;
 }
 
 
@@ -303,52 +339,102 @@ main {
 ========================================================= */
 
 .app-card {
+    position: relative;
+
     min-height: 226px;
 
     padding: 22px;
 
-    background: var(--surface);
-
-    border: 1px solid var(--border);
-    border-radius: 24px;
-
-    box-shadow:
-        0 8px 26px
-        rgba(0,0,0,.035);
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
 
+    background:
+        var(--surface);
+
+    backdrop-filter:
+        blur(18px)
+        saturate(135%);
+
+    -webkit-backdrop-filter:
+        blur(18px)
+        saturate(135%);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        24px;
+
+    box-shadow:
+        0 4px 14px
+        rgba(0,0,0,.025);
+
     transition:
-        transform .22s ease,
-        box-shadow .22s ease,
-        border-color .22s ease;
+        transform .24s ease,
+        box-shadow .24s ease,
+        border-color .24s ease,
+        background .24s ease;
 }
 
 .app-card:hover {
-    transform: translateY(-4px);
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255,255,255,.95);
 
     border-color:
-        rgba(0,0,0,.11);
+        var(--border-hover);
 
     box-shadow:
-        0 18px 42px
+        0 20px 45px
         rgba(0,0,0,.075);
+}
+
+.app-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 1px;
+
+    opacity: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0,113,227,.28),
+            transparent
+        );
+
+    transition:
+        opacity .25s ease;
+}
+
+.app-card:hover::after {
+    opacity: 1;
 }
 
 
 /* =========================================================
-   ICON
+   APP ICON
 ========================================================= */
 
 .app-icon {
-    width: 66px;
-    height: 66px;
+    width: 68px;
+    height: 68px;
 
-    border-radius: 16px;
+    min-width: 68px;
+
+    border-radius: 17px;
 
     overflow: hidden;
 
@@ -364,21 +450,30 @@ main {
     font-weight: 700;
 
     box-shadow:
-        0 5px 14px
+        0 7px 18px
         rgba(0,0,0,.13);
+
+    transition:
+        transform .24s ease;
+}
+
+.app-card:hover .app-icon {
+    transform:
+        scale(1.025);
 }
 
 .app-icon img {
+    display: block;
+
     width: 100%;
     height: 100%;
 
-    display: block;
     object-fit: cover;
 }
 
 
 /* =========================================================
-   APP CONTENT
+   APP DETAILS
 ========================================================= */
 
 .app-info {
@@ -390,14 +485,15 @@ main {
 
 .app-name {
     margin:
-        17px
+        18px
         0
         3px;
 
     font-size: 18px;
     font-weight: 680;
 
-    letter-spacing: -.025em;
+    letter-spacing:
+        -.025em;
 }
 
 .category {
@@ -405,8 +501,11 @@ main {
 
     color: var(--tertiary);
 
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 600;
+
+    letter-spacing:
+        .01em;
 }
 
 .description {
@@ -414,24 +513,31 @@ main {
 
     color: var(--secondary);
 
-    font-size: 13px;
-    line-height: 1.48;
+    font-size: 12.5px;
+    line-height: 1.5;
 }
 
 .actions {
     margin-top: auto;
+
     padding-top: 18px;
 }
 
 .store-link {
+    display: inline-flex;
+    align-items: center;
+
     color: var(--blue);
 
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 620;
+
+    transition:
+        opacity .2s ease;
 }
 
 .store-link:hover {
-    text-decoration: underline;
+    opacity: .7;
 }
 
 
@@ -440,7 +546,7 @@ main {
 ========================================================= */
 
 .coming-soon {
-    margin-top: 94px;
+    margin-top: 98px;
 
     padding-top: 58px;
 
@@ -451,21 +557,23 @@ main {
 
 .coming-header {
     display: flex;
+
     align-items: flex-end;
     justify-content: space-between;
 
     gap: 20px;
 
-    margin-bottom: 24px;
+    margin-bottom: 28px;
 }
 
 .coming-header h2 {
     margin: 0;
 
-    font-size: 32px;
+    font-size: 29px;
     font-weight: 700;
 
-    letter-spacing: -.04em;
+    letter-spacing:
+        -.04em;
 }
 
 .coming-copy {
@@ -473,26 +581,41 @@ main {
 
     color: var(--secondary);
 
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .coming-grid .app-card {
-    min-height: 210px;
-    opacity: .95;
+    min-height: 215px;
+
+    opacity: .9;
 }
 
+.coming-grid .app-card:hover {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   WAITING BADGE
+========================================================= */
+
 .review-status {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
 
-    padding: 6px 10px;
+    padding:
+        6px
+        10px;
 
-    border-radius: 999px;
+    background:
+        rgba(0,0,0,.055);
 
-    background: var(--pill);
+    border-radius:
+        999px;
 
     color: var(--secondary);
 
-    font-size: 10.5px;
+    font-size: 10px;
     font-weight: 650;
 }
 
@@ -559,23 +682,26 @@ main {
 
 
 /* =========================================================
-   EMPTY
+   EMPTY SEARCH
 ========================================================= */
 
 .empty {
     display: none;
 
-    grid-column: 1 / -1;
+    grid-column:
+        1 / -1;
 
     padding:
-        70px
+        80px
         20px;
 
     text-align: center;
 
-    color: var(--secondary);
+    color:
+        var(--secondary);
 
-    font-size: 14px;
+    font-size:
+        13px;
 }
 
 
@@ -584,12 +710,9 @@ main {
 ========================================================= */
 
 .about {
-    margin-top: 96px;
+    margin-top: 98px;
 
-    padding:
-        58px
-        0
-        0;
+    padding-top: 58px;
 
     border-top:
         1px solid
@@ -600,7 +723,7 @@ main {
     grid-template-columns:
         1.35fr .65fr;
 
-    gap: 60px;
+    gap: 70px;
 }
 
 .about h2 {
@@ -609,33 +732,34 @@ main {
         0
         10px;
 
-    font-size: 30px;
+    font-size: 28px;
 
-    letter-spacing: -.04em;
+    letter-spacing:
+        -.04em;
 }
 
 .about p {
-    max-width: 610px;
+    max-width: 620px;
 
     margin: 0;
 
     color: var(--secondary);
 
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 13.5px;
+    line-height: 1.65;
 }
 
 .about-links {
     display: flex;
     flex-direction: column;
 
-    gap: 11px;
+    gap: 12px;
 }
 
 .about-links a {
     color: var(--blue);
 
-    font-size: 13px;
+    font-size: 12.5px;
 }
 
 .about-links a:hover {
@@ -653,67 +777,69 @@ footer {
     margin: auto;
 
     padding:
-        26px
-        28px
-        38px;
+        27px
+        30px
+        40px;
 
     border-top:
         1px solid
         var(--border);
 
     display: flex;
+    align-items: center;
     justify-content: space-between;
 
     gap: 20px;
 
     color: var(--tertiary);
 
-    font-size: 11px;
+    font-size: 10.5px;
 }
 
 .footer-links {
     display: flex;
-    gap: 18px;
+
+    gap: 20px;
 }
 
 
 /* =========================================================
-   MOBILE
+   RESPONSIVE
 ========================================================= */
 
-@media(max-width:950px) {
+@media(max-width:960px) {
 
     .app-grid {
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+            repeat(2, minmax(0,1fr));
     }
 
 }
 
-@media(max-width:720px) {
+@media(max-width:760px) {
 
     nav {
         justify-content: center;
     }
 
     main {
-        padding-top: 54px;
+        padding:
+            42px
+            20px
+            80px;
     }
 
-    .hero-row {
-        display: block;
-    }
-
-    .available-total {
-        margin-top: 12px;
+    .top-area {
+        margin-bottom: 18px;
     }
 
     .toolbar {
         display: block;
     }
 
-    .search {
+    .search-wrap {
         width: 100%;
+
         margin-top: 14px;
     }
 
@@ -721,19 +847,29 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .app-card {
+        min-height: 210px;
+    }
+
+    .coming-soon {
+        margin-top: 72px;
+    }
+
     .coming-header {
         display: block;
     }
 
-    .coming-soon {
-        margin-top: 70px;
-    }
-
     .about {
         grid-template-columns: 1fr;
-        gap: 26px;
 
-        margin-top: 70px;
+        gap: 28px;
+
+        margin-top: 72px;
+    }
+
+    footer {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
 }
@@ -747,46 +883,65 @@ footer {
 
     :root {
         --bg: #000000;
-        --surface: rgba(28,28,30,.88);
-        --surface-solid: #1c1c1e;
+        --surface: rgba(28,28,30,.8);
+        --surface-solid: #f5f5f7;
         --text: #f5f5f7;
         --secondary: #a1a1a6;
         --tertiary: #86868b;
-        --border: rgba(255,255,255,.09);
-        --pill: #2c2c2e;
+        --border: rgba(255,255,255,.085);
+        --border-hover: rgba(255,255,255,.16);
+        --pill: rgba(255,255,255,.08);
     }
 
     body {
         background:
             radial-gradient(
-                circle at top left,
-                rgba(0,122,255,.09),
+                circle at 8% 0%,
+                rgba(0,122,255,.10),
                 transparent 26%
+            ),
+            radial-gradient(
+                circle at 94% 4%,
+                rgba(175,82,222,.055),
+                transparent 22%
             ),
             #000;
     }
 
     header {
         background:
-            rgba(0,0,0,.74);
+            rgba(0,0,0,.72);
 
         border-bottom-color:
             rgba(255,255,255,.07);
     }
 
+    .filter.active {
+        background:
+            #f5f5f7;
+
+        color:
+            #111;
+    }
+
     .search {
         background:
-            rgba(28,28,30,.84);
+            rgba(28,28,30,.78);
     }
 
-    .filter {
+    .search:focus {
+        background:
+            rgba(35,35,37,.98);
+    }
+
+    .app-card:hover {
+        background:
+            rgba(32,32,34,.97);
+    }
+
+    .review-status {
         background:
             rgba(255,255,255,.08);
-    }
-
-    .filter.active {
-        background: #f5f5f7;
-        color: #111;
     }
 
 }
@@ -797,6 +952,10 @@ footer {
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
@@ -828,93 +987,107 @@ Contact
 
 
 <!-- =====================================================
-     HERO
+     TOP
 ===================================================== -->
 
-<section class="hero">
+<section
+    id="apps"
+>
 
-<div class="eyebrow">
-Available on the App Store
-</div>
 
-<div class="hero-row">
-
-<div>
-
-<h1>
-Apps
-</h1>
-
-<p class="hero-copy">
-Useful iPhone apps built with a focus on simplicity,
-privacy and clean design.
-</p>
-
-</div>
-
+<div class="top-area">
 
 <div
-    class="available-total"
+    class="app-count"
     id="availableCount"
 >
-Loading App Store…
+Loading apps…
 </div>
 
 </div>
-
-</section>
 
 
 
 <!-- =====================================================
-     AVAILABLE APPS
+     TOOLBAR
 ===================================================== -->
-
-<section id="apps">
-
 
 <div class="toolbar">
 
+
 <div class="filters">
 
-<button class="filter active" data-filter="all">
+<button
+    class="filter active"
+    data-filter="all"
+>
 All
 </button>
 
-<button class="filter" data-filter="photo">
+<button
+    class="filter"
+    data-filter="photo"
+>
 Photo &amp; Video
 </button>
 
-<button class="filter" data-filter="business">
+<button
+    class="filter"
+    data-filter="business"
+>
 Business
 </button>
 
-<button class="filter" data-filter="productivity">
+<button
+    class="filter"
+    data-filter="productivity"
+>
 Productivity
 </button>
 
-<button class="filter" data-filter="utilities">
+<button
+    class="filter"
+    data-filter="utilities"
+>
 Utilities
 </button>
 
-<button class="filter" data-filter="health">
+<button
+    class="filter"
+    data-filter="health"
+>
 Health &amp; Fitness
 </button>
 
-<button class="filter" data-filter="games">
+<button
+    class="filter"
+    data-filter="games"
+>
 Games
 </button>
 
-<button class="filter" data-filter="reference">
+<button
+    class="filter"
+    data-filter="reference"
+>
 Reference
 </button>
 
-<button class="filter" data-filter="developer">
+<button
+    class="filter"
+    data-filter="developer"
+>
 Developer Tools
 </button>
 
 </div>
 
+
+<div class="search-wrap">
+
+<span class="search-icon">
+⌕
+</span>
 
 <input
     id="search"
@@ -926,6 +1099,14 @@ Developer Tools
 
 </div>
 
+
+</div>
+
+
+
+<!-- =====================================================
+     AVAILABLE APPS
+===================================================== -->
 
 <div
     class="app-grid"
@@ -996,6 +1177,7 @@ Checking App Store…
     id="about"
 >
 
+
 <div>
 
 <h2>
@@ -1027,12 +1209,17 @@ GitHub ›
 
 </div>
 
+
 </section>
 
 
 </main>
 
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -1232,30 +1419,49 @@ const apps = [
 ========================================================= */
 
 const availableGrid =
-    document.getElementById("availableGrid");
+    document.getElementById(
+        "availableGrid"
+    );
 
 const comingGrid =
-    document.getElementById("comingGrid");
+    document.getElementById(
+        "comingGrid"
+    );
 
 const availableCount =
-    document.getElementById("availableCount");
+    document.getElementById(
+        "availableCount"
+    );
 
 const comingCount =
-    document.getElementById("comingCount");
+    document.getElementById(
+        "comingCount"
+    );
 
 const comingSoonSection =
-    document.getElementById("comingSoonSection");
+    document.getElementById(
+        "comingSoonSection"
+    );
 
 const search =
-    document.getElementById("search");
+    document.getElementById(
+        "search"
+    );
 
 const empty =
-    document.getElementById("empty");
+    document.getElementById(
+        "empty"
+    );
 
 const filters =
-    [...document.querySelectorAll(".filter")];
+    [
+        ...document.querySelectorAll(
+            ".filter"
+        )
+    ];
 
-let activeFilter = "all";
+let activeFilter =
+    "all";
 
 let publicApps =
     new Map();
@@ -1266,10 +1472,16 @@ let publicApps =
    CREATE CARD
 ========================================================= */
 
-function createCard(app, live, appleData = null) {
+function createCard(
+    app,
+    live,
+    appleData = null
+) {
 
     const card =
-        document.createElement("article");
+        document.createElement(
+            "article"
+        );
 
     card.className =
         "app-card";
@@ -1278,15 +1490,20 @@ function createCard(app, live, appleData = null) {
         app.category;
 
 
+    /* ICON */
+
     const icon =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     icon.className =
         "app-icon" +
         (
             !live &&
             app.placeholderClass
-                ? " " + app.placeholderClass
+                ? " " +
+                  app.placeholderClass
                 : ""
         );
 
@@ -1302,23 +1519,33 @@ function createCard(app, live, appleData = null) {
     ) {
 
         const image =
-            document.createElement("img");
+            document.createElement(
+                "img"
+            );
+
 
         image.src =
             appleData.artworkUrl512 ||
             appleData.artworkUrl100 ||
             appleData.artworkUrl60;
 
+
         image.alt =
-            app.name + " app icon";
+            app.name +
+            " app icon";
+
 
         image.loading =
             "lazy";
 
+
         image.referrerPolicy =
             "no-referrer";
 
-        icon.appendChild(image);
+
+        icon.appendChild(
+            image
+        );
 
     }
 
@@ -1330,15 +1557,21 @@ function createCard(app, live, appleData = null) {
     }
 
 
+    /* INFO */
+
     const info =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     info.className =
         "app-info";
 
 
     const name =
-        document.createElement("h3");
+        document.createElement(
+            "h3"
+        );
 
     name.className =
         "app-name";
@@ -1348,7 +1581,9 @@ function createCard(app, live, appleData = null) {
 
 
     const category =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     category.className =
         "category";
@@ -1358,7 +1593,9 @@ function createCard(app, live, appleData = null) {
 
 
     const description =
-        document.createElement("p");
+        document.createElement(
+            "p"
+        );
 
     description.className =
         "description";
@@ -1368,16 +1605,22 @@ function createCard(app, live, appleData = null) {
 
 
     const actions =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     actions.className =
         "actions";
 
 
+    /* LIVE APP */
+
     if (live) {
 
         const link =
-            document.createElement("a");
+            document.createElement(
+                "a"
+            );
 
         link.className =
             "store-link";
@@ -1411,14 +1654,21 @@ function createCard(app, live, appleData = null) {
         }
 
 
-        actions.appendChild(link);
+        actions.appendChild(
+            link
+        );
 
     }
+
+
+    /* WAITING APP */
 
     else {
 
         const status =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
 
         status.className =
             "review-status";
@@ -1426,19 +1676,37 @@ function createCard(app, live, appleData = null) {
         status.textContent =
             "Waiting for Review";
 
-        actions.appendChild(status);
+        actions.appendChild(
+            status
+        );
 
     }
 
 
-    info.appendChild(name);
-    info.appendChild(category);
-    info.appendChild(description);
-    info.appendChild(actions);
+    info.appendChild(
+        name
+    );
+
+    info.appendChild(
+        category
+    );
+
+    info.appendChild(
+        description
+    );
+
+    info.appendChild(
+        actions
+    );
 
 
-    card.appendChild(icon);
-    card.appendChild(info);
+    card.appendChild(
+        icon
+    );
+
+    card.appendChild(
+        info
+    );
 
 
     return card;
@@ -1454,7 +1722,10 @@ function createCard(app, live, appleData = null) {
 async function getAppleData() {
 
     const ids =
-        apps.map(app => app.id);
+        apps.map(
+            app =>
+                app.id
+        );
 
 
     const lookupURL =
@@ -1469,12 +1740,15 @@ async function getAppleData() {
             await fetch(
                 lookupURL,
                 {
-                    cache: "no-store"
+                    cache:
+                        "no-store"
                 }
             );
 
 
-        if (!response.ok) {
+        if (
+            !response.ok
+        ) {
 
             throw new Error(
                 "Apple lookup failed"
@@ -1487,14 +1761,18 @@ async function getAppleData() {
             await response.json();
 
 
-        data.results.forEach(result => {
+        data.results.forEach(
+            result => {
 
-            publicApps.set(
-                String(result.trackId),
-                result
-            );
+                publicApps.set(
+                    String(
+                        result.trackId
+                    ),
+                    result
+                );
 
-        });
+            }
+        );
 
 
         return true;
@@ -1521,11 +1799,18 @@ async function getAppleData() {
    LIVE STATUS
 ========================================================= */
 
-function isAppLive(app, lookupWorked) {
+function isAppLive(
+    app,
+    lookupWorked
+) {
 
-    if (lookupWorked) {
+    if (
+        lookupWorked
+    ) {
 
-        return publicApps.has(app.id);
+        return publicApps.has(
+            app.id
+        );
 
     }
 
@@ -1562,58 +1847,67 @@ async function renderApps() {
         0;
 
 
-    apps.forEach(app => {
+    apps.forEach(
+        app => {
 
-        const live =
-            isAppLive(
-                app,
-                lookupWorked
-            );
-
-
-        const appleData =
-            publicApps.get(app.id) ||
-            null;
+            const live =
+                isAppLive(
+                    app,
+                    lookupWorked
+                );
 
 
-        const card =
-            createCard(
-                app,
-                live,
-                appleData
-            );
+            const appleData =
+                publicApps.get(
+                    app.id
+                ) ||
+                null;
 
 
-        if (live) {
+            const card =
+                createCard(
+                    app,
+                    live,
+                    appleData
+                );
 
-            availableGrid.appendChild(
-                card
-            );
 
-            availableTotal++;
+            if (
+                live
+            ) {
+
+                availableGrid.appendChild(
+                    card
+                );
+
+                availableTotal++;
+
+            }
+
+            else {
+
+                comingGrid.appendChild(
+                    card
+                );
+
+                comingTotal++;
+
+            }
 
         }
-
-        else {
-
-            comingGrid.appendChild(
-                card
-            );
-
-            comingTotal++;
-
-        }
-
-    });
+    );
 
 
     availableCount.textContent =
         availableTotal === 1
             ? "1 app available"
-            : availableTotal + " apps available";
+            : availableTotal +
+              " apps available";
 
 
-    if (comingTotal === 0) {
+    if (
+        comingTotal === 0
+    ) {
 
         comingSoonSection.style.display =
             "none";
@@ -1665,43 +1959,51 @@ function updateFilters() {
         0;
 
 
-    cards.forEach(card => {
+    cards.forEach(
+        card => {
 
-        const category =
-            card.dataset.category;
-
-
-        const text =
-            card.innerText
-                .toLowerCase();
+            const category =
+                card.dataset.category;
 
 
-        const categoryMatch =
-            activeFilter === "all" ||
-            category === activeFilter;
+            const text =
+                card.innerText
+                    .toLowerCase();
 
 
-        const searchMatch =
-            !query ||
-            text.includes(query);
+            const categoryMatch =
+                activeFilter === "all" ||
+                category === activeFilter;
 
 
-        const shouldShow =
-            categoryMatch &&
-            searchMatch;
+            const searchMatch =
+                !query ||
+                text.includes(
+                    query
+                );
 
 
-        card.style.display =
-            shouldShow
-                ? "flex"
-                : "none";
+            const shouldShow =
+                categoryMatch &&
+                searchMatch;
 
 
-        if (shouldShow) {
-            visible++;
+            card.style.display =
+                shouldShow
+                    ? "flex"
+                    : "none";
+
+
+            if (
+                shouldShow
+            ) {
+
+                visible++;
+
+            }
+
         }
-
-    });
+    );
 
 
     empty.style.display =
@@ -1713,37 +2015,50 @@ function updateFilters() {
 
 
 
-filters.forEach(button => {
+/* =========================================================
+   FILTER BUTTON EVENTS
+========================================================= */
 
-    button.addEventListener(
-        "click",
-        () => {
+filters.forEach(
+    button => {
 
-            filters.forEach(item => {
+        button.addEventListener(
+            "click",
+            () => {
 
-                item.classList.remove(
+                filters.forEach(
+                    item => {
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                button.classList.add(
                     "active"
                 );
 
-            });
+
+                activeFilter =
+                    button.dataset.filter;
 
 
-            button.classList.add(
-                "active"
-            );
+                updateFilters();
+
+            }
+        );
+
+    }
+);
 
 
-            activeFilter =
-                button.dataset.filter;
 
-
-            updateFilters();
-
-        }
-    );
-
-});
-
+/* =========================================================
+   SEARCH
+========================================================= */
 
 search.addEventListener(
     "input",
