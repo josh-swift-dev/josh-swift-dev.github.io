@@ -272,7 +272,7 @@ main {
 
 
 /* =========================================================
-   APP CARDS
+   APP CARD
 ========================================================= */
 
 .app-card {
@@ -293,7 +293,8 @@ main {
     transition:
         transform .2s ease,
         box-shadow .2s ease,
-        border-color .2s ease;
+        border-color .2s ease,
+        opacity .2s ease;
 }
 
 .app-card:hover {
@@ -346,7 +347,7 @@ main {
 
 
 /* =========================================================
-   COMING SOON ICONS
+   PLACEHOLDER ICONS
 ========================================================= */
 
 .icon-filtrume {
@@ -370,10 +371,6 @@ main {
         );
 
     color: #0071e3;
-
-    border:
-        1px solid
-        rgba(0,113,227,.2);
 }
 
 .icon-keylock {
@@ -477,7 +474,28 @@ main {
 
 
 /* =========================================================
-   EMPTY SEARCH
+   COMING SOON
+========================================================= */
+
+.coming-soon {
+    margin-top: 78px;
+
+    padding-top: 45px;
+
+    border-top: 1px solid var(--border);
+}
+
+.coming-grid .app-card {
+    opacity: .92;
+}
+
+.coming-soon.hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   EMPTY
 ========================================================= */
 
 .empty {
@@ -490,25 +508,6 @@ main {
     text-align: center;
 
     color: var(--secondary);
-}
-
-
-/* =========================================================
-   COMING SOON SECTION
-========================================================= */
-
-.coming-soon {
-    margin-top: 78px;
-
-    padding-top: 45px;
-
-    border-top:
-        1px solid
-        var(--border);
-}
-
-.coming-grid .app-card {
-    opacity: .92;
 }
 
 
@@ -528,9 +527,7 @@ main {
 
     padding-top: 45px;
 
-    border-top:
-        1px solid
-        var(--border);
+    border-top: 1px solid var(--border);
 }
 
 .about h2 {
@@ -584,12 +581,9 @@ footer {
         24px
         36px;
 
-    border-top:
-        1px solid
-        var(--border);
+    border-top: 1px solid var(--border);
 
     display: flex;
-
     justify-content: space-between;
 
     gap: 20px;
@@ -616,10 +610,6 @@ footer {
         justify-content: center;
     }
 
-    .nav-links {
-        display: flex;
-    }
-
     main {
         padding-top: 38px;
     }
@@ -638,7 +628,6 @@ footer {
 
     .search {
         width: 100%;
-
         margin-top: 15px;
     }
 
@@ -659,7 +648,6 @@ footer {
     }
 
 }
-
 
 @media(max-width:430px) {
 
@@ -696,16 +684,12 @@ footer {
     }
 
     header {
-        background:
-            rgba(0,0,0,.82);
-
-        border-color:
-            rgba(255,255,255,.08);
+        background: rgba(0,0,0,.82);
+        border-color: rgba(255,255,255,.08);
     }
 
     .app-card:hover {
-        border-color:
-            rgba(255,255,255,.16);
+        border-color: rgba(255,255,255,.16);
     }
 
 }
@@ -781,9 +765,9 @@ Available Now
 
 <div
     class="count"
-    id="count"
+    id="availableCount"
 >
-9 apps
+Loading App Store…
 </div>
 
 </div>
@@ -801,492 +785,52 @@ Available Now
 
 
 
-<!-- FILTERS -->
-
 <div class="filters">
 
-<button
-    class="filter active"
-    data-filter="all"
->
+<button class="filter active" data-filter="all">
 All
 </button>
 
-<button
-    class="filter"
-    data-filter="photo"
->
+<button class="filter" data-filter="photo">
 Photo &amp; Video
 </button>
 
-<button
-    class="filter"
-    data-filter="business"
->
+<button class="filter" data-filter="business">
 Business
 </button>
 
-<button
-    class="filter"
-    data-filter="productivity"
->
+<button class="filter" data-filter="productivity">
 Productivity
 </button>
 
-<button
-    class="filter"
-    data-filter="reference"
->
+<button class="filter" data-filter="utilities">
+Utilities
+</button>
+
+<button class="filter" data-filter="health">
+Health &amp; Fitness
+</button>
+
+<button class="filter" data-filter="games">
+Games
+</button>
+
+<button class="filter" data-filter="reference">
 Reference
 </button>
 
-<button
-    class="filter"
-    data-filter="developer"
->
+<button class="filter" data-filter="developer">
 Developer Tools
 </button>
 
 </div>
-
 
 
 <div
     class="app-grid"
-    id="appGrid"
+    id="availableGrid"
 >
-
-
-<!-- =====================================================
-     SSH NOW
-===================================================== -->
-
-<article
-    class="app-card"
-    data-category="developer"
-    data-app-id="6815771062"
->
-
-<div class="app-icon">
-&gt;_
 </div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-SSH Now
-</h3>
-
-<div class="category">
-Developer Tools
-</div>
-
-<p class="description">
-Secure SSH terminal with saved servers,
-private keys, host verification and terminal tools.
-</p>
-
-<div class="actions">
-
-<a
-    class="store-link"
-    href="https://apps.apple.com/us/app/ssh-now/id6815771062"
-    target="_blank"
-    rel="noopener"
->
-View on App Store ›
-</a>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     BIZCARD CONTACTS
-===================================================== -->
-
-<article
-    class="app-card"
-    data-category="business"
-    data-app-id="6813191216"
->
-
-<div class="app-icon">
-B
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-BizCard Contacts
-</h3>
-
-<div class="category">
-Business
-</div>
-
-<p class="description">
-Scan business cards and build a clean,
-searchable contact directory on your iPhone.
-</p>
-
-<div class="actions">
-
-<a
-    class="store-link"
-    href="https://apps.apple.com/us/app/bizcard-contacts/id6813191216"
-    target="_blank"
-    rel="noopener"
->
-View on App Store ›
-</a>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     CLEAN PHOTO FLICK
-===================================================== -->
-
-<article
-    class="app-card"
-    data-category="photo"
-    data-app-id="6814234024"
->
-
-<div class="app-icon">
-C
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-CleanPhotoFlick
-</h3>
-
-<div class="category">
-Photo &amp; Video
-</div>
-
-<p class="description">
-Swipe through your photo library to keep what
-matters and quickly clean out the rest.
-</p>
-
-<div class="actions">
-
-<a
-    class="store-link"
-    href="https://apps.apple.com/us/app/cleanphotoflick/id6814234024"
-    target="_blank"
-    rel="noopener"
->
-View on App Store ›
-</a>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     SHUFFLED MEMORIES
-===================================================== -->
-
-<article
-    class="app-card"
-    data-category="photo"
-    data-app-id="6813739466"
->
-
-<div class="app-icon">
-S
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-Shuffled Memories
-</h3>
-
-<div class="category">
-Photo &amp; Video
-</div>
-
-<p class="description">
-Rediscover forgotten photos from your library
-through a spontaneous trip through your memories.
-</p>
-
-<div class="actions">
-
-<a
-    class="store-link"
-    href="https://apps.apple.com/us/app/shuffled-memories/id6813739466"
-    target="_blank"
-    rel="noopener"
->
-View on App Store ›
-</a>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     DAILY GLOW
-===================================================== -->
-
-<article
-    class="app-card"
-    data-category="productivity"
-    data-app-id="6812952885"
->
-
-<div class="app-icon">
-D
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-Daily Glow Reminders
-</h3>
-
-<div class="category">
-Productivity
-</div>
-
-<p class="description">
-Flexible daily reminders and repeating routines
-designed to add structure to your day.
-</p>
-
-<div class="actions">
-
-<a
-    class="store-link"
-    href="https://apps.apple.com/us/app/daily-glow-reminders/id6812952885"
-    target="_blank"
-    rel="noopener"
->
-View on App Store ›
-</a>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     370Z COMPANION
-===================================================== -->
-
-<article
-    class="app-card"
-    data-category="reference"
-    data-app-id="6809966534"
->
-
-<div class="app-icon">
-Z
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-370Z Companion
-</h3>
-
-<div class="category">
-Reference
-</div>
-
-<p class="description">
-Track maintenance, save service records,
-look up OBD codes and follow relearn timers.
-</p>
-
-<div class="actions">
-
-<a
-    class="store-link"
-    href="https://apps.apple.com/us/app/370z-companion/id6809966534"
-    target="_blank"
-    rel="noopener"
->
-View on App Store ›
-</a>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     HEIC PHOTO CONVERTER PRO
-===================================================== -->
-
-<article
-    class="app-card"
-    data-category="photo"
-    data-app-id="6811242750"
->
-
-<div class="app-icon">
-H
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-HEIC Photo Converter Pro
-</h3>
-
-<div class="category">
-Photo &amp; Video
-</div>
-
-<p class="description">
-Convert HEIC and HEIF photos to JPG or PNG
-privately and directly on your iPhone.
-</p>
-
-<div class="actions">
-
-<a
-    class="store-link"
-    href="https://apps.apple.com/us/app/heic-photo-converter-pro/id6811242750"
-    target="_blank"
-    rel="noopener"
->
-View on App Store ›
-</a>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     GALLERY SWEEP PRO
-===================================================== -->
-
-<article
-    class="app-card"
-    data-category="photo"
-    data-app-id="6813448638"
->
-
-<div class="app-icon">
-G
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-Gallery Sweep Pro
-</h3>
-
-<div class="category">
-Photo &amp; Video
-</div>
-
-<p class="description">
-Find duplicate and similar photos, screenshots,
-large media and possible blurry photos.
-</p>
-
-<div class="actions">
-
-<a
-    class="store-link"
-    href="https://apps.apple.com/us/app/gallery-sweep-pro/id6813448638"
-    target="_blank"
-    rel="noopener"
->
-View on App Store ›
-</a>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     CASEKEEPER RECORDS
-===================================================== -->
-
-<article
-    class="app-card"
-    data-category="productivity"
-    data-app-id="6809669070"
->
-
-<div class="app-icon">
-C
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-CaseKeeper Records
-</h3>
-
-<div class="category">
-Productivity
-</div>
-
-<p class="description">
-Track customer-service issues, follow-ups,
-reminders, contacts, documents and important records.
-</p>
-
-<div class="actions">
-
-<a
-    class="store-link"
-    href="https://apps.apple.com/us/app/casekeeper-records/id6809669070"
-    target="_blank"
-    rel="noopener"
->
-View on App Store ›
-</a>
-
-</div>
-
-</div>
-
-</article>
-
 
 
 <div
@@ -1296,8 +840,6 @@ View on App Store ›
 No apps found.
 </div>
 
-
-</div>
 
 </section>
 
@@ -1309,7 +851,7 @@ No apps found.
 
 <section
     class="coming-soon"
-    id="coming-soon"
+    id="comingSoonSection"
 >
 
 
@@ -1321,8 +863,11 @@ No apps found.
 Coming Soon
 </h2>
 
-<div class="section-subtitle">
-Apps currently making their way to the App Store.
+<div
+    class="section-subtitle"
+    id="comingCount"
+>
+Checking App Store…
 </div>
 
 </div>
@@ -1330,206 +875,12 @@ Apps currently making their way to the App Store.
 </div>
 
 
-
-<div class="app-grid coming-grid">
-
-
-<!-- =====================================================
-     FILTRUME
-===================================================== -->
-
-<article class="app-card">
-
-<div class="app-icon icon-filtrume">
-F
+<div
+    class="app-grid coming-grid"
+    id="comingGrid"
+>
 </div>
 
-<div class="app-info">
-
-<h3 class="app-name">
-Filtrume
-</h3>
-
-<div class="category">
-Photo &amp; Video
-</div>
-
-<p class="description">
-A powerful photo editor with 200+ curated filters,
-AI Studio effects, professional editing tools and
-full-resolution export.
-</p>
-
-<div class="actions">
-
-<span class="review-status">
-Waiting for Review
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     FOREVER SUDOKU
-===================================================== -->
-
-<article class="app-card">
-
-<div class="app-icon icon-sudoku">
-9
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-Forever Sudoku
-</h3>
-
-<div class="category">
-Games
-</div>
-
-<p class="description">
-Unlimited Sudoku boards with multiple difficulty
-levels, progression and trophies to unlock.
-</p>
-
-<div class="actions">
-
-<span class="review-status">
-Waiting for Review
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     KEYLOCKPRO2
-===================================================== -->
-
-<article class="app-card">
-
-<div class="app-icon icon-keylock">
-K
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-KeyLockPro2
-</h3>
-
-<div class="category">
-Utilities
-</div>
-
-<p class="description">
-Securely organize passwords and generate
-strong credentials directly on your iPhone.
-</p>
-
-<div class="actions">
-
-<span class="review-status">
-Waiting for Review
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     PARKING SPOT HERO
-===================================================== -->
-
-<article class="app-card">
-
-<div class="app-icon icon-parking">
-P
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-Parking Spot Hero
-</h3>
-
-<div class="category">
-Utilities
-</div>
-
-<p class="description">
-Save where you parked, track parking time
-and quickly find your way back to your car.
-</p>
-
-<div class="actions">
-
-<span class="review-status">
-Waiting for Review
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     STEPVAULT
-===================================================== -->
-
-<article class="app-card">
-
-<div class="app-icon icon-step">
-S
-</div>
-
-<div class="app-info">
-
-<h3 class="app-name">
-StepVault
-</h3>
-
-<div class="category">
-Health &amp; Fitness
-</div>
-
-<p class="description">
-Explore your step history, distance, goals
-and achievements in one beautiful dashboard.
-</p>
-
-<div class="actions">
-
-<span class="review-status">
-Waiting for Review
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-</div>
 
 </section>
 
@@ -1583,10 +934,6 @@ GitHub ›
 
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer>
 
 <div>
@@ -1612,40 +959,437 @@ Support
 <script>
 
 /* =========================================================
-   LOAD REAL APP STORE ICONS
+   MASTER APP DATABASE
 ========================================================= */
 
-async function loadAppleApps() {
+const apps = [
 
-    const cards =
-        [...document.querySelectorAll("[data-app-id]")];
+    {
+        id: "6815771062",
+        name: "SSH Now",
+        category: "developer",
+        categoryName: "Developer Tools",
+        description:
+            "Secure SSH terminal with saved servers, private keys, host verification and terminal tools.",
+        fallback: ">_",
+        knownLive: true
+    },
+
+    {
+        id: "6813191216",
+        name: "BizCard Contacts",
+        category: "business",
+        categoryName: "Business",
+        description:
+            "Scan business cards and build a clean, searchable contact directory on your iPhone.",
+        fallback: "B",
+        knownLive: true
+    },
+
+    {
+        id: "6814234024",
+        name: "CleanPhotoFlick",
+        category: "photo",
+        categoryName: "Photo & Video",
+        description:
+            "Swipe through your photo library to keep what matters and quickly clean out the rest.",
+        fallback: "C",
+        knownLive: true
+    },
+
+    {
+        id: "6813739466",
+        name: "Shuffled Memories",
+        category: "photo",
+        categoryName: "Photo & Video",
+        description:
+            "Rediscover forgotten photos from your library through a spontaneous trip through your memories.",
+        fallback: "S",
+        knownLive: true
+    },
+
+    {
+        id: "6812952885",
+        name: "Daily Glow Reminders",
+        category: "productivity",
+        categoryName: "Productivity",
+        description:
+            "Flexible daily reminders and repeating routines designed to add structure to your day.",
+        fallback: "D",
+        knownLive: true
+    },
+
+    {
+        id: "6809966534",
+        name: "370Z Companion",
+        category: "reference",
+        categoryName: "Reference",
+        description:
+            "Track maintenance, save service records, look up OBD codes and follow relearn timers.",
+        fallback: "Z",
+        knownLive: true
+    },
+
+    {
+        id: "6811242750",
+        name: "HEIC Photo Converter Pro",
+        category: "photo",
+        categoryName: "Photo & Video",
+        description:
+            "Convert HEIC and HEIF photos to JPG or PNG privately and directly on your iPhone.",
+        fallback: "H",
+        knownLive: true
+    },
+
+    {
+        id: "6813448638",
+        name: "Gallery Sweep Pro",
+        category: "photo",
+        categoryName: "Photo & Video",
+        description:
+            "Find duplicate and similar photos, screenshots, large media and possible blurry photos.",
+        fallback: "G",
+        knownLive: true
+    },
+
+    {
+        id: "6809669070",
+        name: "CaseKeeper Records",
+        category: "productivity",
+        categoryName: "Productivity",
+        description:
+            "Track customer-service issues, follow-ups, reminders, contacts, documents and important records.",
+        fallback: "C",
+        knownLive: true
+    },
+
+
+    /* =====================================================
+       CURRENTLY WAITING FOR REVIEW
+    ===================================================== */
+
+    {
+        id: "6817830878",
+        name: "Filtrume",
+        category: "photo",
+        categoryName: "Photo & Video",
+        description:
+            "A powerful photo editor with 200+ curated filters, AI Studio effects, professional editing tools and full-resolution export.",
+        fallback: "F",
+        placeholderClass: "icon-filtrume",
+        knownLive: false
+    },
+
+    {
+        id: "6817367810",
+        name: "Forever Sudoku",
+        category: "games",
+        categoryName: "Games",
+        description:
+            "Unlimited Sudoku boards with multiple difficulty levels, progression and trophies to unlock.",
+        fallback: "9",
+        placeholderClass: "icon-sudoku",
+        knownLive: false
+    },
+
+    {
+        id: "6816921886",
+        name: "KeyLockPro2",
+        category: "utilities",
+        categoryName: "Utilities",
+        description:
+            "Securely organize passwords and generate strong credentials directly on your iPhone.",
+        fallback: "K",
+        placeholderClass: "icon-keylock",
+        knownLive: false
+    },
+
+    {
+        id: "6815499806",
+        name: "Parking Spot Hero",
+        category: "utilities",
+        categoryName: "Utilities",
+        description:
+            "Save where you parked, track parking time and quickly find your way back to your car.",
+        fallback: "P",
+        placeholderClass: "icon-parking",
+        knownLive: false
+    },
+
+    {
+        id: "6816172118",
+        name: "StepVault",
+        category: "health",
+        categoryName: "Health & Fitness",
+        description:
+            "Explore your step history, distance, goals and achievements in one beautiful dashboard.",
+        fallback: "S",
+        placeholderClass: "icon-step",
+        knownLive: false
+    }
+
+];
+
+
+
+/* =========================================================
+   PAGE ELEMENTS
+========================================================= */
+
+const availableGrid =
+    document.getElementById("availableGrid");
+
+const comingGrid =
+    document.getElementById("comingGrid");
+
+const availableCount =
+    document.getElementById("availableCount");
+
+const comingCount =
+    document.getElementById("comingCount");
+
+const comingSoonSection =
+    document.getElementById("comingSoonSection");
+
+const search =
+    document.getElementById("search");
+
+const empty =
+    document.getElementById("empty");
+
+const filters =
+    [...document.querySelectorAll(".filter")];
+
+let activeFilter = "all";
+
+let publicApps = new Map();
+
+
+
+/* =========================================================
+   CREATE APP CARD
+========================================================= */
+
+function createCard(app, live, appleData = null) {
+
+    const card =
+        document.createElement("article");
+
+    card.className = "app-card";
+
+    card.dataset.category =
+        app.category;
+
+    card.dataset.name =
+        app.name.toLowerCase();
+
+
+    /* ICON */
+
+    const icon =
+        document.createElement("div");
+
+    icon.className =
+        "app-icon" +
+        (
+            !live &&
+            app.placeholderClass
+                ? " " + app.placeholderClass
+                : ""
+        );
+
+
+    if (
+        live &&
+        appleData &&
+        (
+            appleData.artworkUrl512 ||
+            appleData.artworkUrl100 ||
+            appleData.artworkUrl60
+        )
+    ) {
+
+        const image =
+            document.createElement("img");
+
+        image.src =
+            appleData.artworkUrl512 ||
+            appleData.artworkUrl100 ||
+            appleData.artworkUrl60;
+
+        image.alt =
+            app.name + " app icon";
+
+        image.loading =
+            "lazy";
+
+        image.referrerPolicy =
+            "no-referrer";
+
+        icon.appendChild(image);
+
+    }
+
+    else {
+
+        icon.textContent =
+            app.fallback;
+
+    }
+
+
+    /* INFO */
+
+    const info =
+        document.createElement("div");
+
+    info.className =
+        "app-info";
+
+
+    const name =
+        document.createElement("h3");
+
+    name.className =
+        "app-name";
+
+    name.textContent =
+        app.name;
+
+
+    const category =
+        document.createElement("div");
+
+    category.className =
+        "category";
+
+    category.textContent =
+        app.categoryName;
+
+
+    const description =
+        document.createElement("p");
+
+    description.className =
+        "description";
+
+    description.textContent =
+        app.description;
+
+
+    const actions =
+        document.createElement("div");
+
+    actions.className =
+        "actions";
+
+
+    if (live) {
+
+        const link =
+            document.createElement("a");
+
+        link.className =
+            "store-link";
+
+        link.target =
+            "_blank";
+
+        link.rel =
+            "noopener";
+
+        link.textContent =
+            "View on App Store ›";
+
+
+        if (
+            appleData &&
+            appleData.trackViewUrl
+        ) {
+
+            link.href =
+                appleData.trackViewUrl;
+
+        }
+
+        else {
+
+            link.href =
+                "https://apps.apple.com/us/app/id" +
+                app.id;
+
+        }
+
+
+        actions.appendChild(link);
+
+    }
+
+    else {
+
+        const status =
+            document.createElement("span");
+
+        status.className =
+            "review-status";
+
+        status.textContent =
+            "Waiting for Review";
+
+        actions.appendChild(status);
+
+    }
+
+
+    info.appendChild(name);
+    info.appendChild(category);
+    info.appendChild(description);
+    info.appendChild(actions);
+
+
+    card.appendChild(icon);
+    card.appendChild(info);
+
+
+    return card;
+
+}
+
+
+
+/* =========================================================
+   APPLE LOOKUP
+========================================================= */
+
+async function getAppleData() {
 
     const ids =
-        cards
-            .map(card => card.dataset.appId)
-            .filter(Boolean);
+        apps.map(app => app.id);
 
-    if (!ids.length) {
-        return;
-    }
+
+    const lookupURL =
+        "https://itunes.apple.com/lookup?id=" +
+        ids.join(",") +
+        "&country=us";
 
 
     try {
 
-        const lookupURL =
-            "https://itunes.apple.com/lookup?id=" +
-            ids.join(",") +
-            "&country=us";
-
-
         const response =
-            await fetch(lookupURL);
+            await fetch(
+                lookupURL,
+                {
+                    cache: "no-store"
+                }
+            );
 
 
         if (!response.ok) {
+
             throw new Error(
-                "Apple lookup request failed."
+                "Apple lookup failed"
             );
+
         }
 
 
@@ -1653,102 +1397,17 @@ async function loadAppleApps() {
             await response.json();
 
 
-        const results = {};
+        data.results.forEach(result => {
 
-
-        data.results.forEach(app => {
-
-            results[
-                String(app.trackId)
-            ] = app;
+            publicApps.set(
+                String(result.trackId),
+                result
+            );
 
         });
 
 
-        cards.forEach(card => {
-
-            const id =
-                card.dataset.appId;
-
-
-            const app =
-                results[id];
-
-
-            if (!app) {
-                return;
-            }
-
-
-            /* REAL ICON */
-
-            const icon =
-                card.querySelector(
-                    ".app-icon"
-                );
-
-
-            const artwork =
-                app.artworkUrl512 ||
-                app.artworkUrl100 ||
-                app.artworkUrl60;
-
-
-            if (icon && artwork) {
-
-                const image =
-                    document.createElement(
-                        "img"
-                    );
-
-
-                image.src =
-                    artwork;
-
-
-                image.alt =
-                    app.trackName +
-                    " app icon";
-
-
-                image.loading =
-                    "lazy";
-
-
-                image.referrerPolicy =
-                    "no-referrer";
-
-
-                icon.innerHTML =
-                    "";
-
-
-                icon.appendChild(
-                    image
-                );
-
-            }
-
-
-            /* REAL APP STORE URL */
-
-            const storeLink =
-                card.querySelector(
-                    ".store-link"
-                );
-
-
-            if (
-                storeLink &&
-                app.trackViewUrl
-            ) {
-
-                storeLink.href =
-                    app.trackViewUrl;
-
-            }
-
-        });
+        return true;
 
     }
 
@@ -1759,7 +1418,146 @@ async function loadAppleApps() {
             error
         );
 
+
+        return false;
+
     }
+
+}
+
+
+
+/* =========================================================
+   DETERMINE LIVE STATUS
+========================================================= */
+
+function isAppLive(app, lookupWorked) {
+
+    /*
+       If Apple lookup worked:
+       Apple's public result determines whether
+       the app is publicly available.
+
+       If lookup fails entirely:
+       preserve the known state so existing
+       released apps do not disappear.
+    */
+
+    if (lookupWorked) {
+
+        return publicApps.has(app.id);
+
+    }
+
+
+    return app.knownLive;
+
+}
+
+
+
+/* =========================================================
+   RENDER EVERYTHING
+========================================================= */
+
+async function renderApps() {
+
+    availableGrid.innerHTML =
+        "";
+
+    comingGrid.innerHTML =
+        "";
+
+    publicApps.clear();
+
+
+    const lookupWorked =
+        await getAppleData();
+
+
+    let availableTotal =
+        0;
+
+    let comingTotal =
+        0;
+
+
+    apps.forEach(app => {
+
+        const live =
+            isAppLive(
+                app,
+                lookupWorked
+            );
+
+
+        const appleData =
+            publicApps.get(app.id) ||
+            null;
+
+
+        const card =
+            createCard(
+                app,
+                live,
+                appleData
+            );
+
+
+        if (live) {
+
+            availableGrid.appendChild(
+                card
+            );
+
+            availableTotal++;
+
+        }
+
+        else {
+
+            comingGrid.appendChild(
+                card
+            );
+
+            comingTotal++;
+
+        }
+
+    });
+
+
+    availableCount.textContent =
+        availableTotal === 1
+            ? "1 app"
+            : availableTotal + " apps";
+
+
+    if (comingTotal === 0) {
+
+        comingSoonSection.classList.add(
+            "hidden"
+        );
+
+    }
+
+    else {
+
+        comingSoonSection.classList.remove(
+            "hidden"
+        );
+
+
+        comingCount.textContent =
+            comingTotal === 1
+                ? "1 app currently making its way to the App Store."
+                : comingTotal +
+                  " apps currently making their way to the App Store.";
+
+    }
+
+
+    updateFilters();
 
 }
 
@@ -1769,42 +1567,15 @@ async function loadAppleApps() {
    SEARCH + FILTERING
 ========================================================= */
 
-const cards =
-    [...document.querySelectorAll(
-        "#appGrid .app-card"
-    )];
+function updateFilters() {
 
+    const cards =
+        [
+            ...availableGrid.querySelectorAll(
+                ".app-card"
+            )
+        ];
 
-const filters =
-    [...document.querySelectorAll(
-        ".filter"
-    )];
-
-
-const search =
-    document.getElementById(
-        "search"
-    );
-
-
-const count =
-    document.getElementById(
-        "count"
-    );
-
-
-const empty =
-    document.getElementById(
-        "empty"
-    );
-
-
-let activeFilter =
-    "all";
-
-
-
-function updateApps() {
 
     const query =
         search.value
@@ -1855,12 +1626,6 @@ function updateApps() {
     });
 
 
-    count.textContent =
-        visible === 1
-            ? "1 app"
-            : visible + " apps";
-
-
     empty.style.display =
         visible === 0
             ? "block"
@@ -1876,12 +1641,13 @@ filters.forEach(button => {
         "click",
         () => {
 
-            filters.forEach(
-                item =>
-                    item.classList.remove(
-                        "active"
-                    )
-            );
+            filters.forEach(item => {
+
+                item.classList.remove(
+                    "active"
+                );
+
+            });
 
 
             button.classList.add(
@@ -1893,7 +1659,7 @@ filters.forEach(button => {
                 button.dataset.filter;
 
 
-            updateApps();
+            updateFilters();
 
         }
     );
@@ -1901,10 +1667,9 @@ filters.forEach(button => {
 });
 
 
-
 search.addEventListener(
     "input",
-    updateApps
+    updateFilters
 );
 
 
@@ -1913,9 +1678,7 @@ search.addEventListener(
    START
 ========================================================= */
 
-updateApps();
-
-loadAppleApps();
+renderApps();
 
 </script>
 
