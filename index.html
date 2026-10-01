@@ -90,6 +90,7 @@ nav {
 .nav-links {
     display: flex;
     align-items: center;
+
     gap: 28px;
 
     color: var(--secondary);
@@ -205,6 +206,105 @@ main {
 
 
 /* =========================================================
+   TOOLBAR RIGHT SIDE
+========================================================= */
+
+.toolbar-right {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+.sort-wrap {
+    position: relative;
+
+    min-width: 180px;
+}
+
+.sort-select {
+    width: 100%;
+    height: 36px;
+
+    padding:
+        0
+        34px
+        0
+        13px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    color:
+        var(--secondary);
+
+    font-family: inherit;
+
+    font-size: 11px;
+    font-weight: 550;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.sort-select:hover {
+    background:
+        rgba(255,255,255,.94);
+}
+
+.sort-select:focus {
+    background:
+        rgba(255,255,255,.98);
+
+    border-color:
+        rgba(0,113,227,.35);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(0,113,227,.07);
+}
+
+.sort-arrow {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    pointer-events: none;
+
+    color:
+        var(--tertiary);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
    SEARCH
 ========================================================= */
 
@@ -218,17 +318,26 @@ main {
     width: 100%;
     height: 36px;
 
-    padding: 0 14px 0 36px;
+    padding:
+        0
+        14px
+        0
+        36px;
 
-    border: 1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     border-radius: 12px;
 
-    background: rgba(255,255,255,.72);
+    background:
+        rgba(255,255,255,.72);
 
-    color: var(--text);
+    color:
+        var(--text);
 
     font-family: inherit;
+
     font-size: 11.5px;
 
     outline: none;
@@ -240,9 +349,11 @@ main {
 }
 
 .search:focus {
-    background: rgba(255,255,255,.98);
+    background:
+        rgba(255,255,255,.98);
 
-    border-color: rgba(0,113,227,.35);
+    border-color:
+        rgba(0,113,227,.35);
 
     box-shadow:
         0 0 0 4px
@@ -255,9 +366,11 @@ main {
     top: 50%;
     left: 13px;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
-    color: var(--tertiary);
+    color:
+        var(--tertiary);
 
     pointer-events: none;
 
@@ -296,7 +409,9 @@ main {
 
     background: #181818;
 
-    border: 1px solid rgba(255,255,255,.10);
+    border:
+        1px solid
+        rgba(255,255,255,.10);
 
     box-shadow:
         0 6px 22px
@@ -310,7 +425,8 @@ main {
 }
 
 .app-card:hover {
-    transform: translateY(-5px);
+    transform:
+        translateY(-5px);
 
     box-shadow:
         0 20px 42px
@@ -337,7 +453,8 @@ main {
         blur(42px)
         saturate(1.45);
 
-    transform: scale(1.12);
+    transform:
+        scale(1.12);
 
     opacity: .82;
 
@@ -347,7 +464,8 @@ main {
 }
 
 .app-card:hover .card-artwork {
-    transform: scale(1.20);
+    transform:
+        scale(1.20);
 
     filter:
         blur(38px)
@@ -377,7 +495,8 @@ main {
 
     border-radius: 50%;
 
-    transform: rotate(18deg);
+    transform:
+        rotate(18deg);
 }
 
 
@@ -414,9 +533,11 @@ main {
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,.18);
+    background:
+        rgba(255,255,255,.18);
 
-    filter: blur(50px);
+    filter:
+        blur(50px);
 
     opacity: .42;
 }
@@ -455,7 +576,8 @@ main {
 
     border-radius: 15px;
 
-    background: rgba(255,255,255,.12);
+    background:
+        rgba(255,255,255,.12);
 
     box-shadow:
         0 8px 22px
@@ -471,7 +593,8 @@ main {
 }
 
 .app-card:hover .app-icon {
-    transform: scale(1.045);
+    transform:
+        scale(1.045);
 
     box-shadow:
         0 10px 28px
@@ -502,14 +625,18 @@ main {
 }
 
 .app-name {
-    margin: 15px 0 2px;
+    margin:
+        15px
+        0
+        2px;
 
     color: #fff;
 
     font-size: 16px;
     font-weight: 700;
 
-    letter-spacing: -.025em;
+    letter-spacing:
+        -.025em;
 
     white-space: nowrap;
 
@@ -568,7 +695,7 @@ main {
     padding-top: 11px;
 
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
 
     gap: 8px;
@@ -585,15 +712,20 @@ main {
 
     flex-shrink: 0;
 
-    padding: 7px 11px;
+    padding:
+        7px
+        11px;
 
     border-radius: 999px;
 
     background:
         rgba(255,255,255,.16);
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
 
     border:
         1px solid
@@ -627,18 +759,20 @@ main {
 
 
 /* =========================================================
-   PRICE
+   PRICE / RELEASE
 ========================================================= */
 
-.price {
+.price-block {
     min-width: 0;
 
+    text-align: right;
+}
+
+.price {
     color: #fff;
 
     font-size: 10px;
     font-weight: 700;
-
-    text-align: right;
 
     line-height: 1.15;
 
@@ -653,12 +787,30 @@ main {
     margin-top: 2px;
 
     color:
-        rgba(255,255,255,.66);
+        rgba(255,255,255,.68);
 
-    font-size: 7.8px;
+    font-size: 7.7px;
     font-weight: 600;
 
     white-space: nowrap;
+}
+
+.release-date {
+    margin-top: 5px;
+
+    color:
+        rgba(255,255,255,.58);
+
+    font-size: 7.8px;
+    font-weight: 550;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 1px 6px
+        rgba(0,0,0,.28);
 }
 
 
@@ -693,7 +845,8 @@ main {
 @keyframes shimmer {
 
     to {
-        background-position-x: -200%;
+        background-position-x:
+            -200%;
     }
 
 }
@@ -704,13 +857,17 @@ main {
 ========================================================= */
 
 .status-message {
-    grid-column: 1 / -1;
+    grid-column:
+        1 / -1;
 
-    padding: 70px 20px;
+    padding:
+        70px
+        20px;
 
     text-align: center;
 
-    color: var(--secondary);
+    color:
+        var(--secondary);
 
     font-size: 13px;
     line-height: 1.6;
@@ -721,7 +878,8 @@ main {
 
     margin-bottom: 5px;
 
-    color: var(--text);
+    color:
+        var(--text);
 
     font-size: 15px;
 }
@@ -751,9 +909,11 @@ footer {
 
     gap: 20px;
 
-    color: var(--tertiary);
+    color:
+        var(--tertiary);
 
-    font-size: 10.5px;
+    font-size:
+        10.5px;
 }
 
 .footer-links {
@@ -763,7 +923,8 @@ footer {
 }
 
 .footer-links a:hover {
-    color: var(--text);
+    color:
+        var(--text);
 }
 
 
@@ -781,10 +942,38 @@ footer {
 }
 
 
+@media(max-width:850px) {
+
+    .toolbar {
+        align-items:
+            flex-start;
+    }
+
+    .toolbar-right {
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        min-width:
+            220px;
+    }
+
+    .sort-wrap,
+    .search-wrap {
+        width:
+            100%;
+    }
+
+}
+
+
 @media(max-width:760px) {
 
     nav {
-        justify-content: center;
+        justify-content:
+            center;
     }
 
     main {
@@ -795,42 +984,94 @@ footer {
     }
 
     .toolbar {
-        display: block;
+        display:
+            block;
+    }
+
+    .toolbar-right {
+        width:
+            100%;
+
+        margin-top:
+            12px;
+
+        display:
+            flex;
+
+        flex-direction:
+            row;
+
+        gap:
+            8px;
+    }
+
+    .sort-wrap {
+        min-width:
+            0;
+
+        flex:
+            1;
     }
 
     .search-wrap {
-        width: 100%;
-        min-width: 0;
+        min-width:
+            0;
 
-        margin-top: 12px;
+        flex:
+            1;
     }
 
     .app-grid {
         grid-template-columns:
             repeat(2, minmax(0,1fr));
 
-        gap: 12px;
+        gap:
+            12px;
     }
 
     .app-card {
-        border-radius: 21px;
+        border-radius:
+            21px;
     }
 
     .card-content {
-        padding: 16px;
+        padding:
+            16px;
     }
 
     .app-icon {
-        width: 55px;
-        height: 55px;
+        width:
+            55px;
 
-        min-width: 55px;
+        height:
+            55px;
 
-        border-radius: 14px;
+        min-width:
+            55px;
+
+        border-radius:
+            14px;
     }
 
     .description {
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp:
+            2;
+    }
+
+}
+
+
+@media(max-width:520px) {
+
+    .toolbar-right {
+        flex-direction:
+            column;
+    }
+
+    .sort-wrap,
+    .search-wrap {
+        width:
+            100%;
     }
 
 }
@@ -839,69 +1080,102 @@ footer {
 @media(max-width:430px) {
 
     main {
-        padding-left: 14px;
-        padding-right: 14px;
+        padding-left:
+            14px;
+
+        padding-right:
+            14px;
     }
 
     .app-grid {
-        gap: 9px;
+        gap:
+            9px;
     }
 
     .app-card {
-        border-radius: 18px;
+        border-radius:
+            18px;
     }
 
     .card-content {
-        padding: 13px;
+        padding:
+            13px;
     }
 
     .app-icon {
-        width: 48px;
-        height: 48px;
+        width:
+            48px;
 
-        min-width: 48px;
+        height:
+            48px;
 
-        border-radius: 12px;
+        min-width:
+            48px;
+
+        border-radius:
+            12px;
     }
 
     .app-name {
-        margin-top: 11px;
+        margin-top:
+            11px;
 
-        font-size: 13px;
+        font-size:
+            13px;
     }
 
     .category {
-        margin-bottom: 5px;
+        margin-bottom:
+            5px;
 
-        font-size: 8px;
+        font-size:
+            8px;
     }
 
     .description {
-        font-size: 9px;
+        font-size:
+            9px;
 
-        line-height: 1.32;
+        line-height:
+            1.32;
 
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp:
+            2;
     }
 
     .actions {
-        padding-top: 6px;
+        padding-top:
+            6px;
 
-        gap: 5px;
+        gap:
+            4px;
     }
 
     .store-link {
-        padding: 5px 7px;
+        padding:
+            5px
+            7px;
 
-        font-size: 8px;
+        font-size:
+            7.8px;
     }
 
     .price {
-        font-size: 8.5px;
+        font-size:
+            8.3px;
     }
 
     .price-iap {
-        font-size: 6.7px;
+        font-size:
+            6.4px;
+    }
+
+    .release-date {
+        margin-top:
+            3px;
+
+        font-size:
+            6.3px;
     }
 
 }
@@ -914,12 +1188,23 @@ footer {
 @media(prefers-color-scheme:dark) {
 
     :root {
-        --bg: #000;
-        --text: #f5f5f7;
-        --secondary: #a1a1a6;
-        --tertiary: #86868b;
-        --border: rgba(255,255,255,.09);
-        --pill: rgba(255,255,255,.08);
+        --bg:
+            #000;
+
+        --text:
+            #f5f5f7;
+
+        --secondary:
+            #a1a1a6;
+
+        --tertiary:
+            #86868b;
+
+        --border:
+            rgba(255,255,255,.09);
+
+        --pill:
+            rgba(255,255,255,.08);
     }
 
     body {
@@ -941,16 +1226,24 @@ footer {
     }
 
     .filter.active {
-        background: #f5f5f7;
-        color: #111;
+        background:
+            #f5f5f7;
+
+        color:
+            #111;
     }
 
-    .search {
+    .search,
+    .sort-select {
         background:
             rgba(28,28,30,.82);
+
+        color:
+            #f5f5f7;
     }
 
-    .search:focus {
+    .search:focus,
+    .sort-select:focus {
         background:
             rgba(35,35,37,.98);
     }
@@ -1036,6 +1329,48 @@ All
 </div>
 
 
+
+<div class="toolbar-right">
+
+
+<div class="sort-wrap">
+
+<select
+    id="sortSelect"
+    class="sort-select"
+    aria-label="Sort apps"
+>
+
+<option value="alphabetical">
+Alphabetical
+</option>
+
+<option value="release-newest">
+Release Date — Newest
+</option>
+
+<option value="release-oldest">
+Release Date — Oldest
+</option>
+
+<option value="price-low">
+Price — Low to High
+</option>
+
+<option value="price-high">
+Price — High to Low
+</option>
+
+</select>
+
+<span class="sort-arrow">
+▼
+</span>
+
+</div>
+
+
+
 <div class="search-wrap">
 
 <span class="search-icon">
@@ -1049,6 +1384,9 @@ All
     placeholder="Search apps"
     aria-label="Search apps"
 >
+
+</div>
+
 
 </div>
 
@@ -1127,7 +1465,8 @@ const APPLE_LOOKUP =
 
 let apps = [];
 
-let activeFilter = "all";
+let activeFilter =
+    "all";
 
 
 /* =========================================================
@@ -1135,16 +1474,29 @@ let activeFilter = "all";
 ========================================================= */
 
 const appGrid =
-    document.getElementById("appGrid");
+    document.getElementById(
+        "appGrid"
+    );
 
 const appCount =
-    document.getElementById("appCount");
+    document.getElementById(
+        "appCount"
+    );
 
 const search =
-    document.getElementById("search");
+    document.getElementById(
+        "search"
+    );
 
 const filters =
-    document.getElementById("filters");
+    document.getElementById(
+        "filters"
+    );
+
+const sortSelect =
+    document.getElementById(
+        "sortSelect"
+    );
 
 
 /* =========================================================
@@ -1159,7 +1511,8 @@ async function loadApps() {
             await fetch(
                 APPLE_LOOKUP,
                 {
-                    cache: "no-store"
+                    cache:
+                        "no-store"
                 }
             );
 
@@ -1178,20 +1531,11 @@ async function loadApps() {
 
 
         apps =
-            data.results
-
-                .filter(
-                    item =>
-                        item.wrapperType ===
-                        "software"
-                )
-
-                .sort(
-                    (a,b) =>
-                        a.trackName.localeCompare(
-                            b.trackName
-                        )
-                );
+            data.results.filter(
+                item =>
+                    item.wrapperType ===
+                    "software"
+            );
 
 
         createFilters();
@@ -1241,11 +1585,15 @@ function createFilters() {
             ...new Set(
 
                 apps
+
                     .map(
                         app =>
                             app.primaryGenreName
                     )
-                    .filter(Boolean)
+
+                    .filter(
+                        Boolean
+                    )
 
             )
         ]
@@ -1293,7 +1641,9 @@ function createFilters() {
 
 
     filters
-        .querySelectorAll(".filter")
+        .querySelectorAll(
+            ".filter"
+        )
         .forEach(
             button => {
 
@@ -1349,7 +1699,10 @@ function cleanDescription(
 
 
     return description
-        .replace(/\s+/g, " ")
+        .replace(
+            /\s+/g,
+            " "
+        )
         .trim();
 
 }
@@ -1386,19 +1739,35 @@ function getArtwork(
    PRICE
 ========================================================= */
 
-function getPriceInfo(
+function getNumericPrice(
     app
 ) {
 
-    /*
-       Apple's public catalog normally gives us
-       formattedPrice.
+    const value =
+        Number(
+            app.price
+        );
 
-       Examples:
-       "$0.99"
-       "$2.99"
-       "Free"
-    */
+
+    if (
+        Number.isFinite(
+            value
+        )
+    ) {
+
+        return value;
+
+    }
+
+
+    return 0;
+
+}
+
+
+function getPriceInfo(
+    app
+) {
 
     let mainPrice =
         app.formattedPrice;
@@ -1406,65 +1775,62 @@ function getPriceInfo(
 
     if (!mainPrice) {
 
+        const numericPrice =
+            getNumericPrice(
+                app
+            );
+
+
         if (
-            typeof app.price === "number"
+            numericPrice === 0
         ) {
 
-            if (app.price === 0) {
-
-                mainPrice = "Free";
-
-            }
-
-            else {
-
-                try {
-
-                    mainPrice =
-                        new Intl.NumberFormat(
-                            "en-US",
-                            {
-                                style: "currency",
-                                currency:
-                                    app.currency ||
-                                    "USD"
-                            }
-                        )
-                        .format(
-                            app.price
-                        );
-
-                }
-
-                catch(error) {
-
-                    mainPrice =
-                        "$" +
-                        app.price.toFixed(2);
-
-                }
-
-            }
+            mainPrice =
+                "Free";
 
         }
 
         else {
 
-            mainPrice =
-                "";
+            try {
+
+                mainPrice =
+                    new Intl.NumberFormat(
+                        "en-US",
+                        {
+                            style:
+                                "currency",
+
+                            currency:
+                                app.currency ||
+                                "USD"
+                        }
+                    )
+                    .format(
+                        numericPrice
+                    );
+
+            }
+
+            catch(error) {
+
+                mainPrice =
+                    "$" +
+                    numericPrice.toFixed(
+                        2
+                    );
+
+            }
 
         }
 
     }
 
 
-    /*
-       Apple's public catalog may identify
-       In-App Purchases in the features array.
-    */
-
     const features =
-        Array.isArray(app.features)
+        Array.isArray(
+            app.features
+        )
             ? app.features
             : [];
 
@@ -1474,8 +1840,10 @@ function getPriceInfo(
             feature => {
 
                 const value =
-                    String(feature)
-                        .toLowerCase();
+                    String(
+                        feature
+                    )
+                    .toLowerCase();
 
 
                 return (
@@ -1500,6 +1868,238 @@ function getPriceInfo(
 
 
 /* =========================================================
+   RELEASE DATE
+========================================================= */
+
+function getReleaseTimestamp(
+    app
+) {
+
+    if (!app.releaseDate) {
+
+        return 0;
+
+    }
+
+
+    const timestamp =
+        new Date(
+            app.releaseDate
+        )
+        .getTime();
+
+
+    return Number.isFinite(
+        timestamp
+    )
+        ? timestamp
+        : 0;
+
+}
+
+
+function formatReleaseDate(
+    app
+) {
+
+    if (!app.releaseDate) {
+
+        return "";
+
+    }
+
+
+    const date =
+        new Date(
+            app.releaseDate
+        );
+
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+
+        return "";
+
+    }
+
+
+    return date.toLocaleDateString(
+        "en-US",
+        {
+            month:
+                "short",
+
+            day:
+                "numeric",
+
+            year:
+                "numeric"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+function sortApps(
+    appList
+) {
+
+    const sorted =
+        [...appList];
+
+
+    const mode =
+        sortSelect.value;
+
+
+    switch(mode) {
+
+
+        case "release-newest":
+
+            sorted.sort(
+                (a,b) => {
+
+                    const dateDifference =
+                        getReleaseTimestamp(b) -
+                        getReleaseTimestamp(a);
+
+
+                    if (
+                        dateDifference !== 0
+                    ) {
+
+                        return dateDifference;
+
+                    }
+
+
+                    return a.trackName.localeCompare(
+                        b.trackName
+                    );
+
+                }
+            );
+
+            break;
+
+
+        case "release-oldest":
+
+            sorted.sort(
+                (a,b) => {
+
+                    const dateDifference =
+                        getReleaseTimestamp(a) -
+                        getReleaseTimestamp(b);
+
+
+                    if (
+                        dateDifference !== 0
+                    ) {
+
+                        return dateDifference;
+
+                    }
+
+
+                    return a.trackName.localeCompare(
+                        b.trackName
+                    );
+
+                }
+            );
+
+            break;
+
+
+        case "price-low":
+
+            sorted.sort(
+                (a,b) => {
+
+                    const priceDifference =
+                        getNumericPrice(a) -
+                        getNumericPrice(b);
+
+
+                    if (
+                        priceDifference !== 0
+                    ) {
+
+                        return priceDifference;
+
+                    }
+
+
+                    return a.trackName.localeCompare(
+                        b.trackName
+                    );
+
+                }
+            );
+
+            break;
+
+
+        case "price-high":
+
+            sorted.sort(
+                (a,b) => {
+
+                    const priceDifference =
+                        getNumericPrice(b) -
+                        getNumericPrice(a);
+
+
+                    if (
+                        priceDifference !== 0
+                    ) {
+
+                        return priceDifference;
+
+                    }
+
+
+                    return a.trackName.localeCompare(
+                        b.trackName
+                    );
+
+                }
+            );
+
+            break;
+
+
+        case "alphabetical":
+
+        default:
+
+            sorted.sort(
+                (a,b) =>
+                    a.trackName.localeCompare(
+                        b.trackName
+                    )
+            );
+
+            break;
+
+    }
+
+
+    return sorted;
+
+}
+
+
+/* =========================================================
    CREATE CARD
 ========================================================= */
 
@@ -1508,11 +2108,21 @@ function createCard(
 ) {
 
     const artwork =
-        getArtwork(app);
+        getArtwork(
+            app
+        );
 
 
     const priceInfo =
-        getPriceInfo(app);
+        getPriceInfo(
+            app
+        );
+
+
+    const released =
+        formatReleaseDate(
+            app
+        );
 
 
     const card =
@@ -1702,7 +2312,7 @@ function createCard(
         "actions";
 
 
-    /* APP STORE LINK */
+    /* APP STORE BUTTON */
 
     const link =
         document.createElement(
@@ -1734,7 +2344,17 @@ function createCard(
         "View on App Store ›";
 
 
-    /* PRICE */
+    /* PRICE / RELEASE BLOCK */
+
+    const priceBlock =
+        document.createElement(
+            "div"
+        );
+
+
+    priceBlock.className =
+        "price-block";
+
 
     const price =
         document.createElement(
@@ -1746,23 +2366,21 @@ function createCard(
         "price";
 
 
-    if (priceInfo.mainPrice) {
-
-        price.appendChild(
-            document.createTextNode(
-                priceInfo.mainPrice
-            )
-        );
-
-    }
+    price.textContent =
+        priceInfo.mainPrice ||
+        "";
 
 
-    /*
-       If Apple identifies the app as supporting
-       In-App Purchases, show that underneath.
-    */
+    priceBlock.appendChild(
+        price
+    );
 
-    if (priceInfo.hasIAP) {
+
+    /* IAP */
+
+    if (
+        priceInfo.hasIAP
+    ) {
 
         const iap =
             document.createElement(
@@ -1778,8 +2396,34 @@ function createCard(
             "In-App Purchases";
 
 
-        price.appendChild(
+        priceBlock.appendChild(
             iap
+        );
+
+    }
+
+
+    /* RELEASE DATE */
+
+    if (released) {
+
+        const releaseDate =
+            document.createElement(
+                "div"
+            );
+
+
+        releaseDate.className =
+            "release-date";
+
+
+        releaseDate.textContent =
+            "Released: " +
+            released;
+
+
+        priceBlock.appendChild(
+            releaseDate
         );
 
     }
@@ -1791,7 +2435,7 @@ function createCard(
 
 
     actions.appendChild(
-        price
+        priceBlock
     );
 
 
@@ -1867,7 +2511,7 @@ function renderApps() {
             .toLowerCase();
 
 
-    const visibleApps =
+    let visibleApps =
         apps.filter(
             app => {
 
@@ -1910,6 +2554,16 @@ function renderApps() {
         );
 
 
+    /*
+       Apply selected sort AFTER filtering.
+    */
+
+    visibleApps =
+        sortApps(
+            visibleApps
+        );
+
+
     appGrid.innerHTML =
         "";
 
@@ -1918,7 +2572,9 @@ function renderApps() {
         app => {
 
             appGrid.appendChild(
-                createCard(app)
+                createCard(
+                    app
+                )
             );
 
         }
@@ -1962,6 +2618,16 @@ function renderApps() {
 
 search.addEventListener(
     "input",
+    renderApps
+);
+
+
+/* =========================================================
+   SORT CHANGE
+========================================================= */
+
+sortSelect.addEventListener(
+    "change",
     renderApps
 );
 
