@@ -6,8 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f5f7ff">
 <meta name="color-scheme" content="light">
-<title>Josh Swift Dev | Apps for iPhone</title>
-<meta name="description" content="Discover iPhone apps created by Josh Swift Dev.">
+
+<title>Josh Swift Dev | iPhone Apps</title>
+<meta name="description"
+      content="Discover iPhone apps created by Josh Swift Dev.">
 
 <style>
 :root {
@@ -18,44 +20,69 @@
     --border: #e8ebf5;
 }
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont,
-                 "SF Pro Display", "Helvetica Neue",
-                 Arial, sans-serif;
+        "SF Pro Display", "Helvetica Neue",
+        Arial, sans-serif;
     color: var(--text);
     background:
-        radial-gradient(ellipse at 5% 10%, #dfeaff 0%, transparent 35%),
-        radial-gradient(ellipse at 95% 20%, #fce5f5 0%, transparent 32%),
-        radial-gradient(ellipse at 50% 85%, #e7f5ff 0%, transparent 40%),
+        radial-gradient(
+            ellipse at 5% 10%,
+            #dfeaff 0%,
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 95% 20%,
+            #fce5f5 0%,
+            transparent 32%
+        ),
+        radial-gradient(
+            ellipse at 50% 85%,
+            #e7f5ff 0%,
+            transparent 40%
+        ),
         #f8faff;
     background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
 }
 
-a { text-decoration: none; color: inherit; }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-button, input, select { font: inherit; }
+button, input, select {
+    font: inherit;
+}
 
-button, a, select { -webkit-tap-highlight-color: transparent; }
+button, a, select {
+    -webkit-tap-highlight-color: transparent;
+}
 
-button:focus-visible, a:focus-visible,
-input:focus-visible, select:focus-visible {
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
     outline: 3px solid #7c91ff;
     outline-offset: 3px;
 }
 
-/* HEADER */
+/* NAVIGATION */
 
 header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255,255,255,.83);
+    background: rgba(255,255,255,.85);
     backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
     border-bottom: 1px solid rgba(255,255,255,.9);
@@ -89,7 +116,12 @@ nav {
     border-radius: 14px;
     color: white;
     font-size: 21px;
-    background: linear-gradient(135deg, #4c8aff, #8655e9, #ed74b5);
+    background: linear-gradient(
+        135deg,
+        #4c8aff,
+        #8655e9,
+        #ed74b5
+    );
     box-shadow: 0 6px 16px #685de52b;
 }
 
@@ -101,7 +133,9 @@ nav {
     font-weight: 650;
 }
 
-.nav-links a:hover { color: var(--blue); }
+.nav-links a:hover {
+    color: var(--blue);
+}
 
 .contact-button {
     padding: 11px 19px;
@@ -117,110 +151,12 @@ nav {
     transform: translateY(-2px);
 }
 
-/* HERO */
-
-.hero {
-    position: relative;
-    overflow: hidden;
-    max-width: 1190px;
-    margin: 38px auto 36px;
-    padding: 65px 48px;
-    border-radius: 32px;
-    background: linear-gradient(
-        115deg, #e0eaff 0%, #eee7ff 48%, #ffe5f1 100%
-    );
-    border: 1px solid rgba(255,255,255,.95);
-    box-shadow: 0 15px 55px #6675af15;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 360px;
-    height: 360px;
-    right: -90px;
-    top: -170px;
-    border-radius: 50%;
-    background: #ffffff70;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    right: 130px;
-    bottom: -150px;
-    border-radius: 50%;
-    background: #ad9bff40;
-    filter: blur(25px);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 720px;
-}
-
-.eyebrow {
-    display: inline-block;
-    padding: 8px 15px;
-    border-radius: 100px;
-    color: #5653ba;
-    background: #ffffffa8;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1.3px;
-}
-
-.hero h1 {
-    margin: 22px 0 14px;
-    font-size: clamp(38px, 5vw, 62px);
-    line-height: 1.09;
-    letter-spacing: -2.5px;
-    font-weight: 850;
-}
-
-.gradient-text {
-    background: linear-gradient(100deg, #376df1, #8d52d7, #e567a4);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.hero p {
-    max-width: 540px;
-    font-size: 16px;
-    line-height: 1.8;
-    color: #586581;
-}
-
-.hero-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 15px;
-    padding: 15px 24px;
-    border-radius: 100px;
-    background: #253657;
-    color: white;
-    font-size: 13px;
-    font-weight: 750;
-    box-shadow: 0 7px 20px #26365c30;
-    transition: .2s;
-}
-
-.hero-button:hover {
-    background: #4865ec;
-    transform: translateY(-3px);
-}
-
-/* MAIN */
+/* MAIN CONTENT */
 
 main {
     max-width: 1250px;
     margin: auto;
-    padding: 0 30px 80px;
+    padding: 42px 30px 80px;
 }
 
 .section-heading {
@@ -231,9 +167,9 @@ main {
     margin-bottom: 25px;
 }
 
-.section-heading h2 {
+.section-heading h1 {
     margin: 0 0 7px;
-    font-size: 29px;
+    font-size: 32px;
     letter-spacing: -.9px;
 }
 
@@ -262,7 +198,9 @@ main {
     scrollbar-width: none;
 }
 
-.filters::-webkit-scrollbar { display: none; }
+.filters::-webkit-scrollbar {
+    display: none;
+}
 
 .filter {
     flex-shrink: 0;
@@ -294,7 +232,8 @@ main {
     gap: 10px;
 }
 
-.search, .sort-select {
+.search,
+.sort-select {
     height: 43px;
     padding: 0 15px;
     border: 1px solid var(--border);
@@ -306,10 +245,17 @@ main {
     box-shadow: 0 3px 12px #26365c07;
 }
 
-.search { width: 220px; }
-.sort-select { max-width: 190px; cursor: pointer; }
+.search {
+    width: 220px;
+}
 
-.search:focus, .sort-select:focus {
+.sort-select {
+    max-width: 190px;
+    cursor: pointer;
+}
+
+.search:focus,
+.sort-select:focus {
     border-color: #8398ff;
     box-shadow: 0 0 0 4px #8398ff18;
 }
@@ -330,7 +276,7 @@ main {
     min-width: 0;
     overflow: hidden;
     background: white;
-    border: 1px solid #ffffff;
+    border: 1px solid white;
     border-radius: 24px;
     box-shadow: 0 6px 25px #34436e0d;
     transition: transform .25s, box-shadow .25s;
@@ -345,7 +291,11 @@ main {
     position: relative;
     height: 150px;
     overflow: hidden;
-    background: linear-gradient(135deg, #e5edff, #f8e8f7);
+    background: linear-gradient(
+        135deg,
+        #e5edff,
+        #f8e8f7
+    );
 }
 
 .artwork-blur {
@@ -362,7 +312,10 @@ main {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(transparent, #ffffff3b);
+    background: linear-gradient(
+        transparent,
+        #ffffff3b
+    );
 }
 
 .app-icon {
@@ -375,7 +328,7 @@ main {
     border-radius: 19px;
     object-fit: cover;
     background: white;
-    border: 3px solid #ffffff;
+    border: 3px solid white;
     box-shadow: 0 7px 22px #15234b33;
 }
 
@@ -467,20 +420,25 @@ main {
     color: white;
 }
 
-/* LOADING AND STATUS */
+/* LOADING */
 
 .loading-card {
     height: 370px;
     border-radius: 24px;
     background: linear-gradient(
-        110deg, #e9edf8 8%, #ffffff 18%, #e9edf8 33%
+        110deg,
+        #e9edf8 8%,
+        #ffffff 18%,
+        #e9edf8 33%
     );
     background-size: 200% 100%;
     animation: shimmer 1.4s linear infinite;
 }
 
 @keyframes shimmer {
-    to { background-position-x: -200%; }
+    to {
+        background-position-x: -200%;
+    }
 }
 
 .status-message {
@@ -500,7 +458,7 @@ main {
 /* FOOTER */
 
 footer {
-    background: #fff;
+    background: rgba(255,255,255,.85);
     border-top: 1px solid var(--border);
 }
 
@@ -521,71 +479,97 @@ footer {
     gap: 22px;
 }
 
-.footer-links a:hover { color: var(--blue); }
+.footer-links a:hover {
+    color: var(--blue);
+}
 
 /* RESPONSIVE */
 
 @media (max-width: 1050px) {
     .app-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 780px) {
-    .hero {
-        margin: 20px;
-        padding: 46px 30px;
+    main {
+        padding: 32px 20px 60px;
     }
 
-    main { padding: 0 20px 60px; }
-
     .app-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
         gap: 13px;
     }
 
-    .toolbar-right { width: 100%; }
-    .search { flex: 1; width: 100%; min-width: 0; }
+    .toolbar-right {
+        width: 100%;
+    }
+
+    .search {
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+    }
 }
 
 @media (max-width: 480px) {
-    nav { padding: 12px 17px; }
+    nav {
+        padding: 12px 17px;
+    }
 
-    .brand { font-size: 14px; }
+    .brand {
+        font-size: 14px;
+    }
 
     .brand-icon {
         width: 36px;
         height: 36px;
     }
 
-    .nav-links { gap: 13px; font-size: 11px; }
-
-    .contact-button { padding: 9px 12px; }
-
-    .hero {
-        padding: 38px 25px;
-        border-radius: 25px;
+    .nav-links {
+        gap: 13px;
+        font-size: 11px;
     }
 
-    .hero h1 { letter-spacing: -1.5px; }
-    .hero p { font-size: 14px; }
+    .contact-button {
+        padding: 9px 12px;
+    }
 
-    .section-heading h2 { font-size: 24px; }
+    main {
+        padding: 25px 14px 60px;
+    }
 
-    .toolbar-right { flex-wrap: wrap; }
+    .section-heading h1 {
+        font-size: 24px;
+    }
 
-    .search { width: 100%; flex-basis: 100%; }
+    .toolbar-right {
+        flex-wrap: wrap;
+    }
+
+    .search {
+        width: 100%;
+        flex-basis: 100%;
+    }
 
     .sort-select {
         width: 100%;
         max-width: none;
     }
 
-    .app-grid { gap: 10px; }
+    .app-grid {
+        gap: 10px;
+    }
 
-    .app-card { border-radius: 18px; }
+    .app-card {
+        border-radius: 18px;
+    }
 
-    .card-artwork { height: 105px; }
+    .card-artwork {
+        height: 105px;
+    }
 
     .app-icon {
         width: 62px;
@@ -595,17 +579,26 @@ footer {
         border-radius: 15px;
     }
 
-    .card-content { padding: 14px; }
+    .card-content {
+        padding: 14px;
+    }
 
-    .app-name { font-size: 14px; }
+    .app-name {
+        font-size: 14px;
+    }
 
     .description {
         font-size: 10.5px;
         -webkit-line-clamp: 3;
     }
 
-    .price { font-size: 13px; }
-    .store-link { font-size: 10px; }
+    .price {
+        font-size: 13px;
+    }
+
+    .store-link {
+        font-size: 10px;
+    }
 
     .footer-inner {
         flex-direction: column;
@@ -614,7 +607,9 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
     }
@@ -624,9 +619,11 @@ footer {
 
 <body>
 
+<!-- NAVIGATION -->
+
 <header>
     <nav>
-        <a href="#" class="brand">
+        <a href="#apps" class="brand">
             <span class="brand-icon">✦</span>
             <span>Josh Swift Dev</span>
         </a>
@@ -641,35 +638,15 @@ footer {
     </nav>
 </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <span class="eyebrow">INDEPENDENT iOS DEVELOPER</span>
-
-        <h1>
-            Great apps.<br>
-            <span class="gradient-text">
-                Made with passion.
-            </span>
-        </h1>
-
-        <p>
-            Discover thoughtfully designed iPhone apps
-            built to make everyday life easier, more
-            productive, and a little more fun.
-        </p>
-
-        <a href="#apps" class="hero-button">
-            Explore My Apps &rarr;
-        </a>
-    </div>
-</section>
+<!-- APP COLLECTION -->
 
 <main>
     <section id="apps">
 
         <div class="section-heading">
             <div>
-                <h2>Explore the Collection</h2>
+                <h1>Explore the Collection</h1>
+
                 <div class="app-count" id="appCount">
                     Loading apps…
                 </div>
@@ -677,39 +654,52 @@ footer {
         </div>
 
         <div class="toolbar">
+
             <div class="filters" id="filters">
-                <button class="filter active"
-                        data-filter="all">
+                <button
+                    class="filter active"
+                    data-filter="all"
+                    type="button">
                     All Apps
                 </button>
             </div>
 
             <div class="toolbar-right">
-                <select id="sortSelect"
-                        class="sort-select"
-                        aria-label="Sort apps">
+
+                <select
+                    id="sortSelect"
+                    class="sort-select"
+                    aria-label="Sort apps">
+
                     <option value="alphabetical">
                         Alphabetical
                     </option>
+
                     <option value="release-newest">
                         Newest First
                     </option>
+
                     <option value="release-oldest">
                         Oldest First
                     </option>
+
                     <option value="price-low">
                         Price: Low to High
                     </option>
+
                     <option value="price-high">
                         Price: High to Low
                     </option>
+
                 </select>
 
-                <input id="search"
-                       class="search"
-                       type="search"
-                       placeholder="Search apps…"
-                       aria-label="Search apps">
+                <input
+                    id="search"
+                    class="search"
+                    type="search"
+                    placeholder="Search apps…"
+                    aria-label="Search apps">
+
             </div>
         </div>
 
@@ -723,16 +713,24 @@ footer {
     </section>
 </main>
 
+<!-- FOOTER -->
+
 <footer>
     <div class="footer-inner">
-        <div>© 2026 Josh Swift Dev. All rights reserved.</div>
+
+        <div>
+            © 2026 Josh Swift Dev.
+            All rights reserved.
+        </div>
 
         <div class="footer-links">
             <a href="#apps">Apps</a>
+
             <a href="mailto:josh.swift.dev@gmail.com">
                 Contact
             </a>
         </div>
+
     </div>
 </footer>
 
@@ -755,19 +753,29 @@ let activeFilter = "all";
 
 /* ELEMENTS */
 
-const appGrid = document.getElementById("appGrid");
-const appCount = document.getElementById("appCount");
-const search = document.getElementById("search");
-const filters = document.getElementById("filters");
-const sortSelect = document.getElementById("sortSelect");
+const appGrid =
+    document.getElementById("appGrid");
+
+const appCount =
+    document.getElementById("appCount");
+
+const search =
+    document.getElementById("search");
+
+const filters =
+    document.getElementById("filters");
+
+const sortSelect =
+    document.getElementById("sortSelect");
 
 /* LOAD APPS */
 
 async function loadApps() {
     try {
-        const response = await fetch(APPLE_LOOKUP, {
-            cache: "no-store"
-        });
+        const response = await fetch(
+            APPLE_LOOKUP,
+            { cache: "no-store" }
+        );
 
         if (!response.ok) {
             throw new Error("Apple lookup failed");
@@ -783,13 +791,18 @@ async function loadApps() {
         renderApps();
 
     } catch (error) {
-        console.error("Unable to load apps:", error);
+        console.error(
+            "Unable to load apps:",
+            error
+        );
 
         appCount.textContent = "Apps";
 
         appGrid.innerHTML = `
             <div class="status-message">
-                <strong>Unable to load apps right now.</strong>
+                <strong>
+                    Unable to load apps right now.
+                </strong>
                 Please try again in a moment.
             </div>
         `;
@@ -801,7 +814,8 @@ async function loadApps() {
 function createFilters() {
     const genres = [
         ...new Set(
-            apps.map(app => app.primaryGenreName)
+            apps
+                .map(app => app.primaryGenreName)
                 .filter(Boolean)
         )
     ].sort();
@@ -809,7 +823,10 @@ function createFilters() {
     filters.replaceChildren();
 
     const categories = [
-        { label: "All Apps", value: "all" },
+        {
+            label: "All Apps",
+            value: "all"
+        },
         ...genres.map(genre => ({
             label: genre,
             value: genre
@@ -817,12 +834,16 @@ function createFilters() {
     ];
 
     categories.forEach(category => {
-        const button = document.createElement("button");
+        const button =
+            document.createElement("button");
 
         button.type = "button";
+
         button.className =
             "filter" +
-            (category.value === activeFilter ? " active" : "");
+            (category.value === activeFilter
+                ? " active"
+                : "");
 
         button.dataset.filter = category.value;
         button.textContent = category.label;
@@ -830,7 +851,8 @@ function createFilters() {
         button.addEventListener("click", () => {
             activeFilter = category.value;
 
-            filters.querySelectorAll(".filter")
+            filters
+                .querySelectorAll(".filter")
                 .forEach(item => {
                     item.classList.toggle(
                         "active",
@@ -845,7 +867,7 @@ function createFilters() {
     });
 }
 
-/* APP DETAILS */
+/* APP ARTWORK */
 
 function getArtwork(app) {
     const artwork =
@@ -860,9 +882,14 @@ function getArtwork(app) {
     );
 }
 
+/* PRICE */
+
 function getNumericPrice(app) {
     const price = Number(app.price);
-    return Number.isFinite(price) ? price : 0;
+
+    return Number.isFinite(price)
+        ? price
+        : 0;
 }
 
 function getPriceInfo(app) {
@@ -875,57 +902,86 @@ function getPriceInfo(app) {
             mainPrice = "Free";
         } else {
             try {
-                mainPrice = new Intl.NumberFormat("en-US", {
-                    style: "currency",
-                    currency: app.currency || "USD"
-                }).format(numeric);
+                mainPrice =
+                    new Intl.NumberFormat(
+                        "en-US",
+                        {
+                            style: "currency",
+                            currency:
+                                app.currency || "USD"
+                        }
+                    ).format(numeric);
             } catch {
-                mainPrice = "$" + numeric.toFixed(2);
+                mainPrice =
+                    "$" + numeric.toFixed(2);
             }
         }
     }
 
-    const features = Array.isArray(app.features)
-        ? app.features
-        : [];
+    const features =
+        Array.isArray(app.features)
+            ? app.features
+            : [];
 
-    const hasIAP = features.some(feature =>
-        String(feature)
-            .toLowerCase()
-            .includes("in-app purchase") ||
-        String(feature)
-            .toLowerCase()
-            .includes("in app purchase")
-    );
+    const hasIAP = features.some(feature => {
+        const value =
+            String(feature).toLowerCase();
 
-    return { mainPrice, hasIAP };
+        return (
+            value.includes("in-app purchase") ||
+            value.includes("in app purchase")
+        );
+    });
+
+    return {
+        mainPrice,
+        hasIAP
+    };
 }
 
+/* RELEASE DATE */
+
 function getReleaseTimestamp(app) {
-    const time = new Date(app.releaseDate || 0).getTime();
-    return Number.isFinite(time) ? time : 0;
+    const time =
+        new Date(app.releaseDate || 0).getTime();
+
+    return Number.isFinite(time)
+        ? time
+        : 0;
 }
 
 function formatReleaseDate(app) {
-    if (!app.releaseDate) return "";
+    if (!app.releaseDate) {
+        return "";
+    }
 
-    const date = new Date(app.releaseDate);
+    const date =
+        new Date(app.releaseDate);
 
-    if (Number.isNaN(date.getTime())) return "";
+    if (Number.isNaN(date.getTime())) {
+        return "";
+    }
 
-    return date.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric"
-    });
+    return date.toLocaleDateString(
+        "en-US",
+        {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        }
+    );
 }
+
+/* DESCRIPTION */
 
 function cleanDescription(description) {
     if (!description) {
         return "Discover this app on the App Store.";
     }
 
-    return description.replace(/\s+/g, " ").trim();
+    return description
+        .replace(/\s+/g, " ")
+        .trim();
 }
 
 /* SORTING */
@@ -942,28 +998,32 @@ function sortApps(list) {
         case "release-newest":
             sorted.sort((a, b) =>
                 getReleaseTimestamp(b) -
-                getReleaseTimestamp(a) || byName(a, b)
+                getReleaseTimestamp(a) ||
+                byName(a, b)
             );
             break;
 
         case "release-oldest":
             sorted.sort((a, b) =>
                 getReleaseTimestamp(a) -
-                getReleaseTimestamp(b) || byName(a, b)
+                getReleaseTimestamp(b) ||
+                byName(a, b)
             );
             break;
 
         case "price-low":
             sorted.sort((a, b) =>
                 getNumericPrice(a) -
-                getNumericPrice(b) || byName(a, b)
+                getNumericPrice(b) ||
+                byName(a, b)
             );
             break;
 
         case "price-high":
             sorted.sort((a, b) =>
                 getNumericPrice(b) -
-                getNumericPrice(a) || byName(a, b)
+                getNumericPrice(a) ||
+                byName(a, b)
             );
             break;
 
@@ -981,83 +1041,146 @@ function createCard(app) {
     const priceInfo = getPriceInfo(app);
     const released = formatReleaseDate(app);
 
-    const card = document.createElement("article");
+    const card =
+        document.createElement("article");
+
     card.className = "app-card";
 
-    const artworkArea = document.createElement("div");
+    /* ARTWORK */
+
+    const artworkArea =
+        document.createElement("div");
+
     artworkArea.className = "card-artwork";
 
-    const blur = document.createElement("div");
+    const blur =
+        document.createElement("div");
+
     blur.className = "artwork-blur";
 
     if (artwork) {
-        blur.style.backgroundImage = `url("${artwork}")`;
+        blur.style.backgroundImage =
+            `url("${artwork}")`;
     }
 
-    const icon = document.createElement("img");
+    const icon =
+        document.createElement("img");
+
     icon.className = "app-icon";
     icon.src = artwork;
-    icon.alt = (app.trackName || "App") + " icon";
+
+    icon.alt =
+        (app.trackName || "App") + " icon";
+
     icon.loading = "lazy";
 
     artworkArea.appendChild(blur);
     artworkArea.appendChild(icon);
 
-    const content = document.createElement("div");
+    /* CONTENT */
+
+    const content =
+        document.createElement("div");
+
     content.className = "card-content";
 
-    const category = document.createElement("span");
+    const category =
+        document.createElement("span");
+
     category.className = "category";
+
     category.textContent =
         app.primaryGenreName || "iPhone App";
 
-    const name = document.createElement("h3");
-    name.className = "app-name";
-    name.textContent = app.trackName || "iPhone App";
+    const name =
+        document.createElement("h3");
 
-    const description = document.createElement("p");
+    name.className = "app-name";
+
+    name.textContent =
+        app.trackName || "iPhone App";
+
+    const description =
+        document.createElement("p");
+
     description.className = "description";
+
     description.textContent =
         cleanDescription(app.description);
 
-    const bottom = document.createElement("div");
+    /* BOTTOM SECTION */
+
+    const bottom =
+        document.createElement("div");
+
     bottom.className = "card-bottom";
 
-    const priceRow = document.createElement("div");
+    const priceRow =
+        document.createElement("div");
+
     priceRow.className = "price-row";
 
-    const price = document.createElement("span");
+    const price =
+        document.createElement("span");
+
     price.className = "price";
-    price.textContent = priceInfo.mainPrice;
+
+    price.textContent =
+        priceInfo.mainPrice;
 
     priceRow.appendChild(price);
 
     if (priceInfo.hasIAP) {
-        const iap = document.createElement("span");
+        const iap =
+            document.createElement("span");
+
         iap.className = "iap";
-        iap.textContent = "In-App Purchases";
+
+        iap.textContent =
+            "In-App Purchases";
+
         priceRow.appendChild(iap);
     }
 
     bottom.appendChild(priceRow);
 
+    /* RELEASE DATE */
+
     if (released) {
-        const date = document.createElement("div");
+        const date =
+            document.createElement("div");
+
         date.className = "release-date";
-        date.textContent = "Released " + released;
+
+        date.textContent =
+            "Released " + released;
+
         bottom.appendChild(date);
     }
 
-    const link = document.createElement("a");
+    /* APP STORE BUTTON */
+
+    const link =
+        document.createElement("a");
+
     link.className = "store-link";
-    link.href = app.trackViewUrl ||
-        "https://apps.apple.com/us/app/id" + app.trackId;
+
+    link.href =
+        app.trackViewUrl ||
+        "https://apps.apple.com/us/app/id" +
+        app.trackId;
 
     link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = "View on App Store →";
+
+    link.rel =
+        "noopener noreferrer";
+
+    link.textContent =
+        "View on App Store →";
 
     bottom.appendChild(link);
+
+    /* ASSEMBLE */
 
     content.appendChild(category);
     content.appendChild(name);
@@ -1073,7 +1196,10 @@ function createCard(app) {
 /* RENDER APPS */
 
 function renderApps() {
-    const query = search.value.trim().toLowerCase();
+    const query =
+        search.value
+            .trim()
+            .toLowerCase();
 
     let visibleApps = apps.filter(app => {
         const categoryMatch =
@@ -1084,18 +1210,28 @@ function renderApps() {
             app.trackName || "",
             app.primaryGenreName || "",
             app.description || ""
-        ].join(" ").toLowerCase();
+        ]
+            .join(" ")
+            .toLowerCase();
 
-        return categoryMatch &&
-            (!query || searchableText.includes(query));
+        return (
+            categoryMatch &&
+            (
+                !query ||
+                searchableText.includes(query)
+            )
+        );
     });
 
-    visibleApps = sortApps(visibleApps);
+    visibleApps =
+        sortApps(visibleApps);
 
     appGrid.replaceChildren();
 
     visibleApps.forEach(app => {
-        appGrid.appendChild(createCard(app));
+        appGrid.appendChild(
+            createCard(app)
+        );
     });
 
     appCount.textContent =
@@ -1104,13 +1240,20 @@ function renderApps() {
             : apps.length + " apps available";
 
     if (visibleApps.length === 0) {
-        const message = document.createElement("div");
-        message.className = "status-message";
+        const message =
+            document.createElement("div");
 
-        const heading = document.createElement("strong");
-        heading.textContent = "No apps found.";
+        message.className =
+            "status-message";
+
+        const heading =
+            document.createElement("strong");
+
+        heading.textContent =
+            "No apps found.";
 
         message.appendChild(heading);
+
         message.append(
             "Try another search or category."
         );
@@ -1121,13 +1264,20 @@ function renderApps() {
 
 /* EVENTS */
 
-search.addEventListener("input", renderApps);
-sortSelect.addEventListener("change", renderApps);
+search.addEventListener(
+    "input",
+    renderApps
+);
 
-/* INITIALIZE */
+sortSelect.addEventListener(
+    "change",
+    renderApps
+);
+
+/* START */
 
 loadApps();
-</script>
 
+</script>
 </body>
 </html>
