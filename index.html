@@ -1,82 +1,40 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
->
-
-<meta name="theme-color" content="#f5f7ff">
-<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Josh Swift Dev | iPhone Apps</title>
 
-<meta
-    name="description"
-    content="Discover iPhone apps created by Josh Swift Dev."
->
+<meta name="description"
+content="Explore iPhone apps developed by Josh Swift Dev.">
+
+<meta name="theme-color" content="#f6f8ff">
 
 <style>
-
-/* =========================================
-   GLOBAL
-========================================= */
-
 :root {
-    color-scheme: light;
-
-    --text: #19233b;
-    --muted: #64718b;
-    --blue: #4865ec;
-    --border: #e8ebf5;
+    --primary: #5267ed;
+    --primary-dark: #394fce;
+    --text: #1c2741;
+    --muted: #78849a;
+    --border: #e9edf7;
 }
 
 * {
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     margin: 0;
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "SF Pro Display",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
-
+    font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
     color: var(--text);
-
     background:
-        radial-gradient(
-            ellipse at 5% 10%,
-            #dfeaff 0%,
-            transparent 35%
-        ),
-        radial-gradient(
-            ellipse at 95% 20%,
-            #fce5f5 0%,
-            transparent 32%
-        ),
-        radial-gradient(
-            ellipse at 50% 85%,
-            #e7f5ff 0%,
-            transparent 40%
-        ),
-        #f8faff;
-
-    background-attachment: fixed;
-
-    -webkit-font-smoothing: antialiased;
+        radial-gradient(circle at 0% 5%, #e0eaff, transparent 35%),
+        radial-gradient(circle at 100% 20%, #ffe5f3, transparent 30%),
+        #f7f9ff;
+    min-height: 100vh;
 }
 
 a {
@@ -84,2670 +42,1229 @@ a {
     color: inherit;
 }
 
-button,
-input,
-select {
-    font: inherit;
-}
-
-button,
-a,
-select {
-    -webkit-tap-highlight-color: transparent;
-}
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible {
-    outline: 3px solid #7c91ff;
-    outline-offset: 3px;
-}
-
-
-/* =========================================
-   NAVIGATION
-========================================= */
-
 header {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid white;
     position: sticky;
     top: 0;
-    z-index: 100;
-
-    background: rgba(255,255,255,.85);
-
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
-
-    border-bottom:
-        1px solid rgba(255,255,255,.9);
+    z-index: 10;
 }
 
 nav {
     max-width: 1250px;
-    min-height: 76px;
-
-    padding: 12px 28px;
     margin: auto;
-
+    padding: 16px 25px;
     display: flex;
-
     justify-content: space-between;
     align-items: center;
-
-    gap: 20px;
 }
 
-.brand {
+.logo {
     display: flex;
     align-items: center;
-
     gap: 12px;
-
-    font-size: 17px;
     font-weight: 800;
-    letter-spacing: -.5px;
+    font-size: 18px;
 }
 
-.brand-icon {
+.logo-icon {
+    background: linear-gradient(135deg,#478bff,#9259ed,#f174b7);
+    color: white;
+    width: 43px;
+    height: 43px;
+    border-radius: 14px;
     display: grid;
     place-items: center;
-
-    width: 42px;
-    height: 42px;
-
-    border-radius: 14px;
-
-    color: white;
-    font-size: 21px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #4c8aff,
-            #8655e9,
-            #ed74b5
-        );
-
-    box-shadow:
-        0 6px 16px #685de52b;
+    font-size: 23px;
 }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-
-    gap: 26px;
-
+.contact {
+    background: #28375c;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
     font-size: 13px;
-    font-weight: 650;
+    font-weight: 700;
 }
-
-.nav-links a:hover {
-    color: var(--blue);
-}
-
-.contact-button {
-    padding: 11px 19px;
-
-    border-radius: 100px;
-
-    color: white;
-
-    background: #26365c;
-
-    transition: .2s;
-}
-
-.contact-button:hover {
-    background: var(--blue);
-
-    color: white !important;
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================================
-   MAIN CONTENT
-========================================= */
 
 main {
     max-width: 1250px;
-
     margin: auto;
-
-    padding: 42px 30px 80px;
+    padding: 50px 25px 80px;
 }
 
-.section-heading {
-    display: flex;
-
-    justify-content: space-between;
-    align-items: flex-end;
-
-    gap: 15px;
-
-    margin-bottom: 25px;
+h1 {
+    font-size: clamp(27px,4vw,39px);
+    margin: 0 0 9px;
+    letter-spacing: -1px;
 }
 
-.section-heading h1 {
-    margin: 0 0 7px;
-
-    font-size: 32px;
-
-    letter-spacing: -.9px;
-}
-
-.app-count {
-    font-size: 13px;
-
+.subtitle {
     color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 35px;
 }
-
-
-/* =========================================
-   TOOLBAR
-========================================= */
 
 .toolbar {
     display: flex;
-
-    align-items: center;
     justify-content: space-between;
-
+    gap: 15px;
+    align-items: center;
     flex-wrap: wrap;
-
-    gap: 16px;
-
     margin-bottom: 25px;
 }
 
 .filters {
     display: flex;
-
-    gap: 8px;
-
-    overflow-x: auto;
-
-    max-width: 100%;
-
-    padding: 5px 2px;
-
-    scrollbar-width: none;
-}
-
-.filters::-webkit-scrollbar {
-    display: none;
+    gap: 9px;
+    flex-wrap: wrap;
 }
 
 .filter {
-    flex-shrink: 0;
-
-    padding: 10px 16px;
-
-    border: 1px solid #e8eaf3;
-
-    border-radius: 100px;
-
+    border: 1px solid var(--border);
     background: white;
-
-    color: #69758c;
-
-    font-size: 11px;
-    font-weight: 750;
-
+    color: #6d7890;
+    padding: 11px 17px;
+    border-radius: 30px;
     cursor: pointer;
-
-    transition: .2s;
-}
-
-.filter:hover {
-    border-color: #abbcff;
-
-    color: var(--blue);
+    font-weight: 700;
+    font-size: 12px;
 }
 
 .filter.active {
-    background: #4865ec;
-
+    background: var(--primary);
+    border-color: var(--primary);
     color: white;
-
-    border-color: #4865ec;
-
-    box-shadow:
-        0 5px 13px #4865ec30;
 }
 
-.toolbar-right {
+.controls {
     display: flex;
-
     gap: 10px;
 }
 
-.search,
-.sort-select {
-    height: 43px;
-
-    padding: 0 15px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 13px;
-
+input, select {
     background: white;
-
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 15px;
     color: var(--text);
-
     font-size: 12px;
-
-    outline: none;
-
-    box-shadow:
-        0 3px 12px #26365c07;
 }
 
-.search {
-    width: 220px;
+input {
+    width: 215px;
 }
-
-.sort-select {
-    max-width: 190px;
-
-    cursor: pointer;
-}
-
-.search:focus,
-.sort-select:focus {
-    border-color: #8398ff;
-
-    box-shadow:
-        0 0 0 4px #8398ff18;
-}
-
-
-/* =========================================
-   APP GRID
-========================================= */
 
 .app-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
-
-    gap: 19px;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 20px;
 }
 
-
-/* =========================================
-   APP CARDS
-========================================= */
-
 .app-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(50,65,110,.07);
     display: flex;
     flex-direction: column;
-
-    min-width: 0;
-
-    overflow: hidden;
-
-    background: white;
-
-    border: 1px solid white;
-
-    border-radius: 24px;
-
-    box-shadow:
-        0 6px 25px #34436e0d;
-
-    transition:
-        transform .25s,
-        box-shadow .25s;
+    transition: transform .25s,box-shadow .25s;
 }
 
 .app-card:hover {
-    transform: translateY(-7px);
-
-    box-shadow:
-        0 20px 45px #34436e22;
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(50,65,110,.15);
 }
 
-.card-artwork {
-    position: relative;
-
+.artwork {
     height: 150px;
-
+    position: relative;
     overflow: hidden;
-
-    background:
-        linear-gradient(
-            135deg,
-            #e5edff,
-            #f8e8f7
-        );
+    background: linear-gradient(135deg,#e4ebff,#f7e5f3);
 }
 
-.artwork-blur {
+.artwork-bg {
     position: absolute;
-
-    inset: -55px;
-
+    inset: -30px;
     background-position: center;
     background-size: cover;
-
-    filter:
-        blur(36px)
-        saturate(1.45);
-
+    filter: blur(30px);
     opacity: .65;
-
-    transform: scale(1.3);
-}
-
-.card-artwork::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            transparent,
-            #ffffff3b
-        );
 }
 
 .app-icon {
     position: absolute;
-
-    z-index: 2;
-
     left: 22px;
-    bottom: 17px;
-
+    bottom: 16px;
     width: 83px;
     height: 83px;
-
-    border-radius: 19px;
-
-    object-fit: cover;
-
-    background: white;
-
+    border-radius: 20px;
     border: 3px solid white;
-
-    box-shadow:
-        0 7px 22px #15234b33;
+    box-shadow: 0 6px 20px #24315440;
 }
 
-.card-content {
+.card-body {
+    padding: 21px;
     display: flex;
-    flex: 1;
-
     flex-direction: column;
-
-    padding: 20px 22px 22px;
+    flex: 1;
 }
 
 .category {
     align-self: flex-start;
-
-    padding: 6px 10px;
-
-    border-radius: 7px;
-
-    background: #edf1ff;
-
-    color: #5664b9;
-
+    background: #eef1ff;
+    color: #5b69bd;
     font-size: 10px;
-    font-weight: 750;
+    font-weight: 800;
+    padding: 7px 10px;
+    border-radius: 8px;
 }
 
-.app-name {
-    margin: 14px 0 9px;
-
+.app-title {
     font-size: 18px;
     font-weight: 800;
-
-    letter-spacing: -.5px;
-
-    line-height: 1.25;
-
-    overflow-wrap: anywhere;
+    margin: 15px 0 10px;
+    line-height: 1.3;
 }
 
 .description {
-    margin: 0 0 18px;
-
-    color: #778299;
-
     font-size: 12px;
-
     line-height: 1.65;
-
+    color: var(--muted);
+    margin: 0 0 20px;
     display: -webkit-box;
-
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-
     overflow: hidden;
 }
 
 .card-bottom {
     margin-top: auto;
-
-    padding-top: 15px;
-
-    border-top:
-        1px solid #f0f2f7;
+    border-top: 1px solid #eef0f6;
+    padding-top: 16px;
 }
 
 .price-row {
     display: flex;
-
     align-items: center;
     justify-content: space-between;
-
     flex-wrap: wrap;
-
-    gap: 6px;
-
-    margin-bottom: 14px;
+    gap: 8px;
+    margin-bottom: 15px;
 }
 
 .price {
-    font-size: 16px;
-
-    font-weight: 800;
-
-    color: #263657;
+    font-size: 17px;
+    font-weight: 850;
 }
 
 .iap {
-    display: inline-flex;
-
-    align-items: center;
-
-    padding: 5px 8px;
-
+    background: #f0e9ff;
+    color: #7546c3;
     border-radius: 8px;
-
-    background: #f1eaff;
-
-    color: #7548c5;
-
+    padding: 6px 9px;
     font-size: 10px;
-
-    font-weight: 750;
+    font-weight: 800;
 }
 
-.iap-unknown {
-    background: #f2f4f8;
-
-    color: #7a84a0;
-}
-
-.release-date {
-    margin-bottom: 13px;
-
-    font-size: 10px;
-
-    color: #939bb0;
-}
-
-.store-link {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    min-height: 42px;
-
-    padding: 10px;
-
-    border-radius: 12px;
-
+.store-button {
+    display: block;
+    text-align: center;
     background: #edf1ff;
-
-    color: #4764dd;
-
+    color: var(--primary-dark);
+    padding: 13px;
+    border-radius: 12px;
     font-size: 12px;
     font-weight: 800;
-
     transition: .2s;
 }
 
-.store-link:hover {
-    background: #4865ec;
-
+.store-button:hover {
+    background: var(--primary);
     color: white;
 }
 
-
-/* =========================================
-   LOADING
-========================================= */
-
-.loading-card {
-    height: 370px;
-
-    border-radius: 24px;
-
-    background:
-        linear-gradient(
-            110deg,
-            #e9edf8 8%,
-            #ffffff 18%,
-            #e9edf8 33%
-        );
-
-    background-size: 200% 100%;
-
-    animation:
-        shimmer 1.4s linear infinite;
-}
-
-@keyframes shimmer {
-    to {
-        background-position-x: -200%;
-    }
-}
-
-.status-message {
-    grid-column: 1 / -1;
-
-    padding: 75px 20px;
-
+.status {
+    grid-column: 1/-1;
+    padding: 65px 20px;
     text-align: center;
-
     color: var(--muted);
 }
 
-.status-message strong {
-    display: block;
-
-    margin-bottom: 10px;
-
-    font-size: 18px;
-
-    color: var(--text);
+.refresh-info {
+    margin-top: 25px;
+    font-size: 11px;
+    color: #8994aa;
+    text-align: center;
 }
-
-
-/* =========================================
-   FOOTER
-========================================= */
 
 footer {
-    background:
-        rgba(255,255,255,.85);
-
-    border-top:
-        1px solid var(--border);
-}
-
-.footer-inner {
-    max-width: 1250px;
-
-    margin: auto;
-
-    padding: 30px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 20px;
-
-    color: #8390a5;
-
+    border-top: 1px solid var(--border);
+    background: rgba(255,255,255,.8);
+    padding: 30px 20px;
+    text-align: center;
     font-size: 12px;
+    color: var(--muted);
 }
 
-.footer-links {
-    display: flex;
-
-    gap: 22px;
+footer a {
+    color: var(--primary);
 }
 
-.footer-links a:hover {
-    color: var(--blue);
-}
-
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 1050px) {
-
+@media(max-width:1050px) {
     .app-grid {
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(3,minmax(0,1fr));
     }
-
 }
 
-@media (max-width: 780px) {
-
-    main {
-        padding: 32px 20px 60px;
-    }
-
+@media(max-width:760px) {
     .app-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap: 13px;
+        grid-template-columns: repeat(2,minmax(0,1fr));
     }
 
-    .toolbar-right {
+    .controls {
         width: 100%;
     }
 
-    .search {
+    input {
         flex: 1;
-
-        width: 100%;
-
         min-width: 0;
     }
-
 }
 
-@media (max-width: 480px) {
-
-    nav {
-        padding: 12px 17px;
-    }
-
-    .brand {
-        font-size: 14px;
-    }
-
-    .brand-icon {
-        width: 36px;
-        height: 36px;
-    }
-
-    .nav-links {
-        gap: 13px;
-
-        font-size: 11px;
-    }
-
-    .contact-button {
-        padding: 9px 12px;
-    }
-
+@media(max-width:480px) {
     main {
-        padding: 25px 14px 60px;
-    }
-
-    .section-heading h1 {
-        font-size: 24px;
-    }
-
-    .toolbar-right {
-        flex-wrap: wrap;
-    }
-
-    .search {
-        width: 100%;
-
-        flex-basis: 100%;
-    }
-
-    .sort-select {
-        width: 100%;
-
-        max-width: none;
+        padding: 30px 13px 60px;
     }
 
     .app-grid {
-        gap: 10px;
+        gap: 11px;
     }
 
-    .app-card {
-        border-radius: 18px;
-    }
-
-    .card-artwork {
-        height: 105px;
+    .artwork {
+        height: 110px;
     }
 
     .app-icon {
-        width: 62px;
-        height: 62px;
-
+        width: 63px;
+        height: 63px;
         left: 13px;
         bottom: 12px;
-
         border-radius: 15px;
     }
 
-    .card-content {
+    .card-body {
         padding: 14px;
     }
 
-    .app-name {
-        font-size: 14px;
+    .app-title {
+        font-size: 15px;
     }
 
     .description {
-        font-size: 10.5px;
+        font-size: 11px;
     }
 
-    .price {
-        font-size: 13px;
+    .controls {
+        flex-wrap: wrap;
     }
 
-    .store-link {
-        font-size: 10px;
+    input,select {
+        width: 100%;
     }
-
-    .footer-inner {
-        flex-direction: column;
-
-        text-align: center;
-    }
-
 }
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration:
-            .01ms !important;
-
-        transition-duration:
-            .01ms !important;
-    }
-
-}
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================
-     NAVIGATION
-===================================== -->
-
 <header>
-
-<nav>
-
-    <a href="#apps" class="brand">
-
-        <span class="brand-icon">
-            ✦
-        </span>
-
-        <span>
+    <nav>
+        <a href="#" class="logo">
+            <span class="logo-icon">✦</span>
             Josh Swift Dev
-        </span>
-
-    </a>
-
-
-    <div class="nav-links">
-
-        <a href="#apps">
-            Apps
         </a>
 
-        <a
-            class="contact-button"
-            href="mailto:josh.swift.dev@gmail.com"
-        >
+        <a class="contact"
+           href="mailto:josh.swift.dev@gmail.com">
             Contact
         </a>
-
-    </div>
-
-</nav>
-
+    </nav>
 </header>
-
-
-
-<!-- =====================================
-     APP COLLECTION
-===================================== -->
 
 <main>
 
-<section id="apps">
+    <h1>Explore the Collection</h1>
 
-
-    <div class="section-heading">
-
-        <div>
-
-            <h1>
-                Explore the Collection
-            </h1>
-
-            <div
-                class="app-count"
-                id="appCount"
-            >
-                Loading apps…
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- FILTERS AND SEARCH -->
+    <p class="subtitle" id="appCount">
+        Loading apps directly from Apple…
+    </p>
 
     <div class="toolbar">
 
-
-        <div
-            class="filters"
-            id="filters"
-        >
-
-            <button
-                class="filter active"
-                data-filter="all"
-                type="button"
-            >
+        <div class="filters" id="filters">
+            <button class="filter active"
+                    data-filter="all">
                 All Apps
             </button>
-
         </div>
 
+        <div class="controls">
 
+            <input type="search"
+                   id="search"
+                   placeholder="Search apps…">
 
-        <div class="toolbar-right">
-
-
-            <select
-                id="sortSelect"
-                class="sort-select"
-                aria-label="Sort apps"
-            >
-
-                <option value="alphabetical">
-                    Alphabetical
-                </option>
-
-                <option value="release-newest">
-                    Newest First
-                </option>
-
-                <option value="release-oldest">
-                    Oldest First
-                </option>
-
-                <option value="price-low">
-                    Price: Low to High
-                </option>
-
-                <option value="price-high">
-                    Price: High to Low
-                </option>
-
+            <select id="sort">
+                <option value="name">Alphabetical</option>
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
             </select>
 
-
-
-            <input
-                id="search"
-                class="search"
-                type="search"
-                placeholder="Search apps…"
-                aria-label="Search apps"
-            >
-
-
         </div>
 
     </div>
 
-
-
-    <!-- APP GRID -->
-
-    <div
-        class="app-grid"
-        id="appGrid"
-    >
-
-        <div class="loading-card"></div>
-        <div class="loading-card"></div>
-        <div class="loading-card"></div>
-        <div class="loading-card"></div>
-
+    <div class="app-grid" id="appGrid">
+        <div class="status">
+            Retrieving your published apps…
+        </div>
     </div>
 
-
-</section>
+    <div class="refresh-info" id="refreshInfo"></div>
 
 </main>
 
-
-
-<!-- =====================================
-     FOOTER
-===================================== -->
-
 <footer>
-
-<div class="footer-inner">
-
-
-    <div>
-
-        © 2026 Josh Swift Dev.
-        All rights reserved.
-
-    </div>
-
-
-    <div class="footer-links">
-
-        <a href="#apps">
-            Apps
-        </a>
-
-        <a
-            href="mailto:josh.swift.dev@gmail.com"
-        >
-            Contact
-        </a>
-
-    </div>
-
-
-</div>
-
+    © 2026 Josh Swift Dev ·
+    <a href="mailto:josh.swift.dev@gmail.com">
+        Contact
+    </a>
 </footer>
 
 
-
 <script>
-
 "use strict";
 
-
-/* =========================================
-   APP STORE CONFIGURATION
-========================================= */
-
+/*
+=========================================
+CONFIGURATION
+=========================================
+*/
 
 const DEVELOPER_ID = "6809669072";
+const COUNTRY = "us";
 
-
-const APPLE_LOOKUP =
-    "https://itunes.apple.com/lookup?id=" +
-    DEVELOPER_ID +
-    "&entity=software&country=us&limit=200";
-
+const DEVELOPER_API =
+    `https://itunes.apple.com/lookup` +
+    `?id=${DEVELOPER_ID}` +
+    `&entity=software` +
+    `&country=${COUNTRY}` +
+    `&limit=200`;
 
 /*
-    OPTIONAL VERIFIED CATALOG
+Every individual app receives its own
+public lookup request.
 
-    Create a file named:
+A timestamp is added to discourage
+browser caching.
 
-    app-pricing.json
-
-    Place it in the same directory
-    as index.html.
-
-    Example:
-
-    {
-      "apps": {
-        "1234567890": {
-          "price": 0,
-          "currency": "USD",
-          "hasIAP": true,
-          "iapPrice": "$0.99"
-        }
-      }
-    }
-
-    Use your actual Apple track IDs.
-
-    This website never contains
-    App Store Connect credentials.
+Apple may still cache its own API
+responses independently.
 */
 
 
-const VERIFIED_CATALOG_URL =
-    "./app-pricing.json";
-
-
-
-/* =========================================
-   STATE
-========================================= */
-
+/*
+=========================================
+STATE
+=========================================
+*/
 
 let apps = [];
-
-let verifiedCatalog = {};
-
 let activeFilter = "all";
+let lastUpdated = null;
 
+const grid = document.getElementById("appGrid");
+const count = document.getElementById("appCount");
+const filters = document.getElementById("filters");
+const search = document.getElementById("search");
+const sort = document.getElementById("sort");
+const refreshInfo =
+    document.getElementById("refreshInfo");
 
 
-/* =========================================
-   ELEMENTS
-========================================= */
+/*
+=========================================
+FETCH WITH TIMEOUT
+=========================================
+*/
 
+async function fetchJSON(url) {
 
-const appGrid =
-    document.getElementById("appGrid");
+    const controller = new AbortController();
 
-
-const appCount =
-    document.getElementById("appCount");
-
-
-const search =
-    document.getElementById("search");
-
-
-const filters =
-    document.getElementById("filters");
-
-
-const sortSelect =
-    document.getElementById("sortSelect");
-
-
-
-/* =========================================
-   VERIFIED CATALOG
-========================================= */
-
-
-async function loadVerifiedCatalog() {
-
-    try {
-
-        const response = await fetch(
-            VERIFIED_CATALOG_URL,
-            {
-                cache: "no-store"
-            }
-        );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "Pricing catalog unavailable"
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        if (
-            data &&
-            typeof data.apps === "object" &&
-            data.apps !== null &&
-            !Array.isArray(data.apps)
-        ) {
-
-            verifiedCatalog = data.apps;
-
-        } else {
-
-            verifiedCatalog = {};
-
-        }
-
-
-    } catch (error) {
-
-        console.info(
-            "Verified catalog unavailable. " +
-            "Using public App Store information."
-        );
-
-        verifiedCatalog = {};
-
-    }
-
-}
-
-
-
-/* =========================================
-   LOAD APPS
-========================================= */
-
-
-async function loadApps() {
-
-    try {
-
-
-        /*
-            Load pricing and app data
-            independently.
-
-            A missing pricing file should
-            never prevent the website
-            from loading its app cards.
-        */
-
-
-        const results = await Promise.all([
-
-            fetch(
-                APPLE_LOOKUP,
-                {
-                    cache: "no-store"
-                }
-            ),
-
-            loadVerifiedCatalog()
-
-        ]);
-
-
-        const response = results[0];
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "Apple lookup failed"
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        apps = (
-            data.results || []
-        ).filter(
-
-            item =>
-                item.wrapperType === "software"
-
-        );
-
-
-        createFilters();
-
-        renderApps();
-
-
-    } catch (error) {
-
-
-        console.error(
-            "Unable to load apps:",
-            error
-        );
-
-
-        appCount.textContent =
-            "Apps";
-
-
-        appGrid.innerHTML = `
-
-            <div class="status-message">
-
-                <strong>
-                    Unable to load apps right now.
-                </strong>
-
-                Please try again in a moment.
-
-            </div>
-
-        `;
-
-
-    }
-
-}
-
-
-
-/* =========================================
-   VERIFIED ENTRY
-========================================= */
-
-
-function verifiedEntry(app) {
-
-
-    /*
-        Look up the verified record
-        using either:
-
-        1. App Store track ID
-        2. Bundle identifier
-    */
-
-
-    const trackId =
-        String(app.trackId || "");
-
-
-    const bundleId =
-        app.bundleId || "";
-
-
-    return (
-
-        verifiedCatalog[trackId] ||
-
-        verifiedCatalog[bundleId] ||
-
-        null
-
+    const timeout = setTimeout(
+        () => controller.abort(),
+        12000
     );
 
+    try {
+
+        const response = await fetch(url, {
+            cache: "no-store",
+            signal: controller.signal
+        });
+
+        if (!response.ok) {
+            throw new Error(
+                `HTTP ${response.status}`
+            );
+        }
+
+        return await response.json();
+
+    } finally {
+        clearTimeout(timeout);
+    }
 }
 
 
+/*
+=========================================
+INDIVIDUAL APP LOOKUP
+=========================================
+*/
 
-/* =========================================
-   PRICE HELPERS
-========================================= */
+async function fetchIndividualApp(app) {
 
-
-function getNumericPrice(app) {
-
-
-    const entry =
-        verifiedEntry(app);
-
-
-
-    /*
-        Verified App Store Connect
-        pricing takes priority.
-    */
-
-
-    if (
-
-        entry &&
-
-        typeof entry.price === "number" &&
-
-        Number.isFinite(entry.price)
-
-    ) {
-
-        return entry.price;
-
-    }
-
-
-
-    /*
-        Fall back to Apple's
-        public listing price.
-    */
-
-
-    if (
-
-        typeof app.price === "number" &&
-
-        Number.isFinite(app.price)
-
-    ) {
-
-        return app.price;
-
-    }
-
-
-
-    /*
-        Missing pricing does not
-        mean the app is free.
-    */
-
-
-    return null;
-
-}
-
-
-
-/* =========================================
-   CURRENCY FORMAT
-========================================= */
-
-
-function formatCurrency(
-    amount,
-    currency = "USD"
-) {
-
+    const url =
+        `https://itunes.apple.com/lookup` +
+        `?id=${encodeURIComponent(app.trackId)}` +
+        `&country=${COUNTRY}` +
+        `&_=${Date.now()}`;
 
     try {
 
-        return new Intl.NumberFormat(
+        const data = await fetchJSON(url);
 
-            "en-US",
+        const listing = (data.results || [])
+            .find(item =>
+                item.wrapperType === "software" &&
+                String(item.trackId) ===
+                    String(app.trackId)
+            );
 
-            {
-                style: "currency",
+        /*
+        Only use the individual listing
+        if Apple actually returned it.
+        */
 
-                currency: currency
-            }
+        if (listing) {
 
-        ).format(amount);
-
+            return {
+                ...app,
+                ...listing,
+                priceSource: "individual",
+                priceVerified: true
+            };
+        }
 
     } catch (error) {
 
-
-        return (
-            "$" +
-            amount.toFixed(2)
+        console.warn(
+            `Individual lookup failed for ${app.trackName}`,
+            error
         );
-
-
     }
-
-}
-
-
-
-/* =========================================
-   PRICE AND IAP INFORMATION
-========================================= */
-
-
-function getPriceInfo(app) {
-
-
-    const entry =
-        verifiedEntry(app);
-
-
-    const numeric =
-        getNumericPrice(app);
-
-
-    let mainPrice =
-        "Price unavailable";
-
-
 
     /*
-        1. Verified formatted price
+    Fallback to the original developer
+    lookup if individual lookup fails.
+
+    This is public Apple data, but it
+    hasn't been independently checked
+    against the individual listing.
     */
-
-
-    if (
-
-        entry &&
-
-        typeof entry.displayPrice === "string" &&
-
-        entry.displayPrice.trim()
-
-    ) {
-
-
-        mainPrice =
-            entry.displayPrice.trim();
-
-
-    }
-
-
-    /*
-        2. Verified numeric price
-    */
-
-
-    else if (
-
-        entry &&
-
-        typeof entry.price === "number" &&
-
-        Number.isFinite(entry.price)
-
-    ) {
-
-
-        mainPrice =
-            entry.price === 0
-
-                ? "Free"
-
-                : formatCurrency(
-
-                    entry.price,
-
-                    entry.currency || "USD"
-
-                );
-
-
-    }
-
-
-    /*
-        3. Apple's public price
-    */
-
-
-    else if (
-
-        typeof app.formattedPrice === "string" &&
-
-        app.formattedPrice.trim()
-
-    ) {
-
-
-        mainPrice =
-            app.formattedPrice.trim();
-
-
-    }
-
-
-    /*
-        4. Apple's numeric price
-    */
-
-
-    else if (
-        numeric !== null
-    ) {
-
-
-        mainPrice =
-            numeric === 0
-
-                ? "Free"
-
-                : formatCurrency(
-
-                    numeric,
-
-                    app.currency || "USD"
-
-                );
-
-
-    }
-
-
-
-    /*
-        Public Apple lookup data
-        cannot reliably confirm
-        whether an app has IAPs.
-
-        Only show confirmed
-        IAP information from
-        our verified catalog.
-    */
-
-
-    let hasIAP = null;
-
-
-    let iapPrice = null;
-
-
-
-    if (
-
-        entry &&
-
-        typeof entry.hasIAP === "boolean"
-
-    ) {
-
-
-        hasIAP =
-            entry.hasIAP;
-
-
-    }
-
-
-
-    if (
-
-        entry &&
-
-        typeof entry.iapPrice === "string"
-
-    ) {
-
-
-        iapPrice =
-            entry.iapPrice.trim() || null;
-
-
-    }
-
-
 
     return {
-
-        mainPrice,
-
-        numeric,
-
-        hasIAP,
-
-        iapPrice
-
+        ...app,
+        priceSource: "developer",
+        priceVerified: false
     };
-
 }
 
 
+/*
+=========================================
+LIMIT CONCURRENT REQUESTS
+=========================================
+*/
 
-/* =========================================
-   CATEGORY FILTERS
-========================================= */
+async function fetchIndividualListings(
+    developerApps,
+    concurrency = 4
+) {
 
+    const results = new Array(
+        developerApps.length
+    );
+
+    let nextIndex = 0;
+
+    async function worker() {
+
+        while (nextIndex < developerApps.length) {
+
+            const index = nextIndex++;
+
+            results[index] =
+                await fetchIndividualApp(
+                    developerApps[index]
+                );
+        }
+    }
+
+    const workerCount = Math.min(
+        concurrency,
+        developerApps.length
+    );
+
+    await Promise.all(
+        Array.from(
+            { length: workerCount },
+            () => worker()
+        )
+    );
+
+    return results;
+}
+
+
+/*
+=========================================
+PRICE INFORMATION
+=========================================
+*/
+
+function getPrice(app) {
+
+    /*
+    Apple's public listing provides
+    formattedPrice and price.
+
+    Never assume a missing price
+    means Free.
+    */
+
+    if (
+        typeof app.formattedPrice === "string" &&
+        app.formattedPrice.trim()
+    ) {
+        return app.formattedPrice.trim();
+    }
+
+    if (
+        typeof app.price === "number" &&
+        Number.isFinite(app.price)
+    ) {
+
+        if (app.price === 0) {
+            return "Free";
+        }
+
+        return new Intl.NumberFormat(
+            "en-US",
+            {
+                style: "currency",
+                currency: app.currency || "USD"
+            }
+        ).format(app.price);
+    }
+
+    return "Price unavailable";
+}
+
+
+function numericPrice(app) {
+
+    if (
+        typeof app.price === "number" &&
+        Number.isFinite(app.price)
+    ) {
+        return app.price;
+    }
+
+    return null;
+}
+
+
+/*
+=========================================
+IAP DETECTION
+=========================================
+
+Apple's public lookup API does not
+consistently expose the App Store
+"In-App Purchases" label.
+
+Never interpret the absence of that
+information as proof that an app
+doesn't have IAP.
+
+This function only displays the label
+if Apple explicitly supplies
+recognizable IAP metadata.
+*/
+
+function getIAPStatus(app) {
+
+    /*
+    Some API variations may expose
+    an explicit IAP property.
+
+    Standard iTunes lookup responses
+    generally do not provide it.
+    */
+
+    if (
+        app.hasInAppPurchases === true ||
+        app.hasIAP === true
+    ) {
+        return true;
+    }
+
+    if (
+        app.hasInAppPurchases === false ||
+        app.hasIAP === false
+    ) {
+        return false;
+    }
+
+    return null;
+}
+
+
+/*
+=========================================
+ARTWORK
+=========================================
+*/
+
+function artworkURL(app) {
+
+    return (
+        app.artworkUrl512 ||
+        app.artworkUrl100 ||
+        app.artworkUrl60 ||
+        ""
+    );
+}
+
+
+/*
+=========================================
+FILTERS
+=========================================
+*/
 
 function createFilters() {
 
-
     const genres = [
-
         ...new Set(
-
             apps
-
-                .map(
-                    app =>
-                        app.primaryGenreName
-                )
-
+                .map(app => app.primaryGenreName)
                 .filter(Boolean)
-
         )
-
     ].sort();
-
-
 
     filters.replaceChildren();
 
-
-
     const categories = [
-
-        {
-
-            label: "All Apps",
-
-            value: "all"
-
-        },
-
-        ...genres.map(
-
-            genre => ({
-
-                label: genre,
-
-                value: genre
-
-            })
-
-        )
-
+        "all",
+        ...genres
     ];
-
-
 
     categories.forEach(category => {
 
-
         const button =
-            document.createElement(
-                "button"
-            );
-
-
-        button.type =
-            "button";
-
+            document.createElement("button");
 
         button.className =
-
             "filter" +
-
             (
-                category.value === activeFilter
-
+                category === activeFilter
                     ? " active"
-
                     : ""
             );
 
-
-        button.dataset.filter =
-            category.value;
-
+        button.type = "button";
 
         button.textContent =
-            category.label;
-
-
+            category === "all"
+                ? "All Apps"
+                : category;
 
         button.addEventListener(
             "click",
             () => {
 
+                activeFilter = category;
 
-                activeFilter =
-                    category.value;
+                document
+                    .querySelectorAll(".filter")
+                    .forEach(item =>
+                        item.classList.remove(
+                            "active"
+                        )
+                    );
 
+                button.classList.add(
+                    "active"
+                );
 
-
-                filters
-
-                    .querySelectorAll(
-                        ".filter"
-                    )
-
-                    .forEach(item => {
-
-
-                        item.classList.toggle(
-
-                            "active",
-
-                            item === button
-
-                        );
-
-
-                    });
-
-
-
-                renderApps();
-
-
+                render();
             }
         );
 
-
-
-        filters.appendChild(
-            button
-        );
-
-
+        filters.appendChild(button);
     });
-
 }
 
 
-
-/* =========================================
-   APP ARTWORK
-========================================= */
-
-
-function getArtwork(app) {
-
-
-    const artwork =
-
-        app.artworkUrl512 ||
-
-        app.artworkUrl100 ||
-
-        app.artworkUrl60 ||
-
-        "";
-
-
-
-    return artwork.replace(
-
-        /[0-9]+x[0-9]+bb/,
-
-        "512x512bb"
-
-    );
-
-}
-
-
-
-/* =========================================
-   RELEASE DATE
-========================================= */
-
-
-function getReleaseTimestamp(app) {
-
-
-    const time =
-        new Date(
-
-            app.releaseDate || 0
-
-        ).getTime();
-
-
-
-    return Number.isFinite(time)
-
-        ? time
-
-        : 0;
-
-}
-
-
-
-function formatReleaseDate(app) {
-
-
-    if (!app.releaseDate) {
-
-        return "";
-
-    }
-
-
-
-    const date =
-        new Date(
-            app.releaseDate
-        );
-
-
-
-    if (
-        Number.isNaN(
-            date.getTime()
-        )
-    ) {
-
-        return "";
-
-    }
-
-
-
-    return date.toLocaleDateString(
-
-        "en-US",
-
-        {
-
-            month: "short",
-
-            day: "numeric",
-
-            year: "numeric"
-
-        }
-
-    );
-
-}
-
-
-
-/* =========================================
-   DESCRIPTION
-========================================= */
-
-
-function cleanDescription(description) {
-
-
-    if (!description) {
-
-        return (
-            "Discover this app " +
-            "on the App Store."
-        );
-
-    }
-
-
-
-    return description
-
-        .replace(
-            /\s+/g,
-            " "
-        )
-
-        .trim();
-
-}
-
-
-
-/* =========================================
-   SORTING
-========================================= */
-
+/*
+=========================================
+SORT
+=========================================
+*/
 
 function sortApps(list) {
 
+    const result = [...list];
 
-    const sorted =
-        [...list];
+    switch (sort.value) {
 
+        case "newest":
 
-
-    const byName = (a, b) =>
-
-        (
-            a.trackName || ""
-        ).localeCompare(
-
-            b.trackName || ""
-
-        );
-
-
-
-    switch (
-        sortSelect.value
-    ) {
-
-
-
-        case "release-newest":
-
-
-            sorted.sort(
-
-                (a, b) =>
-
-                    getReleaseTimestamp(b) -
-
-                    getReleaseTimestamp(a) ||
-
-                    byName(a, b)
-
+            result.sort((a,b) =>
+                new Date(b.releaseDate || 0) -
+                new Date(a.releaseDate || 0)
             );
-
 
             break;
 
+        case "oldest":
 
-
-        case "release-oldest":
-
-
-            sorted.sort(
-
-                (a, b) =>
-
-                    getReleaseTimestamp(a) -
-
-                    getReleaseTimestamp(b) ||
-
-                    byName(a, b)
-
+            result.sort((a,b) =>
+                new Date(a.releaseDate || 0) -
+                new Date(b.releaseDate || 0)
             );
-
 
             break;
 
+        case "low":
 
+            result.sort((a,b) => {
 
-        case "price-low":
+                const pa = numericPrice(a);
+                const pb = numericPrice(b);
 
+                if (pa === null) return 1;
+                if (pb === null) return -1;
 
-            sorted.sort(
-                (a, b) => {
-
-
-                    const priceA =
-                        getNumericPrice(a);
-
-
-                    const priceB =
-                        getNumericPrice(b);
-
-
-
-                    /*
-                        Unknown prices sort last.
-                    */
-
-
-                    if (priceA === null) {
-                        return priceB === null
-                            ? byName(a, b)
-                            : 1;
-                    }
-
-
-                    if (priceB === null) {
-                        return -1;
-                    }
-
-
-
-                    return (
-
-                        priceA - priceB ||
-
-                        byName(a, b)
-
-                    );
-
-
-                }
-            );
-
+                return pa - pb;
+            });
 
             break;
 
+        case "high":
 
+            result.sort((a,b) => {
 
-        case "price-high":
+                const pa = numericPrice(a);
+                const pb = numericPrice(b);
 
+                if (pa === null) return 1;
+                if (pb === null) return -1;
 
-            sorted.sort(
-                (a, b) => {
-
-
-                    const priceA =
-                        getNumericPrice(a);
-
-
-                    const priceB =
-                        getNumericPrice(b);
-
-
-
-                    if (priceA === null) {
-                        return priceB === null
-                            ? byName(a, b)
-                            : 1;
-                    }
-
-
-                    if (priceB === null) {
-                        return -1;
-                    }
-
-
-
-                    return (
-
-                        priceB - priceA ||
-
-                        byName(a, b)
-
-                    );
-
-
-                }
-            );
-
+                return pb - pa;
+            });
 
             break;
-
-
 
         default:
 
-
-            sorted.sort(
-                byName
+            result.sort((a,b) =>
+                (a.trackName || "")
+                    .localeCompare(
+                        b.trackName || ""
+                    )
             );
-
-
     }
 
-
-
-    return sorted;
-
+    return result;
 }
 
 
+/*
+=========================================
+SAFE DOM HELPERS
+=========================================
+*/
 
-/* =========================================
-   CREATE APP CARD
-========================================= */
+function element(
+    tag,
+    className,
+    text
+) {
 
+    const node =
+        document.createElement(tag);
+
+    if (className) {
+        node.className = className;
+    }
+
+    if (text !== undefined) {
+        node.textContent = text;
+    }
+
+    return node;
+}
+
+
+/*
+=========================================
+CREATE APP CARD
+=========================================
+*/
 
 function createCard(app) {
 
+    const card =
+        element("article","app-card");
+
+    const art =
+        element("div","artwork");
+
+    const background =
+        element("div","artwork-bg");
+
+    const image =
+        element("img","app-icon");
 
     const artwork =
-        getArtwork(app);
-
-
-    const priceInfo =
-        getPriceInfo(app);
-
-
-    const released =
-        formatReleaseDate(app);
-
-
-
-    const card =
-        document.createElement(
-            "article"
-        );
-
-
-    card.className =
-        "app-card";
-
-
-
-    /* ARTWORK */
-
-
-    const artworkArea =
-        document.createElement(
-            "div"
-        );
-
-
-    artworkArea.className =
-        "card-artwork";
-
-
-
-    const blur =
-        document.createElement(
-            "div"
-        );
-
-
-    blur.className =
-        "artwork-blur";
-
-
+        artworkURL(app);
 
     if (artwork) {
-
-
-        blur.style.backgroundImage =
+        background.style.backgroundImage =
             `url("${artwork}")`;
-
-
     }
 
+    image.src = artwork;
+    image.alt =
+        `${app.trackName || "App"} icon`;
+    image.loading = "lazy";
 
-
-    const icon =
-        document.createElement(
-            "img"
-        );
-
-
-    icon.className =
-        "app-icon";
-
-
-    icon.src =
-        artwork;
-
-
-    icon.alt =
-
-        (
-            app.trackName || "App"
-        ) +
-
-        " icon";
-
-
-    icon.loading =
-        "lazy";
-
-
-
-    artworkArea.appendChild(
-        blur
+    art.append(
+        background,
+        image
     );
 
 
-    artworkArea.appendChild(
-        icon
-    );
-
-
-
-    /* CONTENT */
-
-
-    const content =
-        document.createElement(
-            "div"
-        );
-
-
-    content.className =
-        "card-content";
-
-
+    const body =
+        element("div","card-body");
 
     const category =
-        document.createElement(
-            "span"
+        element(
+            "span",
+            "category",
+            app.primaryGenreName ||
+                "iPhone App"
         );
 
-
-    category.className =
-        "category";
-
-
-    category.textContent =
-
-        app.primaryGenreName ||
-
-        "iPhone App";
-
-
-
-    const name =
-        document.createElement(
-            "h3"
+    const title =
+        element(
+            "h3",
+            "app-title",
+            app.trackName || "App"
         );
-
-
-    name.className =
-        "app-name";
-
-
-    name.textContent =
-
-        app.trackName ||
-
-        "iPhone App";
-
-
 
     const description =
-        document.createElement(
-            "p"
+        element(
+            "p",
+            "description",
+            (
+                app.description ||
+                "Explore this app on the App Store."
+            ).replace(/\s+/g," ").trim()
         );
-
-
-    description.className =
-        "description";
-
-
-    description.textContent =
-        cleanDescription(
-            app.description
-        );
-
-
-
-    /* BOTTOM SECTION */
-
 
     const bottom =
-        document.createElement(
-            "div"
-        );
-
-
-    bottom.className =
-        "card-bottom";
-
-
+        element("div","card-bottom");
 
     const priceRow =
-        document.createElement(
-            "div"
-        );
-
-
-    priceRow.className =
-        "price-row";
-
-
+        element("div","price-row");
 
     const price =
-        document.createElement(
-            "span"
+        element(
+            "span",
+            "price",
+            getPrice(app)
         );
 
-
-    price.className =
-        "price";
+    priceRow.appendChild(price);
 
 
-    price.textContent =
-        priceInfo.mainPrice;
+    /*
+    Only display an IAP badge
+    when Apple explicitly provides
+    reliable positive metadata.
+    */
 
+    if (getIAPStatus(app) === true) {
 
-
-    priceRow.appendChild(
-        price
-    );
-
-
-
-    /* CONFIRMED IN-APP PURCHASE */
-
-
-    if (
-        priceInfo.hasIAP === true
-    ) {
-
-
-        const iap =
-            document.createElement(
-                "span"
+        const badge =
+            element(
+                "span",
+                "iap",
+                "In-App Purchases"
             );
 
-
-        iap.className =
-            "iap";
-
-
-        iap.textContent =
-
-            priceInfo.iapPrice
-
-                ? (
-                    "In-App Purchase: " +
-                    priceInfo.iapPrice
-                )
-
-                : "In-App Purchases";
-
-
-
-        priceRow.appendChild(
-            iap
-        );
-
-
+        priceRow.appendChild(badge);
     }
-
-
-
-    /* UNKNOWN IAP STATUS */
-
-
-    if (
-        priceInfo.hasIAP === null
-    ) {
-
-
-        const unknown =
-            document.createElement(
-                "span"
-            );
-
-
-        unknown.className =
-            "iap iap-unknown";
-
-
-        unknown.textContent =
-            "IAP not verified";
-
-
-
-        priceRow.appendChild(
-            unknown
-        );
-
-
-    }
-
-
-
-    bottom.appendChild(
-        priceRow
-    );
-
-
-
-    /* RELEASE DATE */
-
-
-    if (released) {
-
-
-        const date =
-            document.createElement(
-                "div"
-            );
-
-
-        date.className =
-            "release-date";
-
-
-        date.textContent =
-            "Released " + released;
-
-
-
-        bottom.appendChild(
-            date
-        );
-
-
-    }
-
-
-
-    /* APP STORE LINK */
 
 
     const link =
-        document.createElement(
-            "a"
+        element(
+            "a",
+            "store-button",
+            "View on App Store →"
         );
-
-
-    link.className =
-        "store-link";
-
 
     link.href =
-
         app.trackViewUrl ||
+        `https://apps.apple.com/us/app/id${app.trackId}`;
 
-        (
-            "https://apps.apple.com/us/app/id" +
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
 
-            app.trackId
-        );
-
-
-
-    link.target =
-        "_blank";
-
-
-    link.rel =
-        "noopener noreferrer";
-
-
-    link.textContent =
-        "View on App Store →";
-
-
-
-    bottom.appendChild(
+    bottom.append(
+        priceRow,
         link
     );
 
-
-
-    /* ASSEMBLE */
-
-
-    content.appendChild(
-        category
-    );
-
-
-    content.appendChild(
-        name
-    );
-
-
-    content.appendChild(
-        description
-    );
-
-
-    content.appendChild(
+    body.append(
+        category,
+        title,
+        description,
         bottom
     );
 
-
-
-    card.appendChild(
-        artworkArea
+    card.append(
+        art,
+        body
     );
-
-
-    card.appendChild(
-        content
-    );
-
-
 
     return card;
-
 }
 
 
+/*
+=========================================
+RENDER
+=========================================
+*/
 
-/* =========================================
-   RENDER APPS
-========================================= */
-
-
-function renderApps() {
-
+function render() {
 
     const query =
+        search.value.toLowerCase().trim();
 
-        search.value
+    let visible = apps.filter(app => {
 
-            .trim()
+        const matchesCategory =
+            activeFilter === "all" ||
+            app.primaryGenreName ===
+                activeFilter;
 
-            .toLowerCase();
+        const text = [
+            app.trackName || "",
+            app.primaryGenreName || "",
+            app.description || ""
+        ].join(" ").toLowerCase();
 
-
-
-    let visibleApps =
-        apps.filter(app => {
-
-
-
-            const categoryMatch =
-
-                activeFilter === "all" ||
-
-                app.primaryGenreName ===
-                    activeFilter;
-
-
-
-            const searchableText = [
-
-                app.trackName || "",
-
-                app.primaryGenreName || "",
-
-                app.description || ""
-
-            ]
-
-                .join(" ")
-
-                .toLowerCase();
-
-
-
-            return (
-
-                categoryMatch &&
-
-                (
-
-                    !query ||
-
-                    searchableText.includes(
-                        query
-                    )
-
-                )
-
-            );
-
-
-        });
-
-
-
-    visibleApps =
-        sortApps(
-            visibleApps
+        return (
+            matchesCategory &&
+            (
+                !query ||
+                text.includes(query)
+            )
         );
-
-
-
-    appGrid.replaceChildren();
-
-
-
-    visibleApps.forEach(app => {
-
-
-        appGrid.appendChild(
-
-            createCard(app)
-
-        );
-
-
     });
 
+    visible = sortApps(visible);
 
+    grid.replaceChildren();
 
-    appCount.textContent =
+    if (!visible.length) {
 
-        apps.length === 1
-
-            ? "1 app available"
-
-            : (
-                apps.length +
-                " apps available"
-            );
-
-
-
-    if (
-        visibleApps.length === 0
-    ) {
-
-
-        const message =
-            document.createElement(
-                "div"
-            );
-
-
-        message.className =
-            "status-message";
-
-
-
-        const heading =
-            document.createElement(
-                "strong"
-            );
-
-
-        heading.textContent =
-            "No apps found.";
-
-
-
-        message.appendChild(
-            heading
+        grid.appendChild(
+            element(
+                "div",
+                "status",
+                "No matching apps found."
+            )
         );
 
-
-
-        message.append(
-
-            "Try another search or category."
-
-        );
-
-
-
-        appGrid.appendChild(
-            message
-        );
-
-
+        return;
     }
 
+    const fragment =
+        document.createDocumentFragment();
+
+    visible.forEach(app =>
+        fragment.appendChild(
+            createCard(app)
+        )
+    );
+
+    grid.appendChild(fragment);
 }
 
 
+/*
+=========================================
+LOAD ALL APPS
+=========================================
+*/
 
-/* =========================================
-   EVENTS
-========================================= */
+async function loadApps() {
 
+    count.textContent =
+        "Discovering your published apps…";
+
+    try {
+
+        /*
+        Step 1:
+        Discover the developer's
+        publicly listed apps.
+        */
+
+        const developerData =
+            await fetchJSON(
+                DEVELOPER_API +
+                `&_=${Date.now()}`
+            );
+
+        const developerApps =
+            (developerData.results || [])
+                .filter(item =>
+                    item.wrapperType ===
+                        "software" &&
+                    item.trackId
+                );
+
+        if (!developerApps.length) {
+
+            throw new Error(
+                "No apps returned by Apple's developer lookup."
+            );
+        }
+
+        /*
+        Step 2:
+        Fetch each app's individual
+        public listing independently.
+        */
+
+        count.textContent =
+            `Checking ${developerApps.length} individual App Store listings…`;
+
+        apps =
+            await fetchIndividualListings(
+                developerApps,
+                4
+            );
+
+        /*
+        Step 3:
+        Display the results.
+        */
+
+        createFilters();
+        render();
+
+        lastUpdated = new Date();
+
+        count.textContent =
+            `${apps.length} published apps`;
+
+        const verifiedCount =
+            apps.filter(
+                app => app.priceVerified
+            ).length;
+
+        refreshInfo.textContent =
+            `Checked ${verifiedCount} of ${apps.length} individual Apple listings · ` +
+            `Updated ${lastUpdated.toLocaleTimeString()}`;
+
+        if (
+            verifiedCount <
+            apps.length
+        ) {
+
+            refreshInfo.textContent +=
+                " · Some prices use Apple's developer listing as a fallback";
+        }
+
+    } catch(error) {
+
+        console.error(error);
+
+        count.textContent =
+            "Unable to retrieve apps";
+
+        grid.replaceChildren();
+
+        grid.appendChild(
+            element(
+                "div",
+                "status",
+                "Apple's public app data is temporarily unavailable. Please refresh the page."
+            )
+        );
+    }
+}
+
+
+/*
+=========================================
+EVENTS
+=========================================
+*/
 
 search.addEventListener(
-
     "input",
-
-    renderApps
-
+    render
 );
 
-
-
-sortSelect.addEventListener(
-
+sort.addEventListener(
     "change",
-
-    renderApps
-
+    render
 );
 
 
-
-/* =========================================
-   START
-========================================= */
-
+/*
+=========================================
+INITIAL LOAD
+=========================================
+*/
 
 loadApps();
-
 
 </script>
 
