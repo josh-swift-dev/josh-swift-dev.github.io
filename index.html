@@ -1,19 +1,34 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+>
+
 <meta name="theme-color" content="#f5f7ff">
 <meta name="color-scheme" content="light">
 
 <title>Josh Swift Dev | iPhone Apps</title>
-<meta name="description"
-      content="Discover iPhone apps created by Josh Swift Dev.">
+
+<meta
+    name="description"
+    content="Discover iPhone apps created by Josh Swift Dev."
+>
 
 <style>
+
+/* =========================================
+   GLOBAL
+========================================= */
+
 :root {
     color-scheme: light;
+
     --text: #19233b;
     --muted: #64718b;
     --blue: #4865ec;
@@ -30,10 +45,17 @@ html {
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont,
-        "SF Pro Display", "Helvetica Neue",
-        Arial, sans-serif;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
     color: var(--text);
+
     background:
         radial-gradient(
             ellipse at 5% 10%,
@@ -51,7 +73,9 @@ body {
             transparent 40%
         ),
         #f8faff;
+
     background-attachment: fixed;
+
     -webkit-font-smoothing: antialiased;
 }
 
@@ -60,11 +84,15 @@ a {
     color: inherit;
 }
 
-button, input, select {
+button,
+input,
+select {
     font: inherit;
 }
 
-button, a, select {
+button,
+a,
+select {
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -76,33 +104,46 @@ select:focus-visible {
     outline-offset: 3px;
 }
 
-/* NAVIGATION */
+
+/* =========================================
+   NAVIGATION
+========================================= */
 
 header {
     position: sticky;
     top: 0;
     z-index: 100;
+
     background: rgba(255,255,255,.85);
+
     backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
-    border-bottom: 1px solid rgba(255,255,255,.9);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.9);
 }
 
 nav {
     max-width: 1250px;
     min-height: 76px;
+
     padding: 12px 28px;
     margin: auto;
+
     display: flex;
+
     justify-content: space-between;
     align-items: center;
+
     gap: 20px;
 }
 
 .brand {
     display: flex;
     align-items: center;
+
     gap: 12px;
+
     font-size: 17px;
     font-weight: 800;
     letter-spacing: -.5px;
@@ -111,24 +152,33 @@ nav {
 .brand-icon {
     display: grid;
     place-items: center;
+
     width: 42px;
     height: 42px;
+
     border-radius: 14px;
+
     color: white;
     font-size: 21px;
-    background: linear-gradient(
-        135deg,
-        #4c8aff,
-        #8655e9,
-        #ed74b5
-    );
-    box-shadow: 0 6px 16px #685de52b;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4c8aff,
+            #8655e9,
+            #ed74b5
+        );
+
+    box-shadow:
+        0 6px 16px #685de52b;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
+
     gap: 26px;
+
     font-size: 13px;
     font-weight: 650;
 }
@@ -139,62 +189,91 @@ nav {
 
 .contact-button {
     padding: 11px 19px;
+
     border-radius: 100px;
+
     color: white;
+
     background: #26365c;
+
     transition: .2s;
 }
 
 .contact-button:hover {
     background: var(--blue);
+
     color: white !important;
+
     transform: translateY(-2px);
 }
 
-/* MAIN CONTENT */
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
 
 main {
     max-width: 1250px;
+
     margin: auto;
+
     padding: 42px 30px 80px;
 }
 
 .section-heading {
     display: flex;
+
     justify-content: space-between;
     align-items: flex-end;
+
     gap: 15px;
+
     margin-bottom: 25px;
 }
 
 .section-heading h1 {
     margin: 0 0 7px;
+
     font-size: 32px;
+
     letter-spacing: -.9px;
 }
 
 .app-count {
     font-size: 13px;
+
     color: var(--muted);
 }
 
-/* TOOLBAR */
+
+/* =========================================
+   TOOLBAR
+========================================= */
 
 .toolbar {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
+
     flex-wrap: wrap;
+
     gap: 16px;
+
     margin-bottom: 25px;
 }
 
 .filters {
     display: flex;
+
     gap: 8px;
+
     overflow-x: auto;
+
     max-width: 100%;
+
     padding: 5px 2px;
+
     scrollbar-width: none;
 }
 
@@ -204,45 +283,68 @@ main {
 
 .filter {
     flex-shrink: 0;
+
     padding: 10px 16px;
+
     border: 1px solid #e8eaf3;
+
     border-radius: 100px;
+
     background: white;
+
     color: #69758c;
+
     font-size: 11px;
     font-weight: 750;
+
     cursor: pointer;
+
     transition: .2s;
 }
 
 .filter:hover {
     border-color: #abbcff;
+
     color: var(--blue);
 }
 
 .filter.active {
     background: #4865ec;
+
     color: white;
+
     border-color: #4865ec;
-    box-shadow: 0 5px 13px #4865ec30;
+
+    box-shadow:
+        0 5px 13px #4865ec30;
 }
 
 .toolbar-right {
     display: flex;
+
     gap: 10px;
 }
 
 .search,
 .sort-select {
     height: 43px;
+
     padding: 0 15px;
+
     border: 1px solid var(--border);
+
     border-radius: 13px;
+
     background: white;
+
     color: var(--text);
+
     font-size: 12px;
+
     outline: none;
-    box-shadow: 0 3px 12px #26365c07;
+
+    box-shadow:
+        0 3px 12px #26365c07;
 }
 
 .search {
@@ -251,188 +353,301 @@ main {
 
 .sort-select {
     max-width: 190px;
+
     cursor: pointer;
 }
 
 .search:focus,
 .sort-select:focus {
     border-color: #8398ff;
-    box-shadow: 0 0 0 4px #8398ff18;
+
+    box-shadow:
+        0 0 0 4px #8398ff18;
 }
 
-/* APP GRID */
+
+/* =========================================
+   APP GRID
+========================================= */
 
 .app-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
     gap: 19px;
 }
 
-/* APP CARDS */
+
+/* =========================================
+   APP CARDS
+========================================= */
 
 .app-card {
     display: flex;
     flex-direction: column;
+
     min-width: 0;
+
     overflow: hidden;
+
     background: white;
+
     border: 1px solid white;
+
     border-radius: 24px;
-    box-shadow: 0 6px 25px #34436e0d;
-    transition: transform .25s, box-shadow .25s;
+
+    box-shadow:
+        0 6px 25px #34436e0d;
+
+    transition:
+        transform .25s,
+        box-shadow .25s;
 }
 
 .app-card:hover {
     transform: translateY(-7px);
-    box-shadow: 0 20px 45px #34436e22;
+
+    box-shadow:
+        0 20px 45px #34436e22;
 }
 
 .card-artwork {
     position: relative;
+
     height: 150px;
+
     overflow: hidden;
-    background: linear-gradient(
-        135deg,
-        #e5edff,
-        #f8e8f7
-    );
+
+    background:
+        linear-gradient(
+            135deg,
+            #e5edff,
+            #f8e8f7
+        );
 }
 
 .artwork-blur {
     position: absolute;
+
     inset: -55px;
+
     background-position: center;
     background-size: cover;
-    filter: blur(36px) saturate(1.45);
+
+    filter:
+        blur(36px)
+        saturate(1.45);
+
     opacity: .65;
+
     transform: scale(1.3);
 }
 
 .card-artwork::after {
     content: "";
+
     position: absolute;
+
     inset: 0;
-    background: linear-gradient(
-        transparent,
-        #ffffff3b
-    );
+
+    background:
+        linear-gradient(
+            transparent,
+            #ffffff3b
+        );
 }
 
 .app-icon {
     position: absolute;
+
     z-index: 2;
+
     left: 22px;
     bottom: 17px;
+
     width: 83px;
     height: 83px;
+
     border-radius: 19px;
+
     object-fit: cover;
+
     background: white;
+
     border: 3px solid white;
-    box-shadow: 0 7px 22px #15234b33;
+
+    box-shadow:
+        0 7px 22px #15234b33;
 }
 
 .card-content {
     display: flex;
     flex: 1;
+
     flex-direction: column;
+
     padding: 20px 22px 22px;
 }
 
 .category {
     align-self: flex-start;
+
     padding: 6px 10px;
+
     border-radius: 7px;
+
     background: #edf1ff;
+
     color: #5664b9;
+
     font-size: 10px;
     font-weight: 750;
 }
 
 .app-name {
     margin: 14px 0 9px;
+
     font-size: 18px;
     font-weight: 800;
+
     letter-spacing: -.5px;
+
     line-height: 1.25;
+
     overflow-wrap: anywhere;
 }
 
 .description {
     margin: 0 0 18px;
+
     color: #778299;
+
     font-size: 12px;
+
     line-height: 1.65;
+
     display: -webkit-box;
+
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+
     overflow: hidden;
 }
 
 .card-bottom {
     margin-top: auto;
+
     padding-top: 15px;
-    border-top: 1px solid #f0f2f7;
+
+    border-top:
+        1px solid #f0f2f7;
 }
 
 .price-row {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
+
     flex-wrap: wrap;
+
     gap: 6px;
+
     margin-bottom: 14px;
 }
 
 .price {
     font-size: 16px;
+
     font-weight: 800;
+
     color: #263657;
 }
 
 .iap {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 5px 8px;
+
+    border-radius: 8px;
+
+    background: #f1eaff;
+
+    color: #7548c5;
+
     font-size: 10px;
+
+    font-weight: 750;
+}
+
+.iap-unknown {
+    background: #f2f4f8;
+
     color: #7a84a0;
 }
 
 .release-date {
     margin-bottom: 13px;
+
     font-size: 10px;
+
     color: #939bb0;
 }
 
 .store-link {
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     min-height: 42px;
+
     padding: 10px;
+
     border-radius: 12px;
+
     background: #edf1ff;
+
     color: #4764dd;
+
     font-size: 12px;
     font-weight: 800;
+
     transition: .2s;
 }
 
 .store-link:hover {
     background: #4865ec;
+
     color: white;
 }
 
-/* LOADING */
+
+/* =========================================
+   LOADING
+========================================= */
 
 .loading-card {
     height: 370px;
+
     border-radius: 24px;
-    background: linear-gradient(
-        110deg,
-        #e9edf8 8%,
-        #ffffff 18%,
-        #e9edf8 33%
-    );
+
+    background:
+        linear-gradient(
+            110deg,
+            #e9edf8 8%,
+            #ffffff 18%,
+            #e9edf8 33%
+        );
+
     background-size: 200% 100%;
-    animation: shimmer 1.4s linear infinite;
+
+    animation:
+        shimmer 1.4s linear infinite;
 }
 
 @keyframes shimmer {
@@ -443,39 +658,59 @@ main {
 
 .status-message {
     grid-column: 1 / -1;
+
     padding: 75px 20px;
+
     text-align: center;
+
     color: var(--muted);
 }
 
 .status-message strong {
     display: block;
+
     margin-bottom: 10px;
+
     font-size: 18px;
+
     color: var(--text);
 }
 
-/* FOOTER */
+
+/* =========================================
+   FOOTER
+========================================= */
 
 footer {
-    background: rgba(255,255,255,.85);
-    border-top: 1px solid var(--border);
+    background:
+        rgba(255,255,255,.85);
+
+    border-top:
+        1px solid var(--border);
 }
 
 .footer-inner {
     max-width: 1250px;
+
     margin: auto;
+
     padding: 30px;
+
     display: flex;
+
     align-items: center;
     justify-content: space-between;
+
     gap: 20px;
+
     color: #8390a5;
+
     font-size: 12px;
 }
 
 .footer-links {
     display: flex;
+
     gap: 22px;
 }
 
@@ -483,16 +718,22 @@ footer {
     color: var(--blue);
 }
 
-/* RESPONSIVE */
+
+/* =========================================
+   RESPONSIVE
+========================================= */
 
 @media (max-width: 1050px) {
+
     .app-grid {
         grid-template-columns:
             repeat(3, minmax(0, 1fr));
     }
+
 }
 
 @media (max-width: 780px) {
+
     main {
         padding: 32px 20px 60px;
     }
@@ -500,6 +741,7 @@ footer {
     .app-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
+
         gap: 13px;
     }
 
@@ -509,12 +751,16 @@ footer {
 
     .search {
         flex: 1;
+
         width: 100%;
+
         min-width: 0;
     }
+
 }
 
 @media (max-width: 480px) {
+
     nav {
         padding: 12px 17px;
     }
@@ -530,6 +776,7 @@ footer {
 
     .nav-links {
         gap: 13px;
+
         font-size: 11px;
     }
 
@@ -551,11 +798,13 @@ footer {
 
     .search {
         width: 100%;
+
         flex-basis: 100%;
     }
 
     .sort-select {
         width: 100%;
+
         max-width: none;
     }
 
@@ -574,8 +823,10 @@ footer {
     .app-icon {
         width: 62px;
         height: 62px;
+
         left: 13px;
         bottom: 12px;
+
         border-radius: 15px;
     }
 
@@ -589,7 +840,6 @@ footer {
 
     .description {
         font-size: 10.5px;
-        -webkit-line-clamp: 3;
     }
 
     .price {
@@ -602,682 +852,1904 @@ footer {
 
     .footer-inner {
         flex-direction: column;
+
         text-align: center;
     }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
+        animation-duration:
+            .01ms !important;
+
+        transition-duration:
+            .01ms !important;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- NAVIGATION -->
+
+<!-- =====================================
+     NAVIGATION
+===================================== -->
 
 <header>
-    <nav>
-        <a href="#apps" class="brand">
-            <span class="brand-icon">✦</span>
-            <span>Josh Swift Dev</span>
+
+<nav>
+
+    <a href="#apps" class="brand">
+
+        <span class="brand-icon">
+            ✦
+        </span>
+
+        <span>
+            Josh Swift Dev
+        </span>
+
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="#apps">
+            Apps
         </a>
 
-        <div class="nav-links">
-            <a href="#apps">Apps</a>
-            <a class="contact-button"
-               href="mailto:josh.swift.dev@gmail.com">
-                Contact
-            </a>
-        </div>
-    </nav>
+        <a
+            class="contact-button"
+            href="mailto:josh.swift.dev@gmail.com"
+        >
+            Contact
+        </a>
+
+    </div>
+
+</nav>
+
 </header>
 
-<!-- APP COLLECTION -->
+
+
+<!-- =====================================
+     APP COLLECTION
+===================================== -->
 
 <main>
-    <section id="apps">
 
-        <div class="section-heading">
-            <div>
-                <h1>Explore the Collection</h1>
+<section id="apps">
 
-                <div class="app-count" id="appCount">
-                    Loading apps…
-                </div>
-            </div>
-        </div>
 
-        <div class="toolbar">
-
-            <div class="filters" id="filters">
-                <button
-                    class="filter active"
-                    data-filter="all"
-                    type="button">
-                    All Apps
-                </button>
-            </div>
-
-            <div class="toolbar-right">
-
-                <select
-                    id="sortSelect"
-                    class="sort-select"
-                    aria-label="Sort apps">
-
-                    <option value="alphabetical">
-                        Alphabetical
-                    </option>
-
-                    <option value="release-newest">
-                        Newest First
-                    </option>
-
-                    <option value="release-oldest">
-                        Oldest First
-                    </option>
-
-                    <option value="price-low">
-                        Price: Low to High
-                    </option>
-
-                    <option value="price-high">
-                        Price: High to Low
-                    </option>
-
-                </select>
-
-                <input
-                    id="search"
-                    class="search"
-                    type="search"
-                    placeholder="Search apps…"
-                    aria-label="Search apps">
-
-            </div>
-        </div>
-
-        <div class="app-grid" id="appGrid">
-            <div class="loading-card"></div>
-            <div class="loading-card"></div>
-            <div class="loading-card"></div>
-            <div class="loading-card"></div>
-        </div>
-
-    </section>
-</main>
-
-<!-- FOOTER -->
-
-<footer>
-    <div class="footer-inner">
+    <div class="section-heading">
 
         <div>
-            © 2026 Josh Swift Dev.
-            All rights reserved.
-        </div>
 
-        <div class="footer-links">
-            <a href="#apps">Apps</a>
+            <h1>
+                Explore the Collection
+            </h1>
 
-            <a href="mailto:josh.swift.dev@gmail.com">
-                Contact
-            </a>
+            <div
+                class="app-count"
+                id="appCount"
+            >
+                Loading apps…
+            </div>
+
         </div>
 
     </div>
+
+
+
+    <!-- FILTERS AND SEARCH -->
+
+    <div class="toolbar">
+
+
+        <div
+            class="filters"
+            id="filters"
+        >
+
+            <button
+                class="filter active"
+                data-filter="all"
+                type="button"
+            >
+                All Apps
+            </button>
+
+        </div>
+
+
+
+        <div class="toolbar-right">
+
+
+            <select
+                id="sortSelect"
+                class="sort-select"
+                aria-label="Sort apps"
+            >
+
+                <option value="alphabetical">
+                    Alphabetical
+                </option>
+
+                <option value="release-newest">
+                    Newest First
+                </option>
+
+                <option value="release-oldest">
+                    Oldest First
+                </option>
+
+                <option value="price-low">
+                    Price: Low to High
+                </option>
+
+                <option value="price-high">
+                    Price: High to Low
+                </option>
+
+            </select>
+
+
+
+            <input
+                id="search"
+                class="search"
+                type="search"
+                placeholder="Search apps…"
+                aria-label="Search apps"
+            >
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- APP GRID -->
+
+    <div
+        class="app-grid"
+        id="appGrid"
+    >
+
+        <div class="loading-card"></div>
+        <div class="loading-card"></div>
+        <div class="loading-card"></div>
+        <div class="loading-card"></div>
+
+    </div>
+
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+<div class="footer-inner">
+
+
+    <div>
+
+        © 2026 Josh Swift Dev.
+        All rights reserved.
+
+    </div>
+
+
+    <div class="footer-links">
+
+        <a href="#apps">
+            Apps
+        </a>
+
+        <a
+            href="mailto:josh.swift.dev@gmail.com"
+        >
+            Contact
+        </a>
+
+    </div>
+
+
+</div>
+
 </footer>
 
+
+
 <script>
+
 "use strict";
 
-/* APP STORE CONFIGURATION */
+
+/* =========================================
+   APP STORE CONFIGURATION
+========================================= */
+
 
 const DEVELOPER_ID = "6809669072";
+
 
 const APPLE_LOOKUP =
     "https://itunes.apple.com/lookup?id=" +
     DEVELOPER_ID +
     "&entity=software&country=us&limit=200";
 
-/* STATE */
+
+/*
+    OPTIONAL VERIFIED CATALOG
+
+    Create a file named:
+
+    app-pricing.json
+
+    Place it in the same directory
+    as index.html.
+
+    Example:
+
+    {
+      "apps": {
+        "1234567890": {
+          "price": 0,
+          "currency": "USD",
+          "hasIAP": true,
+          "iapPrice": "$0.99"
+        }
+      }
+    }
+
+    Use your actual Apple track IDs.
+
+    This website never contains
+    App Store Connect credentials.
+*/
+
+
+const VERIFIED_CATALOG_URL =
+    "./app-pricing.json";
+
+
+
+/* =========================================
+   STATE
+========================================= */
+
 
 let apps = [];
+
+let verifiedCatalog = {};
+
 let activeFilter = "all";
 
-/* ELEMENTS */
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
 
 const appGrid =
     document.getElementById("appGrid");
 
+
 const appCount =
     document.getElementById("appCount");
+
 
 const search =
     document.getElementById("search");
 
+
 const filters =
     document.getElementById("filters");
+
 
 const sortSelect =
     document.getElementById("sortSelect");
 
-/* LOAD APPS */
 
-async function loadApps() {
+
+/* =========================================
+   VERIFIED CATALOG
+========================================= */
+
+
+async function loadVerifiedCatalog() {
+
     try {
+
         const response = await fetch(
-            APPLE_LOOKUP,
-            { cache: "no-store" }
+            VERIFIED_CATALOG_URL,
+            {
+                cache: "no-store"
+            }
         );
+
 
         if (!response.ok) {
-            throw new Error("Apple lookup failed");
+
+            throw new Error(
+                "Pricing catalog unavailable"
+            );
+
         }
 
-        const data = await response.json();
 
-        apps = (data.results || []).filter(
-            item => item.wrapperType === "software"
-        );
+        const data =
+            await response.json();
 
-        createFilters();
-        renderApps();
+
+        if (
+            data &&
+            typeof data.apps === "object" &&
+            data.apps !== null &&
+            !Array.isArray(data.apps)
+        ) {
+
+            verifiedCatalog = data.apps;
+
+        } else {
+
+            verifiedCatalog = {};
+
+        }
+
 
     } catch (error) {
+
+        console.info(
+            "Verified catalog unavailable. " +
+            "Using public App Store information."
+        );
+
+        verifiedCatalog = {};
+
+    }
+
+}
+
+
+
+/* =========================================
+   LOAD APPS
+========================================= */
+
+
+async function loadApps() {
+
+    try {
+
+
+        /*
+            Load pricing and app data
+            independently.
+
+            A missing pricing file should
+            never prevent the website
+            from loading its app cards.
+        */
+
+
+        const results = await Promise.all([
+
+            fetch(
+                APPLE_LOOKUP,
+                {
+                    cache: "no-store"
+                }
+            ),
+
+            loadVerifiedCatalog()
+
+        ]);
+
+
+        const response = results[0];
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Apple lookup failed"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        apps = (
+            data.results || []
+        ).filter(
+
+            item =>
+                item.wrapperType === "software"
+
+        );
+
+
+        createFilters();
+
+        renderApps();
+
+
+    } catch (error) {
+
+
         console.error(
             "Unable to load apps:",
             error
         );
 
-        appCount.textContent = "Apps";
+
+        appCount.textContent =
+            "Apps";
+
 
         appGrid.innerHTML = `
+
             <div class="status-message">
+
                 <strong>
                     Unable to load apps right now.
                 </strong>
+
                 Please try again in a moment.
+
             </div>
+
         `;
+
+
     }
+
 }
 
-/* CATEGORY FILTERS */
+
+
+/* =========================================
+   VERIFIED ENTRY
+========================================= */
+
+
+function verifiedEntry(app) {
+
+
+    /*
+        Look up the verified record
+        using either:
+
+        1. App Store track ID
+        2. Bundle identifier
+    */
+
+
+    const trackId =
+        String(app.trackId || "");
+
+
+    const bundleId =
+        app.bundleId || "";
+
+
+    return (
+
+        verifiedCatalog[trackId] ||
+
+        verifiedCatalog[bundleId] ||
+
+        null
+
+    );
+
+}
+
+
+
+/* =========================================
+   PRICE HELPERS
+========================================= */
+
+
+function getNumericPrice(app) {
+
+
+    const entry =
+        verifiedEntry(app);
+
+
+
+    /*
+        Verified App Store Connect
+        pricing takes priority.
+    */
+
+
+    if (
+
+        entry &&
+
+        typeof entry.price === "number" &&
+
+        Number.isFinite(entry.price)
+
+    ) {
+
+        return entry.price;
+
+    }
+
+
+
+    /*
+        Fall back to Apple's
+        public listing price.
+    */
+
+
+    if (
+
+        typeof app.price === "number" &&
+
+        Number.isFinite(app.price)
+
+    ) {
+
+        return app.price;
+
+    }
+
+
+
+    /*
+        Missing pricing does not
+        mean the app is free.
+    */
+
+
+    return null;
+
+}
+
+
+
+/* =========================================
+   CURRENCY FORMAT
+========================================= */
+
+
+function formatCurrency(
+    amount,
+    currency = "USD"
+) {
+
+
+    try {
+
+        return new Intl.NumberFormat(
+
+            "en-US",
+
+            {
+                style: "currency",
+
+                currency: currency
+            }
+
+        ).format(amount);
+
+
+    } catch (error) {
+
+
+        return (
+            "$" +
+            amount.toFixed(2)
+        );
+
+
+    }
+
+}
+
+
+
+/* =========================================
+   PRICE AND IAP INFORMATION
+========================================= */
+
+
+function getPriceInfo(app) {
+
+
+    const entry =
+        verifiedEntry(app);
+
+
+    const numeric =
+        getNumericPrice(app);
+
+
+    let mainPrice =
+        "Price unavailable";
+
+
+
+    /*
+        1. Verified formatted price
+    */
+
+
+    if (
+
+        entry &&
+
+        typeof entry.displayPrice === "string" &&
+
+        entry.displayPrice.trim()
+
+    ) {
+
+
+        mainPrice =
+            entry.displayPrice.trim();
+
+
+    }
+
+
+    /*
+        2. Verified numeric price
+    */
+
+
+    else if (
+
+        entry &&
+
+        typeof entry.price === "number" &&
+
+        Number.isFinite(entry.price)
+
+    ) {
+
+
+        mainPrice =
+            entry.price === 0
+
+                ? "Free"
+
+                : formatCurrency(
+
+                    entry.price,
+
+                    entry.currency || "USD"
+
+                );
+
+
+    }
+
+
+    /*
+        3. Apple's public price
+    */
+
+
+    else if (
+
+        typeof app.formattedPrice === "string" &&
+
+        app.formattedPrice.trim()
+
+    ) {
+
+
+        mainPrice =
+            app.formattedPrice.trim();
+
+
+    }
+
+
+    /*
+        4. Apple's numeric price
+    */
+
+
+    else if (
+        numeric !== null
+    ) {
+
+
+        mainPrice =
+            numeric === 0
+
+                ? "Free"
+
+                : formatCurrency(
+
+                    numeric,
+
+                    app.currency || "USD"
+
+                );
+
+
+    }
+
+
+
+    /*
+        Public Apple lookup data
+        cannot reliably confirm
+        whether an app has IAPs.
+
+        Only show confirmed
+        IAP information from
+        our verified catalog.
+    */
+
+
+    let hasIAP = null;
+
+
+    let iapPrice = null;
+
+
+
+    if (
+
+        entry &&
+
+        typeof entry.hasIAP === "boolean"
+
+    ) {
+
+
+        hasIAP =
+            entry.hasIAP;
+
+
+    }
+
+
+
+    if (
+
+        entry &&
+
+        typeof entry.iapPrice === "string"
+
+    ) {
+
+
+        iapPrice =
+            entry.iapPrice.trim() || null;
+
+
+    }
+
+
+
+    return {
+
+        mainPrice,
+
+        numeric,
+
+        hasIAP,
+
+        iapPrice
+
+    };
+
+}
+
+
+
+/* =========================================
+   CATEGORY FILTERS
+========================================= */
+
 
 function createFilters() {
+
+
     const genres = [
+
         ...new Set(
+
             apps
-                .map(app => app.primaryGenreName)
+
+                .map(
+                    app =>
+                        app.primaryGenreName
+                )
+
                 .filter(Boolean)
+
         )
+
     ].sort();
+
+
 
     filters.replaceChildren();
 
+
+
     const categories = [
+
         {
+
             label: "All Apps",
+
             value: "all"
+
         },
-        ...genres.map(genre => ({
-            label: genre,
-            value: genre
-        }))
+
+        ...genres.map(
+
+            genre => ({
+
+                label: genre,
+
+                value: genre
+
+            })
+
+        )
+
     ];
 
-    categories.forEach(category => {
-        const button =
-            document.createElement("button");
 
-        button.type = "button";
+
+    categories.forEach(category => {
+
+
+        const button =
+            document.createElement(
+                "button"
+            );
+
+
+        button.type =
+            "button";
+
 
         button.className =
+
             "filter" +
-            (category.value === activeFilter
-                ? " active"
-                : "");
 
-        button.dataset.filter = category.value;
-        button.textContent = category.label;
+            (
+                category.value === activeFilter
 
-        button.addEventListener("click", () => {
-            activeFilter = category.value;
+                    ? " active"
 
-            filters
-                .querySelectorAll(".filter")
-                .forEach(item => {
-                    item.classList.toggle(
-                        "active",
-                        item === button
-                    );
-                });
+                    : ""
+            );
 
-            renderApps();
-        });
 
-        filters.appendChild(button);
+        button.dataset.filter =
+            category.value;
+
+
+        button.textContent =
+            category.label;
+
+
+
+        button.addEventListener(
+            "click",
+            () => {
+
+
+                activeFilter =
+                    category.value;
+
+
+
+                filters
+
+                    .querySelectorAll(
+                        ".filter"
+                    )
+
+                    .forEach(item => {
+
+
+                        item.classList.toggle(
+
+                            "active",
+
+                            item === button
+
+                        );
+
+
+                    });
+
+
+
+                renderApps();
+
+
+            }
+        );
+
+
+
+        filters.appendChild(
+            button
+        );
+
+
     });
+
 }
 
-/* APP ARTWORK */
+
+
+/* =========================================
+   APP ARTWORK
+========================================= */
+
 
 function getArtwork(app) {
+
+
     const artwork =
+
         app.artworkUrl512 ||
+
         app.artworkUrl100 ||
+
         app.artworkUrl60 ||
+
         "";
 
+
+
     return artwork.replace(
+
         /[0-9]+x[0-9]+bb/,
+
         "512x512bb"
+
     );
+
 }
 
-/* PRICE */
 
-function getNumericPrice(app) {
-    const price = Number(app.price);
 
-    return Number.isFinite(price)
-        ? price
-        : 0;
-}
+/* =========================================
+   RELEASE DATE
+========================================= */
 
-function getPriceInfo(app) {
-    const numeric = getNumericPrice(app);
-
-    let mainPrice = app.formattedPrice;
-
-    if (!mainPrice) {
-        if (numeric === 0) {
-            mainPrice = "Free";
-        } else {
-            try {
-                mainPrice =
-                    new Intl.NumberFormat(
-                        "en-US",
-                        {
-                            style: "currency",
-                            currency:
-                                app.currency || "USD"
-                        }
-                    ).format(numeric);
-            } catch {
-                mainPrice =
-                    "$" + numeric.toFixed(2);
-            }
-        }
-    }
-
-    const features =
-        Array.isArray(app.features)
-            ? app.features
-            : [];
-
-    const hasIAP = features.some(feature => {
-        const value =
-            String(feature).toLowerCase();
-
-        return (
-            value.includes("in-app purchase") ||
-            value.includes("in app purchase")
-        );
-    });
-
-    return {
-        mainPrice,
-        hasIAP
-    };
-}
-
-/* RELEASE DATE */
 
 function getReleaseTimestamp(app) {
+
+
     const time =
-        new Date(app.releaseDate || 0).getTime();
+        new Date(
+
+            app.releaseDate || 0
+
+        ).getTime();
+
+
 
     return Number.isFinite(time)
+
         ? time
+
         : 0;
+
 }
+
+
 
 function formatReleaseDate(app) {
+
+
     if (!app.releaseDate) {
+
         return "";
+
     }
+
+
 
     const date =
-        new Date(app.releaseDate);
-
-    if (Number.isNaN(date.getTime())) {
-        return "";
-    }
-
-    return date.toLocaleDateString(
-        "en-US",
-        {
-            month: "short",
-            day: "numeric",
-            year: "numeric"
-        }
-    );
-}
-
-/* DESCRIPTION */
-
-function cleanDescription(description) {
-    if (!description) {
-        return "Discover this app on the App Store.";
-    }
-
-    return description
-        .replace(/\s+/g, " ")
-        .trim();
-}
-
-/* SORTING */
-
-function sortApps(list) {
-    const sorted = [...list];
-
-    const byName = (a, b) =>
-        (a.trackName || "").localeCompare(
-            b.trackName || ""
+        new Date(
+            app.releaseDate
         );
 
-    switch (sortSelect.value) {
-        case "release-newest":
-            sorted.sort((a, b) =>
-                getReleaseTimestamp(b) -
-                getReleaseTimestamp(a) ||
-                byName(a, b)
-            );
-            break;
 
-        case "release-oldest":
-            sorted.sort((a, b) =>
-                getReleaseTimestamp(a) -
-                getReleaseTimestamp(b) ||
-                byName(a, b)
-            );
-            break;
 
-        case "price-low":
-            sorted.sort((a, b) =>
-                getNumericPrice(a) -
-                getNumericPrice(b) ||
-                byName(a, b)
-            );
-            break;
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
 
-        case "price-high":
-            sorted.sort((a, b) =>
-                getNumericPrice(b) -
-                getNumericPrice(a) ||
-                byName(a, b)
-            );
-            break;
+        return "";
 
-        default:
-            sorted.sort(byName);
     }
 
-    return sorted;
+
+
+    return date.toLocaleDateString(
+
+        "en-US",
+
+        {
+
+            month: "short",
+
+            day: "numeric",
+
+            year: "numeric"
+
+        }
+
+    );
+
 }
 
-/* CREATE APP CARD */
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+
+function cleanDescription(description) {
+
+
+    if (!description) {
+
+        return (
+            "Discover this app " +
+            "on the App Store."
+        );
+
+    }
+
+
+
+    return description
+
+        .replace(
+            /\s+/g,
+            " "
+        )
+
+        .trim();
+
+}
+
+
+
+/* =========================================
+   SORTING
+========================================= */
+
+
+function sortApps(list) {
+
+
+    const sorted =
+        [...list];
+
+
+
+    const byName = (a, b) =>
+
+        (
+            a.trackName || ""
+        ).localeCompare(
+
+            b.trackName || ""
+
+        );
+
+
+
+    switch (
+        sortSelect.value
+    ) {
+
+
+
+        case "release-newest":
+
+
+            sorted.sort(
+
+                (a, b) =>
+
+                    getReleaseTimestamp(b) -
+
+                    getReleaseTimestamp(a) ||
+
+                    byName(a, b)
+
+            );
+
+
+            break;
+
+
+
+        case "release-oldest":
+
+
+            sorted.sort(
+
+                (a, b) =>
+
+                    getReleaseTimestamp(a) -
+
+                    getReleaseTimestamp(b) ||
+
+                    byName(a, b)
+
+            );
+
+
+            break;
+
+
+
+        case "price-low":
+
+
+            sorted.sort(
+                (a, b) => {
+
+
+                    const priceA =
+                        getNumericPrice(a);
+
+
+                    const priceB =
+                        getNumericPrice(b);
+
+
+
+                    /*
+                        Unknown prices sort last.
+                    */
+
+
+                    if (priceA === null) {
+                        return priceB === null
+                            ? byName(a, b)
+                            : 1;
+                    }
+
+
+                    if (priceB === null) {
+                        return -1;
+                    }
+
+
+
+                    return (
+
+                        priceA - priceB ||
+
+                        byName(a, b)
+
+                    );
+
+
+                }
+            );
+
+
+            break;
+
+
+
+        case "price-high":
+
+
+            sorted.sort(
+                (a, b) => {
+
+
+                    const priceA =
+                        getNumericPrice(a);
+
+
+                    const priceB =
+                        getNumericPrice(b);
+
+
+
+                    if (priceA === null) {
+                        return priceB === null
+                            ? byName(a, b)
+                            : 1;
+                    }
+
+
+                    if (priceB === null) {
+                        return -1;
+                    }
+
+
+
+                    return (
+
+                        priceB - priceA ||
+
+                        byName(a, b)
+
+                    );
+
+
+                }
+            );
+
+
+            break;
+
+
+
+        default:
+
+
+            sorted.sort(
+                byName
+            );
+
+
+    }
+
+
+
+    return sorted;
+
+}
+
+
+
+/* =========================================
+   CREATE APP CARD
+========================================= */
+
 
 function createCard(app) {
-    const artwork = getArtwork(app);
-    const priceInfo = getPriceInfo(app);
-    const released = formatReleaseDate(app);
+
+
+    const artwork =
+        getArtwork(app);
+
+
+    const priceInfo =
+        getPriceInfo(app);
+
+
+    const released =
+        formatReleaseDate(app);
+
+
 
     const card =
-        document.createElement("article");
+        document.createElement(
+            "article"
+        );
 
-    card.className = "app-card";
+
+    card.className =
+        "app-card";
+
+
 
     /* ARTWORK */
 
-    const artworkArea =
-        document.createElement("div");
 
-    artworkArea.className = "card-artwork";
+    const artworkArea =
+        document.createElement(
+            "div"
+        );
+
+
+    artworkArea.className =
+        "card-artwork";
+
+
 
     const blur =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
-    blur.className = "artwork-blur";
+
+    blur.className =
+        "artwork-blur";
+
+
 
     if (artwork) {
+
+
         blur.style.backgroundImage =
             `url("${artwork}")`;
+
+
     }
 
-    const icon =
-        document.createElement("img");
 
-    icon.className = "app-icon";
-    icon.src = artwork;
+
+    const icon =
+        document.createElement(
+            "img"
+        );
+
+
+    icon.className =
+        "app-icon";
+
+
+    icon.src =
+        artwork;
+
 
     icon.alt =
-        (app.trackName || "App") + " icon";
 
-    icon.loading = "lazy";
+        (
+            app.trackName || "App"
+        ) +
 
-    artworkArea.appendChild(blur);
-    artworkArea.appendChild(icon);
+        " icon";
+
+
+    icon.loading =
+        "lazy";
+
+
+
+    artworkArea.appendChild(
+        blur
+    );
+
+
+    artworkArea.appendChild(
+        icon
+    );
+
+
 
     /* CONTENT */
 
-    const content =
-        document.createElement("div");
 
-    content.className = "card-content";
+    const content =
+        document.createElement(
+            "div"
+        );
+
+
+    content.className =
+        "card-content";
+
+
 
     const category =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
 
-    category.className = "category";
+
+    category.className =
+        "category";
+
 
     category.textContent =
-        app.primaryGenreName || "iPhone App";
+
+        app.primaryGenreName ||
+
+        "iPhone App";
+
+
 
     const name =
-        document.createElement("h3");
+        document.createElement(
+            "h3"
+        );
 
-    name.className = "app-name";
+
+    name.className =
+        "app-name";
+
 
     name.textContent =
-        app.trackName || "iPhone App";
+
+        app.trackName ||
+
+        "iPhone App";
+
+
 
     const description =
-        document.createElement("p");
+        document.createElement(
+            "p"
+        );
 
-    description.className = "description";
+
+    description.className =
+        "description";
+
 
     description.textContent =
-        cleanDescription(app.description);
+        cleanDescription(
+            app.description
+        );
+
+
 
     /* BOTTOM SECTION */
 
-    const bottom =
-        document.createElement("div");
 
-    bottom.className = "card-bottom";
+    const bottom =
+        document.createElement(
+            "div"
+        );
+
+
+    bottom.className =
+        "card-bottom";
+
+
 
     const priceRow =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
-    priceRow.className = "price-row";
+
+    priceRow.className =
+        "price-row";
+
+
 
     const price =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
 
-    price.className = "price";
+
+    price.className =
+        "price";
+
 
     price.textContent =
         priceInfo.mainPrice;
 
-    priceRow.appendChild(price);
 
-    if (priceInfo.hasIAP) {
+
+    priceRow.appendChild(
+        price
+    );
+
+
+
+    /* CONFIRMED IN-APP PURCHASE */
+
+
+    if (
+        priceInfo.hasIAP === true
+    ) {
+
+
         const iap =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
 
-        iap.className = "iap";
+
+        iap.className =
+            "iap";
+
 
         iap.textContent =
-            "In-App Purchases";
 
-        priceRow.appendChild(iap);
+            priceInfo.iapPrice
+
+                ? (
+                    "In-App Purchase: " +
+                    priceInfo.iapPrice
+                )
+
+                : "In-App Purchases";
+
+
+
+        priceRow.appendChild(
+            iap
+        );
+
+
     }
 
-    bottom.appendChild(priceRow);
+
+
+    /* UNKNOWN IAP STATUS */
+
+
+    if (
+        priceInfo.hasIAP === null
+    ) {
+
+
+        const unknown =
+            document.createElement(
+                "span"
+            );
+
+
+        unknown.className =
+            "iap iap-unknown";
+
+
+        unknown.textContent =
+            "IAP not verified";
+
+
+
+        priceRow.appendChild(
+            unknown
+        );
+
+
+    }
+
+
+
+    bottom.appendChild(
+        priceRow
+    );
+
+
 
     /* RELEASE DATE */
 
-    if (released) {
-        const date =
-            document.createElement("div");
 
-        date.className = "release-date";
+    if (released) {
+
+
+        const date =
+            document.createElement(
+                "div"
+            );
+
+
+        date.className =
+            "release-date";
+
 
         date.textContent =
             "Released " + released;
 
-        bottom.appendChild(date);
+
+
+        bottom.appendChild(
+            date
+        );
+
+
     }
 
-    /* APP STORE BUTTON */
+
+
+    /* APP STORE LINK */
+
 
     const link =
-        document.createElement("a");
+        document.createElement(
+            "a"
+        );
 
-    link.className = "store-link";
+
+    link.className =
+        "store-link";
+
 
     link.href =
-        app.trackViewUrl ||
-        "https://apps.apple.com/us/app/id" +
-        app.trackId;
 
-    link.target = "_blank";
+        app.trackViewUrl ||
+
+        (
+            "https://apps.apple.com/us/app/id" +
+
+            app.trackId
+        );
+
+
+
+    link.target =
+        "_blank";
+
 
     link.rel =
         "noopener noreferrer";
 
+
     link.textContent =
         "View on App Store →";
 
-    bottom.appendChild(link);
+
+
+    bottom.appendChild(
+        link
+    );
+
+
 
     /* ASSEMBLE */
 
-    content.appendChild(category);
-    content.appendChild(name);
-    content.appendChild(description);
-    content.appendChild(bottom);
 
-    card.appendChild(artworkArea);
-    card.appendChild(content);
+    content.appendChild(
+        category
+    );
+
+
+    content.appendChild(
+        name
+    );
+
+
+    content.appendChild(
+        description
+    );
+
+
+    content.appendChild(
+        bottom
+    );
+
+
+
+    card.appendChild(
+        artworkArea
+    );
+
+
+    card.appendChild(
+        content
+    );
+
+
 
     return card;
+
 }
 
-/* RENDER APPS */
+
+
+/* =========================================
+   RENDER APPS
+========================================= */
+
 
 function renderApps() {
+
+
     const query =
+
         search.value
+
             .trim()
+
             .toLowerCase();
 
-    let visibleApps = apps.filter(app => {
-        const categoryMatch =
-            activeFilter === "all" ||
-            app.primaryGenreName === activeFilter;
 
-        const searchableText = [
-            app.trackName || "",
-            app.primaryGenreName || "",
-            app.description || ""
-        ]
-            .join(" ")
-            .toLowerCase();
 
-        return (
-            categoryMatch &&
-            (
-                !query ||
-                searchableText.includes(query)
-            )
-        );
-    });
+    let visibleApps =
+        apps.filter(app => {
+
+
+
+            const categoryMatch =
+
+                activeFilter === "all" ||
+
+                app.primaryGenreName ===
+                    activeFilter;
+
+
+
+            const searchableText = [
+
+                app.trackName || "",
+
+                app.primaryGenreName || "",
+
+                app.description || ""
+
+            ]
+
+                .join(" ")
+
+                .toLowerCase();
+
+
+
+            return (
+
+                categoryMatch &&
+
+                (
+
+                    !query ||
+
+                    searchableText.includes(
+                        query
+                    )
+
+                )
+
+            );
+
+
+        });
+
+
 
     visibleApps =
-        sortApps(visibleApps);
+        sortApps(
+            visibleApps
+        );
+
+
 
     appGrid.replaceChildren();
 
+
+
     visibleApps.forEach(app => {
+
+
         appGrid.appendChild(
+
             createCard(app)
+
         );
+
+
     });
 
-    appCount.textContent =
-        apps.length === 1
-            ? "1 app available"
-            : apps.length + " apps available";
 
-    if (visibleApps.length === 0) {
+
+    appCount.textContent =
+
+        apps.length === 1
+
+            ? "1 app available"
+
+            : (
+                apps.length +
+                " apps available"
+            );
+
+
+
+    if (
+        visibleApps.length === 0
+    ) {
+
+
         const message =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         message.className =
             "status-message";
 
+
+
         const heading =
-            document.createElement("strong");
+            document.createElement(
+                "strong"
+            );
+
 
         heading.textContent =
             "No apps found.";
 
-        message.appendChild(heading);
 
-        message.append(
-            "Try another search or category."
+
+        message.appendChild(
+            heading
         );
 
-        appGrid.appendChild(message);
+
+
+        message.append(
+
+            "Try another search or category."
+
+        );
+
+
+
+        appGrid.appendChild(
+            message
+        );
+
+
     }
+
 }
 
-/* EVENTS */
+
+
+/* =========================================
+   EVENTS
+========================================= */
+
 
 search.addEventListener(
+
     "input",
+
     renderApps
+
 );
+
+
 
 sortSelect.addEventListener(
+
     "change",
+
     renderApps
+
 );
 
-/* START */
+
+
+/* =========================================
+   START
+========================================= */
+
 
 loadApps();
 
+
 </script>
+
 </body>
 </html>
